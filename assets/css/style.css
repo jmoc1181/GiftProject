@@ -1,0 +1,22 @@
+* {box-sizing: border-box;}
+
+.bkgd-cover {background-size: cover;}
+.bkgd-img {background: url(../images/blue-gifts-background.jpg) top center fixed;}
+
+.disp-table {display: table-cell;}
+
+.font-fam-muli {font-family: 'Muli', sans-serif;}
+.font-fam-pacifico {font-family: 'Pacifico', cursive;}
+
+.h-100 {height: 100vh;}
+
+.marg-auto {margin: 0 auto;}
+.marg-0 {margin: 0;}
+.marg-20 {margin: 20px;}
+
+.txt-center {text-align: center;}
+
+.vert-algn-cntr {vertical-align: center;}
+
+.w-100pct {width: 100%;}
+.w-max-100pct {max-width: 100%;}
