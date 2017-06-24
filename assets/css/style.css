@@ -1,22 +1,80 @@
+/*
+==== COLOR PALLET ====
+tan: #c9c2bc;
+light green: #b0ccbd;
+dark green: #799485;
+brown: #847b74;
+maroon: #8b4d4e;
+*/
+
 * {box-sizing: border-box;}
 
 .bkgd-cover {background-size: cover;}
 .bkgd-img {background: url(../images/blue-gifts-background.jpg) top center fixed;}
+.bkgd-none {background: none;}
+.bkgd-rpt-none {background-repeat: no-repeat;}
+.bkgd-white {background-color: #ffffff;}
+.bkgd-dgreen {background-color: #799485;}
+.bkgd-lgreen {background-color: #b0ccbd;}
 
-.disp-table {display: table-cell;}
+.bord-box {box-sizing: border-box;}
 
+.bord-2-solid-white {border: 2px solid #ffffff;}
+.bord-rad-2 {border-radius: 2px;}
+
+.disp-inlineblock {display: inline-block;}
+.disp-tabcell {display: table-cell;}
+.disp-inlineblock {display: inline-block;}
+
+.font-bold {font-weight: bold;}
 .font-fam-muli {font-family: 'Muli', sans-serif;}
 .font-fam-pacifico {font-family: 'Pacifico', cursive;}
+.font-h-40 {line-height: 40px;}
+.font-ls {letter-spacing: 1px;}
+.font-size-20 {font-size: 20px;}
+.font-size-40 {font-size: 40px;}
+.font-size-75 {font-size: 75px;}
+.font-uc {text-transform: uppercase;}
+.font-wght-500 {font-weight: 500;}
+.font-white {color: #ffffff;}
+
+.float-l {float: left;}
+.float-r {float: right;}
 
 .h-100 {height: 100vh;}
+.h-70 {height: 70px;}
+.h-max-40 {max-height: 40px;}
 
-.marg-auto {margin: 0 auto;}
+.intro-img {
+	display: table;
+	width: 100%;
+	height: 100vh;
+	background: url(../images/flower-background.JPG) top center fixed;
+	background-size: cover;
+	padding: 0;
+	margin: 0;
+}
+
+.marg-auto {margin: auto auto;}
 .marg-0 {margin: 0;}
+.marg-5-0 {margin: 5px 0;}
+.marg-10 {margin: 10px;}
 .marg-20 {margin: 20px;}
+.marg-30 {margin: 30px;}
+.marg-40 {margin: 40px;}
 
-.txt-center {text-align: center;}
+.pad-0 {padding: 0;}
+.pad-10 {padding: 10px;}
+.pad-8-20 {padding: 8px 20px;}
+.pad-10-20 {padding: 10px 20px;}
+.pad-20-0 {padding: 20px 0;}
+.pad-t-40pct {padding-top: 40%;}
 
-.vert-algn-cntr {vertical-align: center;}
+.txt-algn-cntr {text-align: center;}
+
+.vert-algn-cntr {vertical-align: middle;}
 
 .w-100pct {width: 100%;}
 .w-max-100pct {max-width: 100%;}
+
+
