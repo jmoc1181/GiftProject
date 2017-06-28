@@ -1,0 +1,71 @@
+ filter options
+{	
+	genre 
+	follow up questions
+	sizes for clothes
+	what apis to use
+	what holiday you need a gift for
+	ages 
+	gender
+}
+
+
+find out the logic of the apis, the objects returned and the queries allowed
+
+etsy jpeart41 jubling09
+446335666
+585658790
+272709263
+382445539
+323604195
+GET https://openapi.etsy.com/v2/listings/active?api_key={YOUR_API_KEY}
+
+
+
+ebay jpeart jubling09!
+App ID (Client ID)	JordanPe-gifts-SBX-9b7eb28a6-89a86072	
+Dev ID			eff9cedf-06d2-4ae1-8686-6e9e27e296cb	
+Cert ID (Client Secret)	SBX-b7eb28a6eebb-6a83-499b-8b66-2157
+
+
+
+amazon 
+
+Your unique Associate ID is giftpitch0f-20
+Access Key ID: AKIAIMKWG7E7BO5BQDVA
+Secret Access Key: Mc7Ll+bLtG1MK/FszObHeHE8klk0h81doU1uZwpB
+
+Access Key ID:
+AKIAJILWPMMF2ERHXWKA
+Secret Access Key:
+TYlG/MqVaRtE/6f/FN8Tm4BJvHLjqueJosJQFSNX
+
++ = %2B
+= = %3D
+/ = %2F
+
+2017-06-25T21%3A04%3A39.000Z&
+
+
+user: jordan
+access key: AKIAJ7BWJNN77AUK2NGQ
+secret key: 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
+
+
+popshops
+
+
+lightbox: onclick detailed view enlarger
+
+
+To-do:
+
+X Connect to apis; set up accounts if need be.
+
+X 1/2 Create firebase db and set permissions. 
+
+query apis determine returned data.
+
+
+
+v
