@@ -22,15 +22,19 @@
 //  firebase.initializeApp(config);
 //</script>
 
-var cats = ["Beauty", "brush"];
+var cats = ["Accessories"];
 var itemLimit = 5;
-etsy(cats);
-//ebay(cats);
+//etsy(cats);
+ebay(cats);
 //amazon(cats);
 
 //****** ETSY CALL ************************************************************************
 //****** categories= accessories, jewelry, supplies, art, Paper Goods, Housewares, weddings
 //****** tags or keywords for sub categories *******************************************************************************************
+
+var TEST = ["Accessories", "Cell Phone"];
+
+etsy(TEST);
 
 function etsy(p) {
     // passes 'p' an array of search terms with p[0] being the main category
@@ -58,8 +62,8 @@ function etsy(p) {
             limit: itemLimit,
             //include an image of the listing
             includes: "MainImage",
-            taxonomy_path: "Jewelry",
-            //category: category,
+            //taxonomy_path: "Jewelry",
+            category: category,
             //tags: tag
         }
     }).done(function(response) {

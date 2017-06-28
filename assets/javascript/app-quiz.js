@@ -4,210 +4,210 @@ var questionsObject = {
 
 	q1a: {
 
-		question: "Question 1 Text",
+		question: "On their perfect weekend, will your gift recipient be with their squad or flying solo?",
 		answerA: {
 			id: "Q1aA",
-			text: "A: 1a.a"
+			text: "Squad"
 		},
 		answerB: {
 			id: "Q1aB",
-			text: "B: 1a.b"
+			text: "Solo"
 		}
 
 	},
 
 	q2a: {
 
-		question: "Question 2a Text",
+		question: "Now, on that perfect weekend with their friends, is your gift recipient more likely to be hanging out in the great outdoors or in the comfort of their own home?",
 		answerA: {
 			id: "Q2aA",
-			text: "A: 2a.a"
+			text: "Outdoors"
 		},
 		answerB: {
 			id: "Q2aB",
-			text: "B: 2a.b"
+			text: "Home"
 		}
 
 	},
 
 	q2b: {
 
-		question: "Question 2b Text",
+		question: "How far in advance does your gift recipient book their schedule?",
 		answerA: {
 			id: "Q2bA",
-			text: "A: 2b.a"
+			text: "3 Weeks"
 		},
 		answerB: {
 			id: "Q2bB",
-			text: "B: 2b.b"
+			text: "3 Minutes"
 		}
 
 	},
 
 	q3a: {
 
-		question: "Question 3a Text",
+		question: "Does your gift recipient spend mroe time fidgeting or daydreaming?",
 		answerA: {
 			id: "Q3aA",
-			text: "A: 3a.a"
+			text: "Fidgeting"
 		},
 		answerB: {
 			id: "Q3aB",
-			text: "B: 3a.b"
+			text: "Daydreaming"
 		}
 
 	},
 
 	q3b: {
 
-		question: "Question 3b Text",
+		question: "Now, who will they invite over to their home first, friends or family?",
 		answerA: {
 			id: "Q3bA",
-			text: "A: 3b.a"
+			text: "Friends"
 		},
 		answerB: {
 			id: "Q3bB",
-			text: "B: 3b.b"
+			text: "Family"
 		}
 
 	},
 
 	q3c: {
 
-		question: "Question 3c Text",
+		question: "Is their schedule booked because they've made plans to meet someone new or because they'vemade plans on their own?",
 		answerA: {
 			id: "Q3cA",
-			text: "A: 3c.a"
+			text: "Someone New"
 		},
 		answerB: {
 			id: "Q3cB",
-			text: "B: 3c.b"
+			text: "On Their Own"
 		}
 
 	},
 
 	q3d: {
 
-		question: "Question 3d Text",
+		question: "Does your gift recipient prefer the finer things in life or living the simple life?",
 		answerA: {
 			id: "Q3dA",
-			text: "A: 3d.a"
+			text: "Finer Things"
 		},
 		answerB: {
 			id: "Q3dB",
-			text: "B: 3d.b"
+			text: "Simple Life"
 		}
 
 	},
 
 	q4a: {
 
-		question: "Question 4a Text",
+		question: "Which is more important to your gift recipient: playing to win or making sure everyone has a good time?",
 		answerA: {
 			id: "Q4aA",
-			text: "A: 4a.a"
+			text: "Play to Win"
 		},
 		answerB: {
 			id: "Q4aB",
-			text: "B: 4a.b"
+			text: "Have a Good Time"
 		}
 
 	},
 
 	q4b: {
 
-		question: "Question 4b Text",
+		question: "Is your gift recipient more in tune with how they're feeling or with how others are feeling?",
 		answerA: {
 			id: "Q4bA",
-			text: "A: 4b.a"
+			text: "Themselves"
 		},
 		answerB: {
 			id: "Q4bB",
-			text: "B: 4b.b"
+			text: "Others"
 		}
 
 	},
 
 	q4c: {
 
-		question: "Question 4c Text",
+		question: "In a movie production, would your gift recipient prefer to play the starring role or to call the shots as the director?",
 		answerA: {
 			id: "Q4cA",
-			text: "A: 4c.a"
+			text: "Star"
 		},
 		answerB: {
 			id: "Q4cB",
-			text: "B: 4c.b"
+			text: "Director"
 		}
 
 	},
 
 	q4d: {
 
-		question: "Question 4d Text",
+		question: "Is your gift recipient more likely to make a mess or to clean it up?",
 		answerA: {
 			id: "Q4dA",
-			text: "A: 4d.a"
+			text: "Make the Mess"
 		},
 		answerB: {
 			id: "Q4dB",
-			text: "B: 4d.b"
+			text: "Clean it Up"
 		}
 
 	},
 
 	q4e: {
 
-		question: "Question 4e Text",
+		question: "Your gift recipient is taking a weekend trip. Is it more likely for business or for fun",
 		answerA: {
 			id: "Q4eA",
-			text: "A: 4e.a"
+			text: "Business"
 		},
 		answerB: {
 			id: "Q4eB",
-			text: "B: 4e.b"
+			text: "Fun"
 		}
 
 	},
 
 	q4f: {
 
-		question: "Question 4f Text",
+		question: "Which does your gift recipient enjoy more: losing themselves or finding themselves?",
 		answerA: {
 			id: "Q4fA",
-			text: "A: 4f.a"
+			text: "Losing Themselves"
 		},
 		answerB: {
 			id: "Q4fB",
-			text: "B: 4f.b"
+			text: "Finding Themselves"
 		}
 
 	},
 
 	q4g: {
 
-		question: "Question 4g Text",
+		question: "What does your gift recipient value more in those finer things: form or function?",
 		answerA: {
 			id: "Q4gA",
-			text: "A: 4g.a"
+			text: "Form"
 		},
 		answerB: {
 			id: "Q4gB",
-			text: "B: 4g.b"
+			text: "Function"
 		}
 
 	},
 
 	q4h: {
 
-		question: "Question 4h Text",
+		question: "Now, does your gift recipient's idea of enjoying the simple life involve napping or learning something new?",
 		answerA: {
 			id: "Q4hA",
-			text: "A: 4h.a"
+			text: "Napping"
 		},
 		answerB: {
 			id: "Q4hB",
-			text: "B: 4h.b"
+			text: "Learning Something"
 		}
 
 	}
@@ -220,145 +220,145 @@ var personalitiesArray = [
 	{
 		key: "Q1aAQ2aAQ3aAQ4aA",
 		name: "The Mover",
-		description: "The Mover has a spark for life and a passion for action & adventure they can barely contain — ",
+		description: "The Mover has a spark for life and a passion for action & adventure they can barely contain — give them a gift to help burn off some of that extra energy.",
 		amazonKeyword: "",
-		ebayKeyword: "",
-		etsyKeyword: ""
+		ebayKeyword: ["]Sporting Goods"],
+		etsyKeyword: [""]
 	},
 
 	{
 		key: "Q1aAQ2aAQ3aAQ4aB",
-		name: "The Trendsetter",
-		description: "The Trendsetter is the life of the party and the center of attention wherever they go — "
+		name: "The Labrador Retriever",
+		description: "The Labrador Retriever loves their friends, their family, and bright summer days — give them a gift that doubles as the perfect excuse for an afternoon at the park.",
 		amazonKeyword: "",
-		ebayKeyword: "",
-		etsyKeyword: ""
+		ebayKeyword: ["Lawn Games"],
+		etsyKeyword: [""]
 	},
 
 	{
 		key: "Q1aAQ2aAQ3aAQ4aB",
 		name: "The Creator",
-		description: "The Creator has a mind of their own and a penchant for the arts — "
+		description: "The Creator marches to the beat of their own drum, and everyone else stops to listen — give them a gift that will help them express themselves for all to hear.",
 		amazonKeyword: "",
-		ebayKeyword: "",
-		etsyKeyword: ""
+		ebayKeyword: ["Musical Instruments"],
+		etsyKeyword: ["Music"]
 	},
 
 	{
 		key: "Q1aAQ2aAQ3aBQ4bB",
-		name: "The Labrador Retriever",
-		description: "The Labrador Retriever loves their friends, their family, and sunny days — "
+		name: "The Instigator",
+		description: "The Instigator is great at thinking on their feet in social situations, sometimes for good and sometimes for bad — give them a gift to help them flex their social muscle.",
 		amazonKeyword: "",
-		ebayKeyword: "",
-		etsyKeyword: ""
+		ebayKeyword: ["Board Games"],
+		etsyKeyword: [""]
 	},
 
 	{
 		key: "Q1aAQ2aBQ3bAQ4cA",
-		name: "The Peacekeeper",
-		description: "The Peacekeeper description"
+		name: "The Trendsetter",
+		description: "The Trendsetter is the life of the party and the center of attention wherever they go — give them a gift that will leave everyone in the room wanting to copy their look.",
 		amazonKeyword: "",
-		ebayKeyword: "",
-		etsyKeyword: ""
+		ebayKeyword: ["Clothing Accessories"],
+		etsyKeyword: ["Accessories", "Hair"]
 	},
 
 	{
 		key: "Q1aAQ2aBQ3bAQ4cB",
 		name: "The Entertainer",
-		description: "Friendly, warm, and inviting, the Entertainer's home is your home — "
+		description: "Friendly, outgoing, and inviting, the Entertainer's home is your home — give them a gift that will help them take their next dinner party to the next level.",
 		amazonKeyword: "",
-		ebayKeyword: "",
-		etsyKeyword: ""
+		ebayKeyword: ["Kitchen Goods"],
+		etsyKeyword: [""]
 	},
 
 	{
 		key: "Q1aAQ2aBQ3bBQ4dA",
-		name: "The Nester",
-		description: "The Nester — "
+		name: "The Inner Child",
+		description: "Young or old, the Inner Child appreciates novelty — give them a gift that will keep their youthful mind entertained.",
 		amazonKeyword: "",
-		ebayKeyword: "",
-		etsyKeyword: ""
+		ebayKeyword: ["Stuffed Animals"],
+		etsyKeyword: ["Toys"]
 	},
 
 	{
 		key: "Q1aAQ2aBQ3bBQ4dB",
-		name: "The Inner Child",
-		description: " The Inner Child — "
+		name: "The Nester",
+		description: "Warm and kindhearted, the Nester likes to make sure everyone around them feels comfy and cozy — give them a gift that will do half the work for them.",
 		amazonKeyword: "",
-		ebayKeyword: "",
-		etsyKeyword: ""
+		ebayKeyword: ["Home Decor"],
+		etsyKeyword: ["Home decor"]
 	},
 
 	{
 		key: "Q1aBQ2bAQ3cAQ4eA",
-		name: "The Nomad",
-		description: "The Nomad's heart is in many places at once — "
+		name: "The Executive",
+		description: "A real go-getter, the Executive is always planning their next big move — give them a gift to help keep track of all their exciting venture.",
 		amazonKeyword: "",
-		ebayKeyword: "",
-		etsyKeyword: ""
+		ebayKeyword: ["Office Supplies"],
+		etsyKeyword: [""]
 	},
 
 	{
 		key: "Q1aBQ2bAQ3cAQ4eB",
-		name: "The Executive",
-		description: "The Executive is always planning their next big move— "
+		name: "The Butterfly",
+		description: "Always on the move, the Butterfly loves to share their life with friends near and far— give them a gift that will add some style to their next social media update.",
 		amazonKeyword: "",
-		ebayKeyword: "",
-		etsyKeyword: ""
+		ebayKeyword: ["Mobile Accessories"],
+		etsyKeyword: ["Accessories", "Cell Phone"]
 	},
 
 	{
 		key: "Q1aBQ2bAQ3cBQ4fA",
-		name: "The Butterfly",
-		description: "The Butterfly — "
+		name: "The Nomad",
+		description: "The Nomad's heart lies in many places at once — give them a gift that will add some pep to their step as they track it down.",
 		amazonKeyword: "",
-		ebayKeyword: "",
-		etsyKeyword: ""
+		ebayKeyword: ["Travel Gear"],
+		etsyKeyword: [""]
 	},
 
 	{
 		key: "Q1aBQ2bAQ3cBQ4fB",
-		name: "The Monarch",
-		description: "The Monarch — "
+		name: "The Hermit",
+		description: "Peaceful and thoughtful, the Hermit enjoys time to explore their own mind — give them a gift that will start them on another new journey.",
 		amazonKeyword: "",
-		ebayKeyword: "",
-		etsyKeyword: ""
+		ebayKeyword: ["Books"],
+		etsyKeyword: [""]
 	},
 
 	{
 		key: "Q1aBQ2bBQ3dAQ4gA",
 		name: "The Magician",
-		description: "The Magician can make anything possible with the right tools— "
+		description: "Full of wit and curiosity, the Magician can make anything possible with the right tools — or the right tech toys. Give them a gift to help expand their arsenal.",
 		amazonKeyword: "",
-		ebayKeyword: "",
-		etsyKeyword: ""
+		ebayKeyword: ["Tech"],
+		etsyKeyword: [""]
 	},
 
 	{
 		key: "Q1aBQ2bBQ3dAQ4gA",
-		name: "The Feline",
-		description: "The Feline knows how to unwind with a good stretch, a good nap, and a good snack — "
+		name: "The Monarch",
+		description: "Colorful and confident, the Monarch appreciates the finer things and life — give them a gift that reflects their refined sense of style.",
 		amazonKeyword: "",
-		ebayKeyword: "",
-		etsyKeyword: ""
+		ebayKeyword: ["Jewelry"],
+		etsyKeyword: ["Jewelry"]
 	},
 
 	{
 		key: "Q1aBQ2bBQ3dBQ4hA",
-		name: "The Hermit",
-		description: "The Hermit enjoys the peace and quiet of a good night in— "
+		name: "The Feline",
+		description: "The Feline knows how to unwind with a good stretch, a good nap, and a good snack — give them a gift they'll reach for on their next lazy Sunday.",
 		amazonKeyword: "",
-		ebayKeyword: "",
-		etsyKeyword: ""
+		ebayKeyword: ["Food and Drink"],
+		etsyKeyword: [""]
 	},
 
 	{
 		key: "Q1aBQ2bBQ3dBQ4hB",
 		name: "The Nurturer",
-		description: "The Nurturer — "
+		description: "The Nurturer has an uncanny ability to make something out of nothing — give them a gift that will help seed their next project.",
 		amazonKeyword: "",
-		ebayKeyword: "",
-		etsyKeyword: ""
+		ebayKeyword: ["Crafting"],
+		etsyKeyword: ["Supplies"]
 	},
 
 ];
@@ -512,95 +512,128 @@ $(document).on("click", ".JS-answer-choice", function(){
 
 		userPersonalityAssignment = personalitiesArray[0];
 		currentQuestionNumber = 0;
+		console.log("PERSONALITY: " + userPersonalityAssignment.name);
+		console.log(userPersonalityAssignment.description);
 	}
 
 	if (tempAnswerId === "Q4aB" && currentQuestionNumber === 4 ){
 
 		userPersonalityAssignment = personalitiesArray[1];
 		currentQuestionNumber = 0;
+		console.log("PERSONALITY: " + userPersonalityAssignment.name);
+		console.log(userPersonalityAssignment.description);
 	}
 
 	if (tempAnswerId === "Q4bA" && currentQuestionNumber === 4 ){
 
 		userPersonalityAssignment = personalitiesArray[2];
 		currentQuestionNumber = 0;
+		console.log("PERSONALITY: " + userPersonalityAssignment.name);
+		console.log(userPersonalityAssignment.description);
 	}
 
 	if (tempAnswerId === "Q4bB" && currentQuestionNumber === 4 ){
 
 		userPersonalityAssignment = personalitiesArray[3];
 		currentQuestionNumber = 0;
+		console.log("PERSONALITY: " + userPersonalityAssignment.name);
+		console.log(userPersonalityAssignment.description);
 	}
 
 	if (tempAnswerId === "Q4cA" && currentQuestionNumber === 4 ){
 
 		userPersonalityAssignment = personalitiesArray[4];
 		currentQuestionNumber = 0;
+		console.log("PERSONALITY: " + userPersonalityAssignment.name);
+		console.log(userPersonalityAssignment.description);
 	}
 
 	if (tempAnswerId === "Q4cB" && currentQuestionNumber === 4 ){
 
 		userPersonalityAssignment = personalitiesArray[5];
 		currentQuestionNumber = 0;
+		console.log("PERSONALITY: " + userPersonalityAssignment.name);
+		console.log(userPersonalityAssignment.description);
 	}
 
 	if (tempAnswerId === "Q4dA" && currentQuestionNumber === 4 ){
 
 		userPersonalityAssignment = personalitiesArray[6];
 		currentQuestionNumber = 0;
+		console.log("PERSONALITY: " + userPersonalityAssignment.name);
+		console.log(userPersonalityAssignment.description);
 	}
 
 	if (tempAnswerId === "Q4dB" && currentQuestionNumber === 4 ){
 
 		userPersonalityAssignment = personalitiesArray[7];
 		currentQuestionNumber = 0;
+		console.log("PERSONALITY: " + userPersonalityAssignment.name);
+		console.log(userPersonalityAssignment.description);
 	}
 
 	if (tempAnswerId === "Q4eA" && currentQuestionNumber === 4 ){
 
 		userPersonalityAssignment = personalitiesArray[8];
+		currentQuestionNumber = 0;
+		console.log("PERSONALITY: " + userPersonalityAssignment.name);
+		console.log(userPersonalityAssignment.description);
 	}
 
 	if (tempAnswerId === "Q4eB" && currentQuestionNumber === 4 ){
 
 		userPersonalityAssignment = personalitiesArray[9];
 		currentQuestionNumber = 0;
+		console.log("PERSONALITY: " + userPersonalityAssignment.name);
+		console.log(userPersonalityAssignment.description);
 	}
 
 	if (tempAnswerId === "Q4fA" && currentQuestionNumber === 4 ){
 
 		userPersonalityAssignment = personalitiesArray[10];
 		currentQuestionNumber = 0;
+		console.log("PERSONALITY: " + userPersonalityAssignment.name);
+		console.log(userPersonalityAssignment.description);
 	}
 
 	if (tempAnswerId === "Q4fB" && currentQuestionNumber === 4 ){
 
 		userPersonalityAssignment = personalitiesArray[11];
 		currentQuestionNumber = 0;
+		console.log("PERSONALITY: " + userPersonalityAssignment.name);
+		console.log(userPersonalityAssignment.description);
 	}
 
 	if (tempAnswerId === "Q4gA" && currentQuestionNumber === 4 ){
 
 		userPersonalityAssignment = personalitiesArray[12];
 		currentQuestionNumber = 0;
+		console.log("PERSONALITY: " + userPersonalityAssignment.name);
+		console.log(userPersonalityAssignment.description);
 	}
 
 	if (tempAnswerId === "Q4gB" && currentQuestionNumber === 4 ){
 
 		userPersonalityAssignment = personalitiesArray[13];
 		currentQuestionNumber = 0;
+		console.log("PERSONALITY: " + userPersonalityAssignment.name);
+		console.log(userPersonalityAssignment.description);
 	}
 
 	if (tempAnswerId === "Q4hA" && currentQuestionNumber === 4 ){
 
 		userPersonalityAssignment = personalitiesArray[14];
 		currentQuestionNumber = 0;
+		console.log("PERSONALITY: " + userPersonalityAssignment.name);
+		console.log(userPersonalityAssignment.description);
 	}
 
 	if (tempAnswerId === "Q4hB" && currentQuestionNumber === 4 ){
 
 		userPersonalityAssignment = personalitiesArray[15];
 		currentQuestionNumber = 0;
+		console.log("PERSONALITY: " + userPersonalityAssignment.name);
+		console.log(userPersonalityAssignment.description);
 	}
 
 });
