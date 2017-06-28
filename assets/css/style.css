@@ -1,49 +1,56 @@
 /*
 ==== COLOR PALLET ====
-tan: #c9c2bc;
+tan: #dad3cc;
 light green: #b0ccbd;
 dark green: #799485;
 brown: #847b74;
 maroon: #8b4d4e;
 */
 
+
+
 * {box-sizing: border-box;}
 
-.bkgd-cover {background-size: cover;}
-.bkgd-img {background: url(../images/blue-gifts-background.jpg) top center fixed;}
-.bkgd-none {background: none;}
-.bkgd-rpt-none {background-repeat: no-repeat;}
-.bkgd-white {background-color: #ffffff;}
-.bkgd-dgreen {background-color: #799485;}
-.bkgd-lgreen {background-color: #b0ccbd;}
+a:visited {
+    color: #ffffff;
+    text-decoration: none;
+}
 
-.bord-box {box-sizing: border-box;}
+a:hover {
+	background-color: #ffffff;
+	color: #8b4d4e;
+	text-decoration: none;
+}
 
-.bord-2-solid-white {border: 2px solid #ffffff;}
-.bord-rad-2 {border-radius: 2px;}
+.btn { 
+	background-color: #b0ccbd;
+	width: 250px;
+	border-width: 2px;
+	border-style: solid;
+	border-color: #799485;
+}
 
-.disp-inlineblock {display: inline-block;}
-.disp-tabcell {display: table-cell;}
-.disp-inlineblock {display: inline-block;}
+.category:hover {
+    opacity: 1.0;
+}
 
-.font-bold {font-weight: bold;}
-.font-fam-muli {font-family: 'Muli', sans-serif;}
-.font-fam-pacifico {font-family: 'Pacifico', cursive;}
-.font-h-40 {line-height: 40px;}
-.font-ls {letter-spacing: 1px;}
-.font-size-20 {font-size: 20px;}
-.font-size-40 {font-size: 40px;}
-.font-size-75 {font-size: 75px;}
-.font-uc {text-transform: uppercase;}
-.font-wght-500 {font-weight: 500;}
-.font-white {color: #ffffff;}
+.intro-button {
+    background: none;
+    border: 2px solid #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #ffffff;
+    font-size: 15px;
+    letter-spacing: 1px;
+    padding: 8px 20px;
+}
 
-.float-l {float: left;}
-.float-r {float: right;}
-
-.h-100 {height: 100vh;}
-.h-70 {height: 70px;}
-.h-max-40 {max-height: 40px;}
+.intro-button:hover {
+    color: #8b4d4e;
+    background-color: #ffffff;
+    text-decoration: none;
+}
 
 .intro-img {
 	display: table;
@@ -55,26 +62,200 @@ maroon: #8b4d4e;
 	margin: 0;
 }
 
+.JS-answer-choice { 
+	font-family: 'Muli', sans-serif;
+	font-size: 20px;
+ }
+
+.menu {
+	color: #ffffff;
+	font-family: 'Muli', sans-serif;
+}
+
+.navbar {
+	color: #ffffff;
+}
+
+.navbar .navbar-default > li > a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.navbar-default {
+	color: #ffffff;
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+	background-color: #b0ccbd !important;
+	color: #ffffff !important;
+}
+
+.nav-menu-ul {
+  position: absolute;
+  display: none;
+  top: 100%;
+  left: 0;
+  z-index: 99;
+}
+
+.nav-menu-li {
+  position: relative;
+  white-space: nowrap;
+}
+
+.progress-bar { 
+	background-color: #b0ccbd;
+	height: 10px;
+}
+
+.progress { 
+	height: 10px;
+	margin-top: 10px;
+}
+
+.quest-img {
+	display: table;
+	width: 100%;
+	background: url(../images/questionnaire-background.JPG) center fixed;
+	background-size: cover;
+	padding: 0;
+	margin: 0;
+}
+
+.question-button {
+    background: none;
+    border: 2px solid #8b4d4e;
+    color: #8b4d4e;
+    font-size: 15px;
+    letter-spacing: 1px;
+    padding: 8px 20px;
+}
+
+.question-button:hover {
+    color: #ffffff;
+    background-color: #8b4d4e;
+}
+
+.questionHeader { 
+	font-family: 'Muli', sans-serif;
+	font-size: 30px;
+	margin-bottom: 10px;
+ }
+
+ .startOver { 
+	font-family: 'Muli', sans-serif;
+ }
+
+.sticky {
+    top: 0;
+    position: fixed;
+}
+
+
+
+.bkgd-quest {background: url(../images/questionnaire-background.jpg) top center fixed;}
+.bkgd-img {background: url(../images/blue-gifts-background.jpg) top center fixed;}
+.bkgd-pattern {background: url(../images/pattern.jpg);}
+
+.bkgd-cover {background-size: cover;}
+.bkgd-dgreen {background-color: #799485;}
+.bkgd-lgreen {background-color: #b0ccbd;}
+.bkgd-none {background: none;}
+.bkgd-rpt-none {background-repeat: no-repeat;}
+.bkgd-tan {background-color: #dad3cc;}
+.bkgd-white {background-color: #ffffff;}
+
+.bord-box {box-sizing: border-box;}
+
+.bord-none {border: none;}
+.bord-2-solid-white {border: 2px solid #ffffff;}
+.bord-4-solid-white {border: 4px solid #ffffff;}
+.bord-rad-0 {border-radius: 0;}
+.bord-rad-2 {border-radius: 2px;}
+
+.disp-inlineblock {display: inline-block;}
+.disp-tabcell {display: table-cell;}
+
+.dropshadow {box-shadow: 0px 3px 10px #4e4e4e;}
+
+.font-bold {font-weight: bold;}
+.font-fam-muli {font-family: 'Muli', sans-serif;}
+.font-fam-pacifico {font-family: 'Pacifico', cursive;}
+.font-h-40 {line-height: 40px;}
+.font-lgreen {color: #b0ccbd;}
+.font-ls {letter-spacing: 1px;}
+.font-maroon {color: #8b4d4e;}
+.font-size-13 {font-size: 13px;}
+.font-size-15 {font-size: 15px;}
+.font-size-20 {font-size: 20px;}
+.font-size-30 {font-size: 30px;}
+.font-size-40 {font-size: 40px;}
+.font-size-50 {font-size: 50px;}
+.font-size-75 {font-size: 75px;}
+.font-uc {text-transform: uppercase;}
+.font-wght-500 {font-weight: 500;}
+.font-white {color: #ffffff !important;}
+
+.float-l {float: left;}
+.float-r {float: right;}
+
+.h-auto {height: auto;}
+.h-20pct {height: 20%;}
+.h-40 {height: 30px;}
+.h-70 {height: 70px;}
+.h-100 {height: 100vh;}
+.h-max-40 {max-height: 40px;}
+.h-max-100pct {max-height: 100%;}
+
+.left-50pct {left: 50;}
+
 .marg-auto {margin: auto auto;}
 .marg-0 {margin: 0;}
+.marg-0-10 {margin: 0 10px;}
 .marg-5-0 {margin: 5px 0;}
+.marg-10-0 {margin: 10px 0;}
 .marg-10 {margin: 10px;}
 .marg-20 {margin: 20px;}
 .marg-30 {margin: 30px;}
-.marg-40 {margin: 40px;}
+.marg-60 {margin: 60px;}
+.marg-b-40 {margin-bottom: 40px;}
+
+.opacity {opacity: 0.7;}
+.opacity-none {opacity: 1;}
+
+.overflow {overflow: auto;}
 
 .pad-0 {padding: 0;}
 .pad-10 {padding: 10px;}
+.pad-20 {padding: 20px;}
+.pad-30 {padding: 30px;}
 .pad-8-20 {padding: 8px 20px;}
 .pad-10-20 {padding: 10px 20px;}
 .pad-20-0 {padding: 20px 0;}
 .pad-t-40pct {padding-top: 40%;}
 
+.pos-abs {position: absolute;}
+.pos-rel {position: relative;}
+
+.top-10 {top: -5px;}
+
 .txt-algn-cntr {text-align: center;}
 
 .vert-algn-cntr {vertical-align: middle;}
 
+.w-20pct {width: 20%;}
 .w-100pct {width: 100%;}
 .w-max-100pct {max-width: 100%;}
 
+.z-index {z-index: 1;}
 
+
+@media (max-width: 768px) {
+	.mm-w-125 {width: 125px;}
+  }
+
+@media (max-width: 640px) {
+	.ms-fs-30 {font-size: 30px;}
+	.ms-w-70pct {width: 70%;}
+	.ms-w-100 {width: 100px;}
+  }
