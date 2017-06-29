@@ -9,21 +9,10 @@
 //
 //******************************************************************************************
 //<script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
-//<script>
-// Initialize Firebase
-//  var config = {
-//    apiKey: "AIzaSyA64v8sLoyVKl8-AXLRw23jllF8t1th0-w",
-//    authDomain: "bettergifts-61657.firebaseapp.com",
-//    databaseURL: "https://bettergifts-61657.firebaseio.com",
-//    projectId: "bettergifts-61657",
-//    storageBucket: "bettergifts-61657.appspot.com",
-//   messagingSenderId: "68593109442"
-//  };
-//  firebase.initializeApp(config);
-//</script>
 
-var cats = ["Beauty", "brush"];
-var itemLimit = 5;
+
+var cats = ["Jewelry", "Ring"];
+
 etsy(cats);
 //ebay(cats);
 //amazon(cats);
@@ -38,6 +27,11 @@ function etsy(p) {
     var tag = "";
     //category of items to grab
     var category = p[0];
+    //array of objects to be retuned
+    var results = [];
+    //number of items to get
+    var itemLimit = 5;
+    
     for (i = 1; i < p.length; i++) {
         if (i == 1)
             tag = p[i];
@@ -54,21 +48,30 @@ function etsy(p) {
         data: {
             api_key: key,
             //number of items to return (max 100)
-            limit: 5000,
             limit: itemLimit,
             //include an image of the listing
             includes: "MainImage",
-            taxonomy_path: "Jewelry",
-            //category: category,
-            //tags: tag
+            //taxonomy_path: "Jewelry",
+            category: category,
+            tags: tag
         }
     }).done(function(response) {
-        console.log(response);
-        logCategories(response);
+
+        for (i = 0; i < itemLimit; i++) {
+            //results.push(response.results[i].MainImage.url_75x75);
+            document.getElementById("etsy" + i).src = results[i];
+        }
+        //logCategories(response);
+        //console.log(results);
+        //return results;
     });
+
 }
 //******* END ETSY API *********************************************************************
 //******************************************************************************************
+//** response.results["0"].MainImage.url_75x75
+//** response.results["0"].url
+//** response.results["0"].price
 
 
 //****** EBAY CALL *************************************************************************
@@ -158,7 +161,7 @@ function logCategories(r) {
     console.log("main categories: " + categories);
     console.log("sub categories: " + subcats);
 }
- // END LOGCATEGORIES ****************************************************************
+// END LOGCATEGORIES ****************************************************************
 
 
 
@@ -264,4 +267,42 @@ function createHash(a, b) {
     }
     // RETURN THE SIGNATURE
     return hashInBase64;
+}
+// return amazon keys from firebase
+//  1 getDB(1).then(function(key) { console.log(key); }); to call
+function getKey(snapshot) {
+    var returnme = snapshot.val().amazonkey;
+    return returnme;
+}
+// 2 getDB(2).then(function(secret) { console.log(secret); }); to call
+function getSecret(snapshot) {
+    var returnme = snapshot.val().amazonsecretkey;
+    return returnme;
+}
+// 3 getDB(3).then(function(associate) { console.log(associate); }); to call
+function getAssociate(snapshot) {
+    var returnme = snapshot.val().amazonassociate;
+    return returnme;
+}
+// return snapshot of database 
+function getDB(n) {
+    if (n == 1) {
+        var config = {
+            apiKey: "AIzaSyA64v8sLoyVKl8-AXLRw23jllF8t1th0-w",
+            authDomain: "bettergifts-61657.firebaseapp.com",
+            databaseURL: "https://bettergifts-61657.firebaseio.com",
+            projectId: "bettergifts-61657",
+            storageBucket: "bettergifts-61657.appspot.com",
+            messagingSenderId: "68593109442"
+        };
+        firebase.initializeApp(config);
+    }
+    var database = firebase.database();
+    if (n == 1)
+        return database.ref().once('value').then(getKey);
+    if (n == 2)
+        return database.ref().once('value').then(getSecret);
+    if (n == 3)
+        return database.ref().once('value').then(getAssociate);
+
 }
