@@ -2,7 +2,7 @@
 // API FUNCTIONS INCLUDE: etsy(array), ebay(array), amazon(array)
 // Support functions include: logCategories(response), createURL(ARRAY, BOOL), createTS(),createHase(URL, awssecret)
 //******************************************************************************************
-//INCLUDE BEFORE THIS INCLUDE: 
+//INCLUDE BEFORE THIS INCLUDE:
 //<script type="text/javascript" src="assets/javascript/hmac-sha256.js"></script>
 //<script type="text/javascript" src="assets/javascript/enc-base64.js"></script>
 //<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
@@ -31,7 +31,7 @@ function etsy(p) {
     var results = [];
     //number of items to get
     var itemLimit = 5;
-    
+
     for (i = 1; i < p.length; i++) {
         if (i == 1)
             tag = p[i];
@@ -58,9 +58,22 @@ function etsy(p) {
     }).done(function(response) {
 
         for (i = 0; i < itemLimit; i++) {
-            //results.push(response.results[i].MainImage.url_75x75);
+            results.push(response.results[i].MainImage.url_570xN);
             document.getElementById("etsy" + i).src = results[i];
         }
+
+        for (i = 0; i < itemLimit; i++) {
+
+          if (response.results[i].price == null) {
+        document.getElementById("etsy" + i).alt = 'go to site';
+        }
+
+        else {
+          console.log(response.results[i].price);
+          results.push(response.results[i].price);
+          document.getElementById("etsy" + i).alt = response.results[i].price;
+}
+}
         //logCategories(response);
         //console.log(results);
         //return results;
@@ -84,7 +97,7 @@ function ebay(p) {
     URL += "&GLOBAL-ID=EBAY-US";
     URL += "&RESPONSE-DATA-FORMAT=JSON";
     URL += "&REST-PAYLOAD";
-    URL += "&keywords=comb";
+    URL += "&keywords=" + p[0];
     URL += "&paginationInput.entriesPerPage=" + itemLimit;
     $.ajax({
         url: URL,
@@ -249,7 +262,7 @@ function createTS() {
 
 // CREATE A HMAC SHA256 HASH STRING TO USE AS SIGNATURE FOR AMAZON STUPID ASS API THAT FOR SOME REASON DOESNT LIKE TO POST EXAMPLES FOR JAVASCRIPT
 function createHash(a, b) {
-    // THIS HASH IS IN BASE 32 SO YOU NEED TO CONVERT IT TO BINARy THEN TO 64 
+    // THIS HASH IS IN BASE 32 SO YOU NEED TO CONVERT IT TO BINARy THEN TO 64
     var hash = CryptoJS.HmacSHA256(a, b);
     // CONVERT HASH TO BASE 64
     var hashInBase64 = CryptoJS.enc.Base64.stringify(hash);
@@ -284,7 +297,7 @@ function getAssociate(snapshot) {
     var returnme = snapshot.val().amazonassociate;
     return returnme;
 }
-// return snapshot of database 
+// return snapshot of database
 function getDB(n) {
     if (n == 1) {
         var config = {
