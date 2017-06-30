@@ -34,43 +34,6 @@ a:hover {
     opacity: 1.0;
 }
 
-.alt{ 
-	padding-bottom: 20px;
- }
-
-.gallery {
-  background: #EEE;
-}
-
-
-.gallery-cell {
-  width: 20%;
-  height: 250px;
-  margin-right: 10px;
-  background: #b0ccbd;
-  counter-increment: gallery-cell;
-  opacity: .3;
-
-}
-
-.gallery-cell.is-selected {
-  background: white;
-  opacity: 1;
-
-}
-
-
-/* cell number */
-.gallery-cell:before {
-  display: block;
-  text-align: center;
-  content: counter(gallery-cell);
-  line-height: 200px;
-  font-size: 80px;
-  color: white;
-}
-
-
 .intro-button {
     background: none;
     border: 2px solid #ffffff;
@@ -93,16 +56,16 @@ a:hover {
 	display: table;
 	width: 100%;
 	height: 100vh;
-	background: url(../images/flower-background.JPG) top center fixed;
+	background: url(../images/flower-background.jpg) top center fixed;
 	background-size: cover;
 	padding: 0;
 	margin: 0;
 }
 
-
 .JS-answer-choice { 
 	font-family: 'Muli', sans-serif;
 	font-size: 20px;
+	text-align: center;
  }
 
 .menu {
@@ -142,10 +105,9 @@ a:hover {
 }
 
 .progress-bar { 
-	background-color: #b0ccbd;
+	background-color: #8b4d4e;
 	height: 10px;
 }
-
 
 .progress { 
 	height: 10px;
@@ -155,24 +117,24 @@ a:hover {
 .quest-img {
 	display: table;
 	width: 100%;
-	background: url(../images/questionnaire-background.JPG) center fixed;
+	background: url(../images/questionnaire-background.jpg) center fixed;
 	background-size: cover;
 	padding: 0;
 	margin: 0;
 }
 
 .question-button {
-    background: none;
-    border: 2px solid #8b4d4e;
-    color: #8b4d4e;
+    background-color: #8b4d4e;
+    color: #ffffff;
     font-size: 15px;
+    font-weight: bold;
     letter-spacing: 1px;
     padding: 8px 20px;
 }
 
 .question-button:hover {
     color: #ffffff;
-    background-color: #8b4d4e;
+    background-color: #a95e5f;
 }
 
 .questionHeader { 
@@ -188,6 +150,34 @@ a:hover {
 .sticky {
     top: 0;
     position: fixed;
+}
+
+.gallery {
+  background: #EEE;
+}
+
+.gallery-cell {
+  width: 20%;
+  height: 250px;
+  margin-right: 10px;
+  background: #b0ccbd ;
+  counter-increment: gallery-cell;
+  opacity: .3;
+}
+
+.gallery-cell.is-selected {
+  background: black;
+  opacity: 1;
+}
+
+/* cell number */
+.gallery-cell:before {
+  display: block;
+  text-align: center;
+  content: counter(gallery-cell);
+  line-height: 200px;
+  font-size: 80px;
+  color: white;
 }
 
 
@@ -209,6 +199,7 @@ a:hover {
 .bord-none {border: none;}
 .bord-2-solid-white {border: 2px solid #ffffff;}
 .bord-4-solid-white {border: 4px solid #ffffff;}
+.bord-4-solid-maroon {border: 4px solid #8b4d4e;}
 .bord-rad-0 {border-radius: 0;}
 .bord-rad-2 {border-radius: 2px;}
 
@@ -218,6 +209,7 @@ a:hover {
 .dropshadow {box-shadow: 0px 3px 10px #4e4e4e;}
 
 .font-bold {font-weight: bold;}
+.font-brown {color: #847b74;}
 .font-fam-muli {font-family: 'Muli', sans-serif;}
 .font-fam-pacifico {font-family: 'Pacifico', cursive;}
 .font-h-40 {line-height: 40px;}
@@ -226,7 +218,8 @@ a:hover {
 .font-maroon {color: #8b4d4e;}
 .font-size-13 {font-size: 13px;}
 .font-size-15 {font-size: 15px;}
-.font-size-20 {font-size: 20px;}
+.font-size-17 {font-size: 17px;}
+.font-size-25 {font-size: 23px;}
 .font-size-30 {font-size: 30px;}
 .font-size-40 {font-size: 40px;}
 .font-size-50 {font-size: 50px;}
@@ -249,8 +242,10 @@ a:hover {
 .left-50pct {left: 50;}
 
 .marg-auto {margin: auto auto;}
+.marg-0-auto {margin: 0 auto;}
 .marg-0 {margin: 0;}
 .marg-0-10 {margin: 0 10px;}
+.marg-20-5 {margin: 20px 5px;}
 .marg-5-0 {margin: 5px 0;}
 .marg-10-0 {margin: 10px 0;}
 .marg-10 {margin: 10px;}
@@ -258,6 +253,7 @@ a:hover {
 .marg-30 {margin: 30px;}
 .marg-60 {margin: 60px;}
 .marg-b-40 {margin-bottom: 40px;}
+.marg-t-20 {margin-top: 35px;}
 
 .opacity {opacity: 0.7;}
 .opacity-none {opacity: 1;}
@@ -268,6 +264,7 @@ a:hover {
 .pad-10 {padding: 10px;}
 .pad-20 {padding: 20px;}
 .pad-30 {padding: 30px;}
+.pad-30-60 {padding: 30px 60px;}
 .pad-8-20 {padding: 8px 20px;}
 .pad-10-20 {padding: 10px 20px;}
 .pad-20-0 {padding: 20px 0;}
@@ -279,19 +276,17 @@ a:hover {
 .top-10 {top: -5px;}
 
 .txt-algn-cntr {text-align: center;}
+.txt-algn-r {text-align: right;}
 
 .vert-algn-cntr {vertical-align: middle;}
 
 .w-20pct {width: 20%;}
+.w-30pct {width: 30%;}
 .w-100pct {width: 100%;}
 .w-max-100pct {max-width: 100%;}
+.w-70 {width: 170px;}
 
 .z-index {z-index: 1;}
-
-
-
-
-
 
 
 @media (max-width: 768px) {
@@ -300,6 +295,7 @@ a:hover {
 
 @media (max-width: 640px) {
 	.ms-fs-30 {font-size: 30px;}
+	.ms-txt-algn-cntr {text-align: center;}
 	.ms-w-70pct {width: 70%;}
 	.ms-w-100 {width: 100px;}
   }

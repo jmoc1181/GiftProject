@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-s
+
 	<meta charset="UTF-8">
 
 	<title>GiftPitch</title>
@@ -17,13 +17,14 @@ s
 	<!-- GOOGLE FONTS -->
 	<link href="https://fonts.googleapis.com/css?family=Muli:300,700|Pacifico" rel="stylesheet">
 
-	<!-- BOOTSTRAP CDN-->
+	<!-- BOOTSTRAP CDN -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- STYLESHEET FLICKITY -->
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
 
     <!-- STYLESHEET -->
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-	<!-- STYLESHEET Flickity-->
-	<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
 
 	<!-- FAVICON -->
 	<link rel="icon" href="assets/images/GiftPitch-logo-favicon.png" sizes="16x16">
@@ -34,7 +35,7 @@ s
 
 	<!-- INTRO -->
 	<div class="bord-box intro-img">
-		
+
 		<!-- LOGO/BUTTON CONTAINER -->
 		<div class="disp-tabcell txt-algn-cntr vert-algn-cntr">
 
@@ -45,10 +46,10 @@ s
 				<img class="marg-20 ms-w-70pct" src="assets/images/GiftPitch-logo-white.png" alt="GiftPitch">
 
 			</div>
-			
+
 			<!-- BUTTON CONTAINER -->
 			<div class="col-lg-12">
-				
+
 				<!-- FILTER SEARCH BUTTON -->
 				<div class="bord-rad-2 disp-inlineblock marg-10">
 					<a href="#occasions">
@@ -75,7 +76,7 @@ s
 	<div class="marg-0 w-100pct z-index" id="js-navbar-main">
 
 		<nav class="bkgd-dgreen navbar navbar-default bord-none bord-rad-0 dropshadow">
-	      
+
 			<div class="container-fluid pos-rel">
 
 				<!-- LOGO IMAGE -->
@@ -88,51 +89,51 @@ s
 
 	          		<!-- HAMBURGER MENU -->
 					<button type="button" class="navbar-toggle collapsed bkgd-lgreen" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-	            
+
 						<span class="sr-only">Toggle navigation</span>
-		            
+
 						<span class="icon-bar"></span>
-		            
+
 						<span class="icon-bar"></span>
-		            
+
 						<span class="icon-bar"></span>
-	          
+
 					</button>
-	        
+
 				</div>
 
 			</div>
 
 			<div class="collapse navbar-collapse float-r" id="bs-example-navbar-collapse-1">
-	          
+
 				<ul class="nav navbar-nav font-bold font-fam-muli">
-	            
+
 					<li class="active"><a href="#home">Home<span class="sr-only">(current)</span></a></li>
-	            
+
 					<li><a href="#occasions" class="font-white">Occasions</a></li>
-	            
+
 					<li><a href="#questionnaire" class="font-white">Questionnaire</a></li>
 
 					<li><a href="#products" class="font-white">Products</a></li>
 
 					<li><a href="#contact" class="font-white">Contact</a></li>
-	            
+
 					<!-- <li class="dropdown">
-	              
+
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Connect With Me<span class="caret"></span></a>
-	              
+
 						<ul class="dropdown-menu" role="menu">
-	                
+
 							<li><a href="https://github.com/liz-rondone">Github</a></li>
-	                
+
 							<li><a href="https://www.linkedin.com/in/liz-rondone/">LinkedIn</a></li>
-	                
+
 							<li><a href="http://stackoverflow.com/users/7264559/liz-ron?tab=profile">Stack Overflow</a></li>
-	              
+
 						</ul>
-	            
+
 					</li> -->
-	          
+
 				</ul>
 
 			</div>
@@ -148,9 +149,9 @@ s
 
 		<div class="font-maroon txt-algn-cntr marg-b-40">
 			<p class="font-fam-pacifico font-size-50 ms-fs-30">Occasions</p>
-			<p class="font-fam-muli font-size-20">Filter your search by selecting the event you're shopping for.</p>
+			<p class="font-fam-muli font-size-23">Filter your search by selecting the event you're shopping for.</p>
 		</div>
-		
+
 		<div class="row bkgd-white txt-algn-cntr">
 
 			<!-- BIRTHDAY -->
@@ -197,93 +198,123 @@ s
 
 	</div>
 
+
+
 	<!-- QUESTIONAIRE -->
 	<div class="row quest-img marg-0" id="questionnaire">
+
 		<div class="marg-60">
+
+			<!-- QUESTIONNAIRE HEADING -->
 			<div class="font-maroon txt-algn-cntr marg-b-40">
 				<p class="font-fam-pacifico font-size-50 ms-fs-30">Questionnaire</p>
-				<p class="font-fam-muli font-size-20">Narrow down your options by answering the following questions about the gift receiver.</p>
+				<p class="font-fam-muli font-size-23">Narrow down your options by answering the following questions about the gift receiver.</p>
 			</div>
 
-			<div class="font-fam-muli font-maroon txt-algn-cntr">
-				<p class="font-bold font-size-20">This is where question 1 will go.</p>
+			<!-- QUESTIONNAIRE BOX -->
+			<div class="bord-4-solid-maroon font-fam-muli font-maroon pad-30 txt-algn-cntr">
+
+				<!-- QUESTION -->
+				<p id="question-div" class="questionHeader font-bold font-size-17"></p>
+
 				<div class="row">
+
+					<!-- ANSWER A -->
 					<div class="col-md-6 col-sm-12 pad-10-20">
-						<div class="question-button">Question 1: Option 2</div>
+						<div class="question-button JS-answer-choice" id="answer-a-div" data-answerId="null">Question 1: Option 2</div>
 					</div>
+
+					<!-- ANSWER B -->
 					<div class="col-md-6 col-sm-12 pad-10-20">
-						<div class="question-button">Question 1: Option 2</div>
+						<div class="question-button JS-answer-choice" id="answer-b-div" data-answerId="null">Question 1: Option 2</div>
+					</div>
+
+				</div>
+
+				<!-- PROGRESS BAR -->
+				<div class="row marg-20-5">
+					<div class="progress progress-striped active">
+						<div class="progress-bar" id="bar"></div>
 					</div>
 				</div>
+
+				<!-- RESTART -->
+				<div class="startOver font-bold font-fam-muli marg-0-auto" onclick=" reload();">
+					<div class="">Restart</div>
+				</div>
+
 			</div>
-		</div>
-	</div>
 
-
-<div class="row">
-    	<div id="question-div" class="questionHeader"></div>
-    </div>
-
-    <div class="row">
-
-		<div class="col-md-6">
-        	<button class="btn btn-default">
-        		<div id="answer-a-div" data-answerId="null" class="JS-answer-choice"></div>
-        	</button>
-		</div>
-
-		<div class="col-md-6">
-			<button class="btn btn-default">
-				<div id="answer-b-div" data-answerId="null" class="JS-answer-choice"></div>
-			</button>
 		</div>
 
 	</div>
 
-	<div class="row">
-		<div class="progress progress-striped active">
-			<div class="progress-bar" id="bar"></div>
+
+
+	<!-- PRODUCTS -->
+	<div class="">
+
+		<!-- AMAZON -->
+		<div class="">
+			<div></div>
 		</div>
+
+		<!-- EBAY -->
+		<div class="">
+			<div></div>
+		</div>
+
+		<!-- ETSY -->
+		<div class="">
+			<div class="row">
+					<div class="gallery js-flickity">
+					  <img class="gallery-cell"  id=etsy0 alt='' src=''>
+					  <img class="gallery-cell"  id=etsy1 alt='' src=''>
+					  <img class="gallery-cell"  id=etsy2 alt='' src=''>
+					  <img class="gallery-cell"  id=etsy3 alt='' src=''>
+					  <img class="gallery-cell"  id=etsy4 alt='' src=''>
+					  <img class="gallery-cell"  id=etsy5 alt='' src=''>
+					  <img class="gallery-cell"  id=etsy6 alt='' src=''>
+					  <img class="gallery-cell"  id=etsy7 alt='' src=''>
+					  <img class="gallery-cell"  id=etsy9 alt='' src=''>
+					  <img class="gallery-cell"  id=etsy9 alt='' src=''>
+					</div>
+				</div>
+
+		</div>
+
 	</div>
-
-    
-    <div class="startOver" onclick=" reload();">
-    	<button class="btn btn-default">Start Again</button>
-	</div> 
-
-<br>
-
-<div class="row">
-<div class="gallery js-flickity">
-  <img class="gallery-cell"  id=etsy0 alt='' src=''>
-  <img class="gallery-cell"  id=etsy1 alt='hello' src=''>
-  <img class="gallery-cell"  id=etsy2 alt='' src=''>
-  <img class="gallery-cell"  id=etsy3 alt='' src=''>
-  <img class="gallery-cell"  id=etsy4 alt='' src=''>
-  <img class="gallery-cell"  id=etsy5 alt='hello' src=''>
-  <img class="gallery-cell"  id=etsy6 alt='' src=''>
-  <img class="gallery-cell"  id=etsy7 alt='' src=''>
-  <img class="gallery-cell"  id=etsy9 alt='' src=''>
-  <img class="gallery-cell"  id=etsy9 alt='' src=''>
-</div>
-<p class="caption"></p>
-
-
-</div>
-
-
 
 
 
 	<!-- FOOTER -->
+	<footer class="footer">
 
-<nav class="row navbar navbar-default navbar-static-bottom bkgd-dgreen marg-0">
-	<div class="col-md-12 container row marg-0 pad-0">
-		<p class="font-fam-muli font-lgreen font-size-13 pad-30 txt-algn-cntr">&copy;Copyright 2017 GiftPitch</p>
-	</div>
-</nav>
+		<div class="container bkgd-tan marg-0 pad-30-60 w-100pct ms-txt-algn-cntr">
 
-	
+			<div class="float-l marg-t-20 vert-algn-cntr w-70">
+				<img src="assets/images/GiftPitch-logo-brown.png" alt="GiftPitch" class="w-100pct">
+			</div>
+
+			<div class="float-r font-brown font-fam-muli font-size-13 txt-algn-r ms-txt-algn-cntr">
+				<ul>
+					<li>gifthelp@giftpitch.com</li>
+					<li>1-800-012-3456</li>
+					<li>339 E Chicago Avenue</li>
+					<li>Chicago, Illinois 60611</li>
+				</ul>
+
+				<p>&copy;Copyright 2017 GiftPitch</p>
+			</div>
+
+		</div>
+
+	</footer>
+
+
+
+
+
 
 	<!-- BOOTSTRAP JQUERY -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -293,20 +324,19 @@ s
 
 	<!-- JQUERY -->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    
-    <!-- JAVASCRIPT APP-QUIZ-->
+
+    <!-- JAVASCRIPT APP-QUIZ -->
     <script src="assets/javascript/app-quiz.js" type="text/javascript"></script>
 
-    <!-- JAVASCRIPT APP-STYLE-->
+    <!-- JAVASCRIPT APP-STYLE -->
     <script src="assets/javascript/app-style.js" type="text/javascript"></script>
 
-    <!-- JAVASCRIPT Flickity-STYLE-->
+		<!-- JAVASCRIPT API-QUIZ -->
+		<script src="assets/javascript/apis.js" type="text/javascript"></script>
+
+    <!-- JAVASCRIPT FLICKITY-STYLE -->
     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 
-    <!-- JAVASCRIPT apis-STYLE-->
-    <script src="assets/javascript/apis.js" type="text/javascript"></script>
-
-	
 </body>
 
 </html>
