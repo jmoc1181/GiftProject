@@ -58,9 +58,30 @@ function etsy(p) {
     }).done(function(response) {
 
         for (i = 0; i < itemLimit; i++) {
-            //results.push(response.results[i].MainImage.url_75x75);
+            results.push(response.results[i].MainImage.url_570xN);
             document.getElementById("etsy" + i).src = results[i];
         }
+
+        for (i = 0; i < itemLimit; i++) {
+
+            if (response.results[i].price == null) { 
+                document.getElementById("etsy" + i).alt = 'go to site'; 
+            }
+
+            else { 
+            console.log(response.results[i].price);
+            results.push(response.results[i].price);
+            document.getElementById("etsy" + i).alt = response.results[i].price;
+
+
+            
+    }
+}
+            
+
+
+
+
         //logCategories(response);
         //console.log(results);
         //return results;

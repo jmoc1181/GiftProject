@@ -34,6 +34,43 @@ a:hover {
     opacity: 1.0;
 }
 
+.alt{ 
+	padding-bottom: 20px;
+ }
+
+.gallery {
+  background: #EEE;
+}
+
+
+.gallery-cell {
+  width: 20%;
+  height: 250px;
+  margin-right: 10px;
+  background: #b0ccbd;
+  counter-increment: gallery-cell;
+  opacity: .3;
+
+}
+
+.gallery-cell.is-selected {
+  background: white;
+  opacity: 1;
+
+}
+
+
+/* cell number */
+.gallery-cell:before {
+  display: block;
+  text-align: center;
+  content: counter(gallery-cell);
+  line-height: 200px;
+  font-size: 80px;
+  color: white;
+}
+
+
 .intro-button {
     background: none;
     border: 2px solid #ffffff;
@@ -61,6 +98,7 @@ a:hover {
 	padding: 0;
 	margin: 0;
 }
+
 
 .JS-answer-choice { 
 	font-family: 'Muli', sans-serif;
@@ -107,6 +145,7 @@ a:hover {
 	background-color: #b0ccbd;
 	height: 10px;
 }
+
 
 .progress { 
 	height: 10px;
@@ -248,6 +287,11 @@ a:hover {
 .w-max-100pct {max-width: 100%;}
 
 .z-index {z-index: 1;}
+
+
+
+
+
 
 
 @media (max-width: 768px) {

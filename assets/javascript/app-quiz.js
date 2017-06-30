@@ -166,85 +166,87 @@ var questionsObject = {
         }
     }
 };
+
+
 //Array of personality objects with information to display on the results page and seed API calls
 var personalitiesArray = [
     {
         key: "Q1aAQ2aAQ3aAQ4aA",
         name: "The Mover",
         description: "The Mover has a spark for life and a passion for action & adventure they can barely contain — give them a gift to help burn off some of that extra energy.",
-        amazonKeyword: "",
-        ebayKeyword: ["]Sporting Goods"],
-        etsyKeyword: [""]
+        amazonKeyword: ["Sporting Goods"],
+        ebayKeyword: ["Sports equipment"],
+        etsyKeyword: ["Clothing", "exercise"]
     },
     {
         key: "Q1aAQ2aAQ3aAQ4aB",
         name: "The Labrador Retriever",
         description: "The Labrador Retriever loves their friends, their family, and bright summer days — give them a gift that doubles as the perfect excuse for an afternoon at the park.",
-        amazonKeyword: "",
+        amazonKeyword: ["Lawn Games"],
         ebayKeyword: ["Lawn Games"],
-        etsyKeyword: [""]
+        etsyKeyword: ["Toys", "lawn game"]
     },
     {
         key: "Q1aAQ2aAQ3aAQ4aB",
         name: "The Creator",
         description: "The Creator marches to the beat of their own drum, and everyone else stops to listen — give them a gift that will help them express themselves for all to hear.",
-        amazonKeyword: "",
+        amazonKeyword: ["Musical Instruments"],
         ebayKeyword: ["Musical Instruments"],
-        etsyKeyword: ["Music"]
+        etsyKeyword: ["Music", "instrument"]
     },
     {
         key: "Q1aAQ2aAQ3aBQ4bB",
         name: "The Instigator",
         description: "The Instigator is great at thinking on their feet in social situations, sometimes for good and sometimes for bad — give them a gift to help them flex their social muscle.",
-        amazonKeyword: "",
+        amazonKeyword: ["Board Games"],
         ebayKeyword: ["Board Games"],
-        etsyKeyword: [""]
+        etsyKeyword: ["Toys", "board game"]
     },
     {
         key: "Q1aAQ2aBQ3bAQ4cA",
         name: "The Trendsetter",
         description: "The Trendsetter is the life of the party and the center of attention wherever they go — give them a gift that will leave everyone in the room wanting to copy their look.",
-        amazonKeyword: "",
+        amazonKeyword: ["Fashion Accessories"],
         ebayKeyword: ["Clothing Accessories"],
-        etsyKeyword: ["Accessories", "Hair"]
+        etsyKeyword: ["Clothing", "elegant"]
     },
     {
         key: "Q1aAQ2aBQ3bAQ4cB",
         name: "The Entertainer",
         description: "Friendly, outgoing, and inviting, the Entertainer's home is your home — give them a gift that will help them take their next dinner party to the next level.",
-        amazonKeyword: "",
-        ebayKeyword: ["Kitchen Goods"],
-        etsyKeyword: [""]
+        amazonKeyword: ["Kitchen tools"],
+        ebayKeyword: ["Kitchen gadget"],
+        etsyKeyword: ["Housewares", "kitchen"]
     },
     {
         key: "Q1aAQ2aBQ3bBQ4dA",
         name: "The Inner Child",
         description: "Young or old, the Inner Child appreciates novelty — give them a gift that will keep their youthful mind entertained.",
-        amazonKeyword: "",
-        ebayKeyword: ["Stuffed Animals"],
-        etsyKeyword: ["Toys"]
+        amazonKeyword: ["Stuffed Animals"],
+        ebayKeyword: ["retro toy"],
+        etsyKeyword: ["toys", "vintage"]
     },
     {
         key: "Q1aAQ2aBQ3bBQ4dB",
         name: "The Nester",
         description: "Warm and kindhearted, the Nester likes to make sure everyone around them feels comfy and cozy — give them a gift that will do half the work for them.",
-        amazonKeyword: "",
-        ebayKeyword: ["Home Decor"],
-        etsyKeyword: ["Home decor"]
+        amazonKeyword: ["Home decor"],
+        ebayKeyword: ["decorative piece"],
+        etsyKeyword: ["Art", "decor"]
     },
     {
         key: "Q1aBQ2bAQ3cAQ4eA",
         name: "The Executive",
         description: "A real go-getter, the Executive is always planning their next big move — give them a gift to help keep track of all their exciting venture.",
-        amazonKeyword: "",
+        amazonKeyword: ["Office Supplies"],
         ebayKeyword: ["Office Supplies"],
-        etsyKeyword: [""]
+        etsyKeyword: ["Supplies", "planner"]
     },
     {
         key: "Q1aBQ2bAQ3cAQ4eB",
         name: "The Butterfly",
         description: "Always on the move, the Butterfly loves to share their life with friends near and far— give them a gift that will add some style to their next social media update.",
-        amazonKeyword: "",
+        amazonKeyword: ["Mobile Accessories"],
         ebayKeyword: ["Mobile Accessories"],
         etsyKeyword: ["Accessories", "Cell Phone"]
     },
@@ -252,51 +254,52 @@ var personalitiesArray = [
         key: "Q1aBQ2bAQ3cBQ4fA",
         name: "The Nomad",
         description: "The Nomad's heart lies in many places at once — give them a gift that will add some pep to their step as they track it down.",
-        amazonKeyword: "",
-        ebayKeyword: ["Travel Gear"],
-        etsyKeyword: [""]
+        amazonKeyword: ["Travel Gear"],
+        ebayKeyword: ["Mobile Accessories"],
+        etsyKeyword: ["Accesories", "phone"]
     },
     {
         key: "Q1aBQ2bAQ3cBQ4fB",
         name: "The Hermit",
         description: "Peaceful and thoughtful, the Hermit enjoys time to explore their own mind — give them a gift that will start them on another new journey.",
-        amazonKeyword: "",
+        amazonKeyword: ["Books"],
         ebayKeyword: ["Books"],
-        etsyKeyword: [""]
+        etsyKeyword: ["Books and Zines", "zine"]
     },
     {
         key: "Q1aBQ2bBQ3dAQ4gA",
         name: "The Magician",
         description: "Full of wit and curiosity, the Magician can make anything possible with the right tools — or the right tech toys. Give them a gift to help expand their arsenal.",
-        amazonKeyword: "",
-        ebayKeyword: ["Tech"],
-        etsyKeyword: [""]
+        amazonKeyword: ["Electronics"],
+        ebayKeyword: ["Travel Gear"],
+        etsyKeyword: ["Accessories", "travel"]
     },
     {
         key: "Q1aBQ2bBQ3dAQ4gA",
         name: "The Monarch",
         description: "Colorful and confident, the Monarch appreciates the finer things and life — give them a gift that reflects their refined sense of style.",
-        amazonKeyword: "",
+        amazonKeyword: ["Jewelry"],
         ebayKeyword: ["Jewelry"],
-        etsyKeyword: ["Jewelry"]
+        etsyKeyword: ["Jewelry", "vintage"]
     },
     {
         key: "Q1aBQ2bBQ3dBQ4hA",
         name: "The Feline",
         description: "The Feline knows how to unwind with a good stretch, a good nap, and a good snack — give them a gift they'll reach for on their next lazy Sunday.",
-        amazonKeyword: "",
-        ebayKeyword: ["Food and Drink"],
-        etsyKeyword: [""]
+        amazonKeyword: ["Snacks"],
+        ebayKeyword: ["Snack care package"],
+        etsyKeyword: ["Supplies", "snack"]
     },
     {
         key: "Q1aBQ2bBQ3dBQ4hB",
         name: "The Nurturer",
         description: "The Nurturer has an uncanny ability to make something out of nothing — give them a gift that will help seed their next project.",
-        amazonKeyword: "",
-        ebayKeyword: ["Crafting"],
-        etsyKeyword: ["Supplies"]
+        amazonKeyword: ["Crafting How-to"],
+        ebayKeyword: ["Crafting How-to"],
+        etsyKeyword: ["Supplies", "craft"]
     },
 ];
+
 
 
 //Global variable that will hold our current user's personality ID, which will correspond to a specific API call to display a curated set of gifts
@@ -319,6 +322,18 @@ function nextQuestion(questionId){
     $("#answer-b-div").data( "answerId",  tempAnswerBDataAttr);
     
 };
+
+
+function runAPICalls(personalityobject){
+
+    amazon(personalityobject.amazonKeyword);
+    etsy(personalityobject.etsyKeyword);
+    ebay(personalityobject.ebayKeyword);
+
+
+}
+
+
 
 /*============================================================================================
 ==============================================================================================*/
@@ -538,11 +553,14 @@ $(document).on("click", ".JS-answer-choice", function(){
 
     }
 
-    //User sees their final personality page
+ //User sees their final personality page
     if (tempAnswerId === "Q4aA" && currentQuestionNumber === 4 ){
 
         userPersonalityAssignment = personalitiesArray[0];
         currentQuestionNumber = 0;
+
+        //Run API Calls
+        runAPICalls(userPersonalityAssignment);
 
         var buttons = (questionsObject.q4a.answerA.id); 
         console.log(buttons); 
@@ -557,6 +575,9 @@ $(document).on("click", ".JS-answer-choice", function(){
         userPersonalityAssignment = personalitiesArray[1];
         currentQuestionNumber = 0;
 
+        //Run API Calls
+        runAPICalls(userPersonalityAssignment);
+
         var buttons = (questionsObject.q4a.answerB.id); 
         console.log(buttons); 
         localStorage.setItem("choice", JSON.stringify(buttons));
@@ -570,6 +591,9 @@ $(document).on("click", ".JS-answer-choice", function(){
         userPersonalityAssignment = personalitiesArray[2];
         currentQuestionNumber = 0;
 
+        //Run API Calls
+        runAPICalls(userPersonalityAssignment);
+
         var buttons = (questionsObject.q4b.answerA.id); 
         console.log(buttons); 
         localStorage.setItem("choice", JSON.stringify(buttons));
@@ -581,6 +605,9 @@ $(document).on("click", ".JS-answer-choice", function(){
 
         userPersonalityAssignment = personalitiesArray[3];
         currentQuestionNumber = 0;
+
+        //Run API Calls
+        runAPICalls(userPersonalityAssignment);
 
         var buttons = (questionsObject.q4b.answerB.id); 
         console.log(buttons); 
@@ -594,6 +621,9 @@ $(document).on("click", ".JS-answer-choice", function(){
         userPersonalityAssignment = personalitiesArray[4];
         currentQuestionNumber = 0;
 
+        //Run API Calls
+        runAPICalls(userPersonalityAssignment);
+
         var buttons = (questionsObject.q4c.answerA.id); 
         console.log(buttons); 
         localStorage.setItem("choice", JSON.stringify(buttons));
@@ -605,6 +635,9 @@ $(document).on("click", ".JS-answer-choice", function(){
 
         userPersonalityAssignment = personalitiesArray[5];
         currentQuestionNumber = 0;
+
+        //Run API Calls
+        runAPICalls(userPersonalityAssignment);
 
         var buttons = (questionsObject.q4c.answerB.id); 
         console.log(buttons); 
@@ -618,6 +651,9 @@ $(document).on("click", ".JS-answer-choice", function(){
         userPersonalityAssignment = personalitiesArray[6];
         currentQuestionNumber = 0;
 
+        //Run API Calls
+        runAPICalls(userPersonalityAssignment);
+
         var buttons = (questionsObject.q4d.answerA.id); 
         console.log(buttons); 
         localStorage.setItem("choice", JSON.stringify(buttons));
@@ -629,6 +665,9 @@ $(document).on("click", ".JS-answer-choice", function(){
 
         userPersonalityAssignment = personalitiesArray[7];
         currentQuestionNumber = 0;
+
+        //Run API Calls
+        runAPICalls(userPersonalityAssignment);
 
         var buttons = (questionsObject.q4d.answerB.id); 
         console.log(buttons); 
@@ -643,6 +682,9 @@ $(document).on("click", ".JS-answer-choice", function(){
         userPersonalityAssignment = personalitiesArray[8];
         currentQuestionNumber = 0;
 
+        //Run API Calls
+        runAPICalls(userPersonalityAssignment);
+
         var buttons = (questionsObject.q4e.answerA.id); 
         console.log(buttons); 
         localStorage.setItem("choice", JSON.stringify(buttons));
@@ -654,6 +696,9 @@ $(document).on("click", ".JS-answer-choice", function(){
 
         userPersonalityAssignment = personalitiesArray[9];
         currentQuestionNumber = 0;
+
+        //Run API Calls
+        runAPICalls(userPersonalityAssignment);
 
         var buttons = (questionsObject.q4e.answerB.id); 
         console.log(buttons); 
@@ -667,6 +712,9 @@ $(document).on("click", ".JS-answer-choice", function(){
         userPersonalityAssignment = personalitiesArray[10];
         currentQuestionNumber = 0;
 
+        //Run API Calls
+        runAPICalls(userPersonalityAssignment);
+
         var buttons = (questionsObject.q4f.answerA.id); 
         console.log(buttons); 
         localStorage.setItem("choice", JSON.stringify(buttons));
@@ -678,6 +726,9 @@ $(document).on("click", ".JS-answer-choice", function(){
 
         userPersonalityAssignment = personalitiesArray[11];
         currentQuestionNumber = 0;
+
+        //Run API Calls
+        runAPICalls(userPersonalityAssignment);
 
         var buttons = (questionsObject.q4f.answerB.id); 
         console.log(buttons); 
@@ -691,6 +742,9 @@ $(document).on("click", ".JS-answer-choice", function(){
         userPersonalityAssignment = personalitiesArray[12];
         currentQuestionNumber = 0;
 
+        //Run API Calls
+        runAPICalls(userPersonalityAssignment);
+
         var buttons = (questionsObject.q4g.answerA.id); 
         console.log(buttons); 
         localStorage.setItem("choice", JSON.stringify(buttons));
@@ -702,6 +756,9 @@ $(document).on("click", ".JS-answer-choice", function(){
 
         userPersonalityAssignment = personalitiesArray[13];
         currentQuestionNumber = 0;
+
+        //Run API Calls
+        runAPICalls(userPersonalityAssignment);
 
         var buttons = (questionsObject.q4g.answerB.id); 
         console.log(buttons); 
@@ -715,6 +772,9 @@ $(document).on("click", ".JS-answer-choice", function(){
         userPersonalityAssignment = personalitiesArray[14];
         currentQuestionNumber = 0;
 
+        //Run API Calls
+        runAPICalls(userPersonalityAssignment);
+
         var buttons = (questionsObject.q4h.answerA.id); 
         console.log(buttons); 
         localStorage.setItem("choice", JSON.stringify(buttons));
@@ -727,6 +787,9 @@ $(document).on("click", ".JS-answer-choice", function(){
         userPersonalityAssignment = personalitiesArray[15];
         currentQuestionNumber = 0;
 
+        //Run API Calls
+        runAPICalls(userPersonalityAssignment);
+
         var buttons = (questionsObject.q4h.answerB.id); 
         console.log(buttons); 
         localStorage.setItem("choice", JSON.stringify(buttons));
@@ -735,3 +798,4 @@ $(document).on("click", ".JS-answer-choice", function(){
     }
 
 });
+    
