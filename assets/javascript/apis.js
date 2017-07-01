@@ -30,7 +30,7 @@ function etsy(p) {
     //array of objects to be retuned
     var results = [];
     //number of items to get
-    var itemLimit = 5;
+    var itemLimit = 8;
 
     for (i = 1; i < p.length; i++) {
         if (i == 1)
@@ -62,24 +62,35 @@ function etsy(p) {
             document.getElementById("etsy" + i).src = results[i];
         }
 
+         /*for (i = 0; i < itemLimit; i++) { 
+            console.log(response.results[i].title);
+            $(".giftTitle" + i).html(response.results[i].title);
+         }*/
+
         for (i = 0; i < itemLimit; i++) {
 
           if (response.results[i].price == null) {
-        document.getElementById("etsy" + i).alt = 'go to site';
+             document.getElementById("priceItem" + i).text = 'go to site';
         }
 
         else {
-          console.log(response.results[i].price);
-          results.push(response.results[i].price);
-          document.getElementById("etsy" + i).alt = response.results[i].price;
+            console.log(response.results[i].price);
+            $(".priceItem" + i).html("$" + response.results[i].price);
+    }
 }
-}
+
+        for (i = 0; i < itemLimit; i++) {
+            results.push(response.results[i].url);
+            console.log(response.results[i].url);
+            document.getElementById("giftURL" + i).href = results[i];
+        }
         //logCategories(response);
         //console.log(results);
         //return results;
-    });
-
+     });
 }
+
+
 //******* END ETSY API *********************************************************************
 //******************************************************************************************
 //** response.results["0"].MainImage.url_75x75
@@ -319,3 +330,6 @@ function getDB(n) {
         return database.ref().once('value').then(getAssociate);
 
 }
+
+
+
