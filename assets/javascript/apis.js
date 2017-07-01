@@ -27,11 +27,8 @@ function etsy(p) {
     var tag = "";
     //category of items to grab
     var category = p[0];
-    //array of objects to be retuned
-    var results = [];
     //number of items to get
     var itemLimit = 8;
-
     for (i = 1; i < p.length; i++) {
         if (i == 1)
             tag = p[i];
@@ -56,41 +53,27 @@ function etsy(p) {
             tags: tag
         }
     }).done(function(response) {
-
+        // add the image to the page, add the price to the page, add the url to the page 
         for (i = 0; i < itemLimit; i++) {
-            results.push(response.results[i].MainImage.url_570xN);
-            document.getElementById("etsy" + i).src = results[i];
-        }
-
-        for (i = 0; i < itemLimit; i++) { 
-            console.log(response.results[i].title);
+            //image
+            document.getElementById("etsy" + i).src = response.results[i].MainImage.url_570xN;
+            //url
+            document.getElementById("giftURL" + i).href = response.results[i].url;
+            //price
+            if (response.results[i].price == null)
+                document.getElementById("priceItem" + i).text = 'go to site';
+            else
+                $(".priceItem" + i).html("$" + response.results[i].price);
+            //mouse-over details
             var details = document.querySelector('.showDetails' + i);
             details.setAttribute('data-balloon', response.results[i].title + " - CLICK TO BUY ITEM");
-         }
-
-        for (i = 0; i < itemLimit; i++) {
-
-          if (response.results[i].price == null) {
-             document.getElementById("priceItem" + i).text = 'go to site';
-        }
-
-        else {
-            console.log(response.results[i].price);
-            $(".priceItem" + i).html("$" + response.results[i].price);
-    }
+        } //end for loop
+    }); // end .done function
 }
-
-        for (i = 0; i < itemLimit; i++) {
-            results.push(response.results[i].url);
-            console.log(response.results[i].url);
-            document.getElementById("giftURL" + i).href = results[i].url;   
-        }
-        //logCategories(response);
-        //console.log(results);
-        //return results;
-     });
-}
-
+/*for (i = 0; i < itemLimit; i++) { 
+   console.log(response.results[i].title);
+   $(".giftTitle" + i).html(response.results[i].title);
+}*/
 //******* END ETSY API *********************************************************************
 //******************************************************************************************
 //** response.results["0"].MainImage.url_75x75
