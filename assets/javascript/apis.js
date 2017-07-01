@@ -62,10 +62,11 @@ function etsy(p) {
             document.getElementById("etsy" + i).src = results[i];
         }
 
-         /*for (i = 0; i < itemLimit; i++) { 
+        for (i = 0; i < itemLimit; i++) { 
             console.log(response.results[i].title);
-            $(".giftTitle" + i).html(response.results[i].title);
-         }*/
+            var details = document.querySelector('.showDetails' + i);
+            details.setAttribute('data-balloon', response.results[i].title + " - CLICK TO BUY ITEM");
+         }
 
         for (i = 0; i < itemLimit; i++) {
 
@@ -89,7 +90,6 @@ function etsy(p) {
         //return results;
      });
 }
-
 
 //******* END ETSY API *********************************************************************
 //******************************************************************************************
