@@ -11,16 +11,6 @@ maroon: #8b4d4e;
 
 * {box-sizing: border-box;}
 
-a:visited {
-    color: #ffffff;
-    text-decoration: none;
-}
-
-a:hover {
-	background-color: #ffffff;
-	color: #8b4d4e;
-	text-decoration: none;
-}
 
 .btn { 
 	background-color: #8B4D4E;
@@ -321,6 +311,8 @@ a:hover {
 
 
   @import url(http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css);
+
+
 .col-item
 {
     border: 1px solid #E1E1E1;
@@ -426,10 +418,17 @@ a.details {
  }
 
 .details { 
-  font-size: 15px;
+  font-size: 20px;
  }
 
 a:hover.btn { 
   color: #8B4D4E;
 
  }
+
+.detailButton {
+  color: #8B4D4E;
+  text-align: center;
+  align-content: center;
+
+}
