@@ -1,26 +1,15 @@
 /*
 ==== COLOR PALLET ====
-tan: #dad3cc;
+tan: #dad3cc; rgb(218,211,204)
 light green: #b0ccbd;
 dark green: #799485;
-brown: #847b74;
+brown: #847b74; rgb(132, 123, 116)
 maroon: #8b4d4e;
 */
 
 
 
 * {box-sizing: border-box;}
-
-a:visited {
-    color: #ffffff;
-    text-decoration: none;
-}
-
-a:hover {
-	background-color: #ffffff;
-	color: #8b4d4e;
-	text-decoration: none;
-}
 
 .btn { 
 	background-color: #b0ccbd;
@@ -186,6 +175,7 @@ a:hover {
 .bkgd-img {background: url(../images/blue-gifts-background.jpg) top center fixed;}
 .bkgd-pattern {background: url(../images/pattern.jpg);}
 
+.bkgd-brown {background-color: #847b74;}
 .bkgd-cover {background-size: cover;}
 .bkgd-dgreen {background-color: #799485;}
 .bkgd-lgreen {background-color: #b0ccbd;}
@@ -219,11 +209,12 @@ a:hover {
 .font-size-13 {font-size: 13px;}
 .font-size-15 {font-size: 15px;}
 .font-size-17 {font-size: 17px;}
-.font-size-25 {font-size: 23px;}
+.font-size-23 {font-size: 23px;}
 .font-size-30 {font-size: 30px;}
 .font-size-40 {font-size: 40px;}
 .font-size-50 {font-size: 50px;}
 .font-size-75 {font-size: 75px;}
+.font-tan {color: #dad3cc;}
 .font-uc {text-transform: uppercase;}
 .font-wght-500 {font-weight: 500;}
 .font-white {color: #ffffff !important;}
@@ -252,6 +243,7 @@ a:hover {
 .marg-20 {margin: 20px;}
 .marg-30 {margin: 30px;}
 .marg-60 {margin: 60px;}
+.marg-b-15 {margin-bottom: 15px;}
 .marg-b-40 {margin-bottom: 40px;}
 .marg-t-20 {margin-top: 35px;}
 
@@ -264,6 +256,7 @@ a:hover {
 .pad-10 {padding: 10px;}
 .pad-20 {padding: 20px;}
 .pad-30 {padding: 30px;}
+.pad-60 {padding: 60px;}
 .pad-30-60 {padding: 30px 60px;}
 .pad-8-20 {padding: 8px 20px;}
 .pad-10-20 {padding: 10px 20px;}
@@ -294,8 +287,13 @@ a:hover {
   }
 
 @media (max-width: 640px) {
-	.ms-fs-30 {font-size: 30px;}
+	.ms-float-0 {float: none;}
+	.ms-fs-35 {font-size: 35px;}
+	.ms-marg-30 {margin: 30px;}
+	.ms-marg-0-0-20-0 {margin: 0 auto 20px auto;}
+	.ms-pad-30 {padding: 30px;}
 	.ms-txt-algn-cntr {text-align: center;}
 	.ms-w-70pct {width: 70%;}
+	.ms-w-100pct {width: 100%;}
 	.ms-w-100 {width: 100px;}
   }
