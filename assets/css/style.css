@@ -23,16 +23,31 @@ a:hover {
 }
 
 .btn { 
-	background-color: #b0ccbd;
-	width: 250px;
-	border-width: 2px;
+	background-color: #8B4D4E;
+	width: 150px;
+	border-width: 1px;
 	border-style: solid;
-	border-color: #799485;
+	border-color: #8B4D4E;
+  height: 35px;
+  color: white;
 }
+
+.caption { 
+  background-color: white;
+  text-align: center;
+  font-size: 20px;
+ }
+
 
 .category:hover {
     opacity: 1.0;
 }
+
+
+.flickity-page-dots{ 
+    margin-bottom: -30px;
+ }
+
 
 .intro-button {
     background: none;
@@ -299,3 +314,122 @@ a:hover {
 	.ms-w-70pct {width: 70%;}
 	.ms-w-100 {width: 100px;}
   }
+
+
+
+
+
+
+  @import url(http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css);
+.col-item
+{
+    border: 1px solid #E1E1E1;
+    border-radius: 5px;
+    background: #FFF;
+}
+.col-item .photo img
+{
+    margin: 0 auto;
+    width: 350px;
+    height: 350px;
+}
+
+.col-item .info
+{
+    padding: 10px;
+    border-radius: 0 0 5px 5px;
+    margin-top: 1px;
+}
+
+.col-item:hover .info {
+    background-color: #f9f9f9;
+}
+.col-item .price
+{
+    /*width: 50%;*/
+    float: left;
+    margin-top: 5px;
+}
+
+.col-item .price h5
+{
+    line-height: 20px;
+    margin: 0;
+}
+
+.price { 
+  text-align: center;
+ }
+
+.price-text-color
+{
+    color: #219FD1;
+}
+
+.col-item .info .rating
+{
+    color: #777;
+}
+
+.col-item .separator
+{
+    border-top: 1px solid #E1E1E1;
+}
+
+.clear-left
+{
+    clear: left;
+}
+
+.col-item .separator p
+{
+    line-height: 20px;
+    margin-bottom: 0;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.col-item .separator p i
+{
+    margin-right: 5px;
+}
+.col-item .btn-add
+{
+    width: 50%;
+    float: left;
+}
+
+.col-item .btn-add
+{
+    border-right: 1px solid #E1E1E1;
+}
+
+.controls
+{
+    margin-top: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+
+}
+
+[data-slide="prev"]
+{
+    margin-right: 10px;
+}
+
+.hidden-sm { 
+  font-size: 18px;
+ }
+
+a.details { 
+  color: #A95E5F;
+ }
+
+.details { 
+  font-size: 15px;
+ }
+
+a:hover.btn { 
+  color: #8B4D4E;
+
+ }
