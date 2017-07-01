@@ -31,11 +31,39 @@ maroon: #8b4d4e;
     opacity: 1.0;
 }
 
+<<<<<<< HEAD
+.gallery {
+  background: #EEE;
+}
 
-.flickity-page-dots{ 
-    margin-bottom: -30px;
- }
 
+
+.gallery-cell {
+  width: 20%;
+  height: 250px;
+  margin-right: 10px;
+  background: #b0ccbd ;
+  counter-increment: gallery-cell;
+  opacity: .3;
+
+}
+
+.gallery-cell.is-selected {
+  background: black;
+  opacity: 1;
+
+}
+
+
+/* cell number */
+.gallery-cell:before {
+  display: block;
+  text-align: center;
+  content: counter(gallery-cell);
+  line-height: 200px;
+  font-size: 80px;
+  color: white;
+}
 
 .intro-button {
     background: none;
@@ -294,6 +322,7 @@ maroon: #8b4d4e;
 .w-70 {width: 170px;}
 
 .z-index {z-index: 1;}
+
 
 
 @media (max-width: 768px) {
