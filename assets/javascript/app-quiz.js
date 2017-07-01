@@ -301,7 +301,7 @@ var personalitiesArray = [
 
 //Global variable that will hold our current user's personality ID, which will correspond to a specific API call to display a curated set of gifts
 var userPersonalityKey = "";
-//Global variable that will hold our user's final personality assignment by storing the key string, unique to each object in our personalitiesArray 
+//Global variable that will hold our user's final personality assignment by storing the key string, unique to each object in our personalitiesArray
 var userPersonalityAssignment;
 //
 var currentQuestionNumber = 0;
@@ -309,11 +309,14 @@ var currentQuestionNumber = 0;
 
 function displayResults(personalityObject){
 
-	$("#questionnaire-title").html(personalityObject.name);
-	$("#description-p").html(personalityObject.description);
-	$("#question-div").html("");
-	$("#answer-a-div").html("");
-	$("#answer-b-div").html("");
+	var personalityDescription = $("<p></p>")
+	personalityDescription.html(personalityObject.description);
+	$("#questionnaire-title").html("Results");
+	$("#description-p").remove();
+	$("#question-div").html(personalityObject.name);
+	$("#answers-row").prepend(personalityDescription);
+	$("#answer-a-div").remove();
+	$("#answer-b-div").remove();
 
 }
 
@@ -329,7 +332,7 @@ function nextQuestion(questionId){
     $("#answer-a-div").data( "answerId",  tempAnswerADataAttr);
     $("#answer-b-div").html(tempAnswerB);
     $("#answer-b-div").data( "answerId",  tempAnswerBDataAttr);
-    
+
 };
 
 function runAPICalls(personalityobject){
@@ -349,7 +352,7 @@ nextQuestion("q1a");
 currentQuestionNumber++;
 
 
-function reload() { 
+function reload() {
     document.getElementById("bar").style.width = "0%";
     nextQuestion("q1a");
     currentQuestionNumber = 0;
@@ -373,8 +376,8 @@ $(document).on("click", ".JS-answer-choice", function(){
         nextQuestion("q2a");
         currentQuestionNumber++;
 
-        var buttons = (questionsObject.q1a.answerA.id); 
-        console.log(buttons); 
+        var buttons = (questionsObject.q1a.answerA.id);
+        console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
 
@@ -388,8 +391,8 @@ $(document).on("click", ".JS-answer-choice", function(){
         nextQuestion("q2b");
         currentQuestionNumber++;
 
-        var buttons = (questionsObject.q1a.answerB.id); 
-        console.log(buttons); 
+        var buttons = (questionsObject.q1a.answerB.id);
+        console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
         document.getElementById("bar").style.width = "25%";
@@ -403,12 +406,12 @@ $(document).on("click", ".JS-answer-choice", function(){
         currentQuestionNumber++;
 
 
-        var buttons = (questionsObject.q2a.answerA.id); 
-        console.log(buttons); 
+        var buttons = (questionsObject.q2a.answerA.id);
+        console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
         document.getElementById("bar").style.width = "50%";
-    
+
 
     }
 
@@ -417,8 +420,8 @@ $(document).on("click", ".JS-answer-choice", function(){
         nextQuestion("q3b");
         currentQuestionNumber++;
 
-        var buttons = (questionsObject.q2a.answerB.id); 
-        console.log(buttons); 
+        var buttons = (questionsObject.q2a.answerB.id);
+        console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
         document.getElementById("bar").style.width = "50%";
@@ -430,8 +433,8 @@ $(document).on("click", ".JS-answer-choice", function(){
         nextQuestion("q3c");
         currentQuestionNumber++;
 
-        var buttons = (questionsObject.q2b.answerA.id); 
-        console.log(buttons); 
+        var buttons = (questionsObject.q2b.answerA.id);
+        console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
         document.getElementById("bar").style.width = "50%";
@@ -443,8 +446,8 @@ $(document).on("click", ".JS-answer-choice", function(){
         nextQuestion("q3d");
         currentQuestionNumber++;
 
-        var buttons = (questionsObject.q2b.answerB.id); 
-        console.log(buttons); 
+        var buttons = (questionsObject.q2b.answerB.id);
+        console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
         document.getElementById("bar").style.width = "50%";
@@ -458,8 +461,8 @@ $(document).on("click", ".JS-answer-choice", function(){
         nextQuestion("q4a");
         currentQuestionNumber++;
 
-        var buttons = (questionsObject.q3a.answerA.id); 
-        console.log(buttons); 
+        var buttons = (questionsObject.q3a.answerA.id);
+        console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
         document.getElementById("bar").style.width = "75%";
@@ -472,8 +475,8 @@ $(document).on("click", ".JS-answer-choice", function(){
         nextQuestion("q4b");
         currentQuestionNumber++;
 
-        var buttons = (questionsObject.q3a.answerB.id); 
-        console.log(buttons); 
+        var buttons = (questionsObject.q3a.answerB.id);
+        console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
         document.getElementById("bar").style.width = "75%";
@@ -486,8 +489,8 @@ $(document).on("click", ".JS-answer-choice", function(){
         nextQuestion("q4c");
         currentQuestionNumber++;
 
-        var buttons = (questionsObject.q3b.answerA.id); 
-        console.log(buttons); 
+        var buttons = (questionsObject.q3b.answerA.id);
+        console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
         document.getElementById("bar").style.width = "75%";
@@ -499,8 +502,8 @@ $(document).on("click", ".JS-answer-choice", function(){
         nextQuestion("q4d");
         currentQuestionNumber++;
 
-        var buttons = (questionsObject.q3b.answerB.id); 
-        console.log(buttons); 
+        var buttons = (questionsObject.q3b.answerB.id);
+        console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
         document.getElementById("bar").style.width = "75%";
@@ -512,8 +515,8 @@ $(document).on("click", ".JS-answer-choice", function(){
         nextQuestion("q4e");
         currentQuestionNumber++;
 
-        var buttons = (questionsObject.q3c.answerA.id); 
-        console.log(buttons); 
+        var buttons = (questionsObject.q3c.answerA.id);
+        console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
         document.getElementById("bar").style.width = "75%";
@@ -525,8 +528,8 @@ $(document).on("click", ".JS-answer-choice", function(){
         nextQuestion("q4f");
         currentQuestionNumber++;
 
-        var buttons = (questionsObject.q3c.answerB.id); 
-        console.log(buttons); 
+        var buttons = (questionsObject.q3c.answerB.id);
+        console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
         document.getElementById("bar").style.width = "75%";
@@ -538,8 +541,8 @@ $(document).on("click", ".JS-answer-choice", function(){
         nextQuestion("q4g");
         currentQuestionNumber++;
 
-        var buttons = (questionsObject.q3d.answerA.id); 
-        console.log(buttons); 
+        var buttons = (questionsObject.q3d.answerA.id);
+        console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
         document.getElementById("bar").style.width = "75%";
@@ -551,8 +554,8 @@ $(document).on("click", ".JS-answer-choice", function(){
         nextQuestion("q4h");
         currentQuestionNumber++;
 
-        var buttons = (questionsObject.q3d.answerB.id); 
-        console.log(buttons); 
+        var buttons = (questionsObject.q3d.answerB.id);
+        console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
         document.getElementById("bar").style.width = "75%";
@@ -590,8 +593,8 @@ $(document).on("click", ".JS-answer-choice", function(){
         //Run API Calls
       	runAPICalls(userPersonalityAssignment);
 
-        var buttons = (questionsObject.q4a.answerB.id); 
-        console.log(buttons); 
+        var buttons = (questionsObject.q4a.answerB.id);
+        console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
         document.getElementById("bar").style.width = "100%";
@@ -609,8 +612,8 @@ $(document).on("click", ".JS-answer-choice", function(){
         //Run API Calls
       	runAPICalls(userPersonalityAssignment);
 
-        var buttons = (questionsObject.q4b.answerA.id); 
-        console.log(buttons); 
+        var buttons = (questionsObject.q4b.answerA.id);
+        console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
         document.getElementById("bar").style.width = "100%";
@@ -627,8 +630,8 @@ $(document).on("click", ".JS-answer-choice", function(){
         //Run API Calls
       	runAPICalls(userPersonalityAssignment);
 
-        var buttons = (questionsObject.q4b.answerB.id); 
-        console.log(buttons); 
+        var buttons = (questionsObject.q4b.answerB.id);
+        console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
         document.getElementById("bar").style.width = "100%";
@@ -645,8 +648,8 @@ $(document).on("click", ".JS-answer-choice", function(){
         //Run API Calls
       	runAPICalls(userPersonalityAssignment);
 
-        var buttons = (questionsObject.q4c.answerA.id); 
-        console.log(buttons); 
+        var buttons = (questionsObject.q4c.answerA.id);
+        console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
         document.getElementById("bar").style.width = "100%";
@@ -663,8 +666,8 @@ $(document).on("click", ".JS-answer-choice", function(){
         //Run API Calls
       	runAPICalls(userPersonalityAssignment);
 
-        var buttons = (questionsObject.q4c.answerB.id); 
-        console.log(buttons); 
+        var buttons = (questionsObject.q4c.answerB.id);
+        console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
         document.getElementById("bar").style.width = "100%";
@@ -681,8 +684,8 @@ $(document).on("click", ".JS-answer-choice", function(){
         //Run API Calls
       	runAPICalls(userPersonalityAssignment);
 
-        var buttons = (questionsObject.q4d.answerA.id); 
-        console.log(buttons); 
+        var buttons = (questionsObject.q4d.answerA.id);
+        console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
         document.getElementById("bar").style.width = "100%";
@@ -699,8 +702,8 @@ $(document).on("click", ".JS-answer-choice", function(){
         //Run API Calls
       	runAPICalls(userPersonalityAssignment);
 
-        var buttons = (questionsObject.q4d.answerB.id); 
-        console.log(buttons); 
+        var buttons = (questionsObject.q4d.answerB.id);
+        console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
         document.getElementById("bar").style.width = "100%";
@@ -718,8 +721,8 @@ $(document).on("click", ".JS-answer-choice", function(){
         //Run API Calls
       	runAPICalls(userPersonalityAssignment);
 
-        var buttons = (questionsObject.q4e.answerA.id); 
-        console.log(buttons); 
+        var buttons = (questionsObject.q4e.answerA.id);
+        console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
         document.getElementById("bar").style.width = "100%";
@@ -736,8 +739,8 @@ $(document).on("click", ".JS-answer-choice", function(){
         //Run API Calls
       	runAPICalls(userPersonalityAssignment);
 
-        var buttons = (questionsObject.q4e.answerB.id); 
-        console.log(buttons); 
+        var buttons = (questionsObject.q4e.answerB.id);
+        console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
         document.getElementById("bar").style.width = "100%";
@@ -754,8 +757,8 @@ $(document).on("click", ".JS-answer-choice", function(){
         //Run API Calls
       	runAPICalls(userPersonalityAssignment);
 
-        var buttons = (questionsObject.q4f.answerA.id); 
-        console.log(buttons); 
+        var buttons = (questionsObject.q4f.answerA.id);
+        console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
         document.getElementById("bar").style.width = "100%";
@@ -772,8 +775,8 @@ $(document).on("click", ".JS-answer-choice", function(){
         //Run API Calls
       	runAPICalls(userPersonalityAssignment);
 
-        var buttons = (questionsObject.q4f.answerB.id); 
-        console.log(buttons); 
+        var buttons = (questionsObject.q4f.answerB.id);
+        console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
         document.getElementById("bar").style.width = "100%";
@@ -790,8 +793,8 @@ $(document).on("click", ".JS-answer-choice", function(){
         //Run API Calls
       	runAPICalls(userPersonalityAssignment);
 
-        var buttons = (questionsObject.q4g.answerA.id); 
-        console.log(buttons); 
+        var buttons = (questionsObject.q4g.answerA.id);
+        console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
         document.getElementById("bar").style.width = "100%";
@@ -808,8 +811,8 @@ $(document).on("click", ".JS-answer-choice", function(){
         //Run API Calls
       	runAPICalls(userPersonalityAssignment);
 
-        var buttons = (questionsObject.q4g.answerB.id); 
-        console.log(buttons); 
+        var buttons = (questionsObject.q4g.answerB.id);
+        console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
         document.getElementById("bar").style.width = "100%";
@@ -826,8 +829,8 @@ $(document).on("click", ".JS-answer-choice", function(){
         //Run API Calls
       	runAPICalls(userPersonalityAssignment);
 
-        var buttons = (questionsObject.q4h.answerA.id); 
-        console.log(buttons); 
+        var buttons = (questionsObject.q4h.answerA.id);
+        console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
         document.getElementById("bar").style.width = "100%";
@@ -844,8 +847,8 @@ $(document).on("click", ".JS-answer-choice", function(){
       	//Run API Calls
       	runAPICalls(userPersonalityAssignment);
 
-        var buttons = (questionsObject.q4h.answerB.id); 
-        console.log(buttons); 
+        var buttons = (questionsObject.q4h.answerB.id);
+        console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
         document.getElementById("bar").style.width = "100%";

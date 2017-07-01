@@ -2,7 +2,7 @@
 // API FUNCTIONS INCLUDE: etsy(array), ebay(array), amazon(array)
 // Support functions include: logCategories(response), createURL(ARRAY, BOOL), createTS(),createHase(URL, awssecret)
 //******************************************************************************************
-//INCLUDE BEFORE THIS INCLUDE: 
+//INCLUDE BEFORE THIS INCLUDE:
 //<script type="text/javascript" src="assets/javascript/hmac-sha256.js"></script>
 //<script type="text/javascript" src="assets/javascript/enc-base64.js"></script>
 //<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
@@ -23,7 +23,6 @@ firebase.initializeApp(config);
 
 
 //var cats = ["Accessories"];
-var itemLimit = 5;
 //etsy(cats);
 //ebay(cats);
 //amazon(cats);
@@ -42,6 +41,8 @@ function etsy(p) {
     //category of items to grab
     var category = p[0];
     var keyword = p[1];
+    //number of items to get
+    var itemLimit = 8;
 
     //private etsy api key
     var key = "1sx4uxkv5201v3q6lkmsgqr6";
@@ -53,7 +54,6 @@ function etsy(p) {
         data: {
             api_key: key,
             //number of items to return (max 100)
-            limit: 5000,
             limit: itemLimit,
             //include an image of the listing
             includes: "MainImage",
@@ -61,14 +61,35 @@ function etsy(p) {
             category: category,
             //keywords: "whiskey"
             keywords: keyword
+            //tags: tag
         }
     }).done(function(response) {
-        console.log(response);
-        logCategories(response);
-    });
+        // add the image to the page, add the price to the page, add the url to the page 
+        for (i = 0; i < itemLimit; i++) {
+            //image
+            document.getElementById("etsy" + i).src = response.results[i].MainImage.url_570xN;
+            //url
+            document.getElementById("giftURL" + i).href = response.results[i].url;
+            //price
+            if (response.results[i].price == null)
+                document.getElementById("priceItem" + i).text = 'go to site';
+            else
+                $(".priceItem" + i).html("$" + response.results[i].price);
+            //mouse-over details
+            var details = document.querySelector('.showDetails' + i);
+            details.setAttribute('data-balloon', response.results[i].title + " - CLICK TO BUY ITEM");
+        } //end for loop
+    }); // end .done function
 }
+/*for (i = 0; i < itemLimit; i++) { 
+   console.log(response.results[i].title);
+   $(".giftTitle" + i).html(response.results[i].title);
+}*/
 //******* END ETSY API *********************************************************************
 //******************************************************************************************
+//** response.results["0"].MainImage.url_75x75
+//** response.results["0"].url
+//** response.results["0"].price
 
 
 //****** EBAY CALL *************************************************************************
@@ -158,7 +179,7 @@ function logCategories(r) {
     console.log("main categories: " + categories);
     console.log("sub categories: " + subcats);
 }
- // END LOGCATEGORIES ****************************************************************
+// END LOGCATEGORIES ****************************************************************
 
 
 
@@ -246,7 +267,7 @@ function createTS() {
 
 // CREATE A HMAC SHA256 HASH STRING TO USE AS SIGNATURE FOR AMAZON STUPID ASS API THAT FOR SOME REASON DOESNT LIKE TO POST EXAMPLES FOR JAVASCRIPT
 function createHash(a, b) {
-    // THIS HASH IS IN BASE 32 SO YOU NEED TO CONVERT IT TO BINARy THEN TO 64 
+    // THIS HASH IS IN BASE 32 SO YOU NEED TO CONVERT IT TO BINARy THEN TO 64
     var hash = CryptoJS.HmacSHA256(a, b);
     // CONVERT HASH TO BASE 64
     var hashInBase64 = CryptoJS.enc.Base64.stringify(hash);
@@ -265,3 +286,44 @@ function createHash(a, b) {
     // RETURN THE SIGNATURE
     return hashInBase64;
 }
+// return amazon keys from firebase
+//  1 getDB(1).then(function(key) { console.log(key); }); to call
+function getKey(snapshot) {
+    var returnme = snapshot.val().amazonkey;
+    return returnme;
+}
+// 2 getDB(2).then(function(secret) { console.log(secret); }); to call
+function getSecret(snapshot) {
+    var returnme = snapshot.val().amazonsecretkey;
+    return returnme;
+}
+// 3 getDB(3).then(function(associate) { console.log(associate); }); to call
+function getAssociate(snapshot) {
+    var returnme = snapshot.val().amazonassociate;
+    return returnme;
+}
+// return snapshot of database
+function getDB(n) {
+    if (n == 1) {
+        var config = {
+            apiKey: "AIzaSyA64v8sLoyVKl8-AXLRw23jllF8t1th0-w",
+            authDomain: "bettergifts-61657.firebaseapp.com",
+            databaseURL: "https://bettergifts-61657.firebaseio.com",
+            projectId: "bettergifts-61657",
+            storageBucket: "bettergifts-61657.appspot.com",
+            messagingSenderId: "68593109442"
+        };
+        firebase.initializeApp(config);
+    }
+    var database = firebase.database();
+    if (n == 1)
+        return database.ref().once('value').then(getKey);
+    if (n == 2)
+        return database.ref().once('value').then(getSecret);
+    if (n == 3)
+        return database.ref().once('value').then(getAssociate);
+
+}
+
+
+
