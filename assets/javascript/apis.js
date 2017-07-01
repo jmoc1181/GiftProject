@@ -82,7 +82,7 @@ function etsy(p) {
         for (i = 0; i < itemLimit; i++) {
             results.push(response.results[i].url);
             console.log(response.results[i].url);
-            document.getElementById("giftURL" + i).href = results[i];
+            document.getElementById("giftURL" + i).href = results[i].url;   
         }
         //logCategories(response);
         //console.log(results);
