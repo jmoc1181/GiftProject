@@ -32,10 +32,6 @@ maroon: #8b4d4e;
 }
 
 
-.flickity-page-dots{ 
-    margin-bottom: -30px;
- }
-
 
 .intro-button {
     background: none;
@@ -333,6 +329,14 @@ maroon: #8b4d4e;
     height: 350px;
 }
 
+
+.col-item .photoEbay img
+{
+    margin: 0 auto;
+    width: 150px;
+    height: 150px;
+}
+
 .col-item .info
 {
     padding: 10px;
@@ -439,3 +443,4 @@ a:hover.btn {
   align-content: center;
 
 }
+

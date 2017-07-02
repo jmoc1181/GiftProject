@@ -185,7 +185,7 @@ var personalitiesArray = [
         etsyKeyword: ["Toys", "lawn game"]
     },
     {
-        key: "Q1aAQ2aAQ3aAQ4aB",
+        key: "Q1aAQ2aAQ3aAQ4bA",
         name: "The Creator",
         description: "The Creator marches to the beat of their own drum, and everyone else stops to listen — give them a gift that will help them express themselves for all to hear.",
         amazonKeyword: ["Musical Instruments"],
@@ -273,7 +273,7 @@ var personalitiesArray = [
         etsyKeyword: ["Accessories", "travel"]
     },
     {
-        key: "Q1aBQ2bBQ3dAQ4gA",
+        key: "Q1aBQ2bBQ3dAQ4gB",
         name: "The Monarch",
         description: "Colorful and confident, the Monarch appreciates the finer things and life — give them a gift that reflects their refined sense of style.",
         amazonKeyword: ["Jewelry"],

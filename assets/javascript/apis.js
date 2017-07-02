@@ -11,10 +11,10 @@
 //<script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
 
 
-var cats = ["Jewelry", "Ring"];
+var cats = ["art"];
 
 etsy(cats);
-//ebay(cats);
+ebay(cats);
 //amazon(cats);
 
 //****** ETSY CALL ************************************************************************
@@ -80,10 +80,10 @@ function etsy(p) {
 //** response.results["0"].url
 //** response.results["0"].price
 
-
 //****** EBAY CALL *************************************************************************
 //******************************************************************************************
 function ebay(p) {
+    var itemLimit = 8;
     var URL = "http://svcs.ebay.com/services/search/FindingService/v1";
     URL += "?OPERATION-NAME=findItemsByKeywords";
     URL += "&SERVICE-VERSION=1.0.0";
@@ -101,6 +101,15 @@ function ebay(p) {
         console.log(newresponse.findItemsByKeywordsResponse[0].searchResult[0].item);
         for (i = 0; i < newresponse.findItemsByKeywordsResponse[0].searchResult[0].item.length; i++) {
             console.log(newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].title[0]);
+            console.log(newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].viewItemURL[0]);
+            console.log(newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].galleryURL[0]);
+            console.log(newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].sellingStatus["0"].convertedCurrentPrice["0"].__value__);
+
+            document.getElementById("ebay" + i).src = newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].galleryURL[0];
+            document.getElementById("giftURLEbay" + i).href = newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].viewItemURL[0];
+            $(".priceItemEbay" + i).html("$" + newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].sellingStatus["0"].convertedCurrentPrice["0"].__value__);
+            var details = document.querySelector('.showDetailsEbay' + i);
+            details.setAttribute('data-balloon', newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].title[0] + " - CLICK TO BUY ITEM");
         }
     });
 }
