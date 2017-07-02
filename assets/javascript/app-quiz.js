@@ -166,8 +166,10 @@ var questionsObject = {
         }
     }
 };
+
 //Array of personality objects with information to display on the results page and seed API calls
 var personalitiesArray = [
+
     {
         key: "Q1aAQ2aAQ3aAQ4aA",
         name: "The Mover",
@@ -185,7 +187,7 @@ var personalitiesArray = [
         etsyKeyword: ["Toys", "lawn game"]
     },
     {
-        key: "Q1aAQ2aAQ3aAQ4aB",
+        key: "Q1aAQ2aAQ3aAQ4bA",
         name: "The Creator",
         description: "The Creator marches to the beat of their own drum, and everyone else stops to listen — give them a gift that will help them express themselves for all to hear.",
         amazonKeyword: ["Musical Instruments"],
@@ -273,7 +275,7 @@ var personalitiesArray = [
         etsyKeyword: ["Accessories", "travel"]
     },
     {
-        key: "Q1aBQ2bBQ3dAQ4gA",
+        key: "Q1aBQ2bBQ3dAQ4gB",
         name: "The Monarch",
         description: "Colorful and confident, the Monarch appreciates the finer things and life — give them a gift that reflects their refined sense of style.",
         amazonKeyword: ["Jewelry"],
@@ -295,9 +297,95 @@ var personalitiesArray = [
         amazonKeyword: ["Crafting How-to"],
         ebayKeyword: ["Crafting How-to"],
         etsyKeyword: ["Supplies", "craft"]
-    },
+    }
+
 ];
 
+//Array holding holiday-specific shortcuts for displaying gift options
+var holidaysArray = [
+
+	{
+        key: "h00",
+        name: "The Mover",
+        description: "The Mover has a spark for life and a passion for action & adventure they can barely contain — give them a gift to help burn off some of that extra energy.",
+        amazonKeyword: ["Sporting Goods"],
+        ebayKeyword: ["Sports equipment"],
+        etsyKeyword: ["Clothing", "exercise"]
+    },
+    {
+        key: "h01",
+        name: "The Labrador Retriever",
+        description: "The Labrador Retriever loves their friends, their family, and bright summer days — give them a gift that doubles as the perfect excuse for an afternoon at the park.",
+        amazonKeyword: ["Lawn Games"],
+        ebayKeyword: ["Lawn Games"],
+        etsyKeyword: ["Toys", "lawn game"]
+    },
+    {
+        key: "h02",
+        name: "The Creator",
+        description: "The Creator marches to the beat of their own drum, and everyone else stops to listen — give them a gift that will help them express themselves for all to hear.",
+        amazonKeyword: ["Musical Instruments"],
+        ebayKeyword: ["Musical Instruments"],
+        etsyKeyword: ["Music", "instrument"]
+    },
+    {
+        key: "h03",
+        name: "The Instigator",
+        description: "The Instigator is great at thinking on their feet in social situations, sometimes for good and sometimes for bad — give them a gift to help them flex their social muscle.",
+        amazonKeyword: ["Board Games"],
+        ebayKeyword: ["Board Games"],
+        etsyKeyword: ["Toys", "board game"]
+    },
+    {
+        key: "h04",
+        name: "The Trendsetter",
+        description: "The Trendsetter is the life of the party and the center of attention wherever they go — give them a gift that will leave everyone in the room wanting to copy their look.",
+        amazonKeyword: ["Fashion Accessories"],
+        ebayKeyword: ["Clothing Accessories"],
+        etsyKeyword: ["Clothing", "elegant"]
+    },
+    {
+        key: "h05",
+        name: "The Entertainer",
+        description: "Friendly, outgoing, and inviting, the Entertainer's home is your home — give them a gift that will help them take their next dinner party to the next level.",
+        amazonKeyword: ["Kitchen tools"],
+        ebayKeyword: ["Kitchen gadget"],
+        etsyKeyword: ["Housewares", "kitchen"]
+    },
+    {
+        key: "h06",
+        name: "The Inner Child",
+        description: "Young or old, the Inner Child appreciates novelty — give them a gift that will keep their youthful mind entertained.",
+        amazonKeyword: ["Stuffed Animals"],
+        ebayKeyword: ["retro toy"],
+        etsyKeyword: ["toys", "vintage"]
+    },
+    {
+        key: "Qh07",
+        name: "The Nester",
+        description: "Warm and kindhearted, the Nester likes to make sure everyone around them feels comfy and cozy — give them a gift that will do half the work for them.",
+        amazonKeyword: ["Home decor"],
+        ebayKeyword: ["decorative piece"],
+        etsyKeyword: ["Art", "decor"]
+    },
+    {
+        key: "h08",
+        name: "The Executive",
+        description: "A real go-getter, the Executive is always planning their next big move — give them a gift to help keep track of all their exciting venture.",
+        amazonKeyword: ["Office Supplies"],
+        ebayKeyword: ["Office Supplies"],
+        etsyKeyword: ["Supplies", "planner"]
+    },
+    {
+        key: "h09",
+        name: "The Butterfly",
+        description: "Always on the move, the Butterfly loves to share their life with friends near and far— give them a gift that will add some style to their next social media update.",
+        amazonKeyword: ["Mobile Accessories"],
+        ebayKeyword: ["Mobile Accessories"],
+        etsyKeyword: ["Accessories", "Cell Phone"]
+    },
+    
+];
 
 //Global variable that will hold our current user's personality ID, which will correspond to a specific API call to display a curated set of gifts
 var userPersonalityKey = "";
@@ -354,6 +442,18 @@ currentQuestionNumber++;
 
 function reload() {
     document.getElementById("bar").style.width = "0%";
+
+    //remove old buttons
+    $("#answer-a-div").remove();
+	$("#answer-b-div").remove();
+
+    //recreate buttons and print them to the page
+    var newButtonA = $("<div id='answer-a-div' data-answerId='null' class='JS-answer-choice question-button'></div>");
+    $("#answer-a-container").html(newButtonA);
+    var newButtonB = $("<div id='answer-b-div' data-answerId='null' class='JS-answer-choice question-button'></div>");
+    $("#answer-b-container").html(newButtonB);
+
+    //Load first Question
     nextQuestion("q1a");
     currentQuestionNumber = 0;
     currentQuestionNumber++;
@@ -568,6 +668,9 @@ $(document).on("click", ".JS-answer-choice", function(){
         userPersonalityAssignment = personalitiesArray[0];
         currentQuestionNumber = 0;
 
+        //Progress Bar display at 100%
+        document.getElementById("bar").style.width = "100%";
+
         //Dispay Personality Results
         displayResults(userPersonalityAssignment);
 
@@ -578,14 +681,15 @@ $(document).on("click", ".JS-answer-choice", function(){
         console.log(buttons); 
         localStorage.setItem("choice", JSON.stringify(buttons));
 
-        document.getElementById("bar").style.width = "100%";
-
     }
 
     if (tempAnswerId === "Q4aB" && currentQuestionNumber === 4 ){
 
         userPersonalityAssignment = personalitiesArray[1];
         currentQuestionNumber = 0;
+
+        //Progress Bar display at 100%
+        document.getElementById("bar").style.width = "100%";
 
         //Dispay Personality Results
         displayResults(userPersonalityAssignment);
@@ -597,14 +701,15 @@ $(document).on("click", ".JS-answer-choice", function(){
         console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
-        document.getElementById("bar").style.width = "100%";
-
     }
 
     if (tempAnswerId === "Q4bA" && currentQuestionNumber === 4 ){
 
         userPersonalityAssignment = personalitiesArray[2];
         currentQuestionNumber = 0;
+
+        //Progress Bar display at 100%
+        document.getElementById("bar").style.width = "100%";
 
         //Dispay Personality Results
         displayResults(userPersonalityAssignment);
@@ -616,13 +721,15 @@ $(document).on("click", ".JS-answer-choice", function(){
         console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
-        document.getElementById("bar").style.width = "100%";
     }
 
     if (tempAnswerId === "Q4bB" && currentQuestionNumber === 4 ){
 
         userPersonalityAssignment = personalitiesArray[3];
         currentQuestionNumber = 0;
+
+        //Progress Bar display at 100%
+        document.getElementById("bar").style.width = "100%";
 
         //Dispay Personality Results
         displayResults(userPersonalityAssignment);
@@ -634,13 +741,15 @@ $(document).on("click", ".JS-answer-choice", function(){
         console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
-        document.getElementById("bar").style.width = "100%";
     }
 
     if (tempAnswerId === "Q4cA" && currentQuestionNumber === 4 ){
 
         userPersonalityAssignment = personalitiesArray[4];
         currentQuestionNumber = 0;
+
+        //Progress Bar display at 100%
+        document.getElementById("bar").style.width = "100%";
 
         //Dispay Personality Results
         displayResults(userPersonalityAssignment);
@@ -652,13 +761,15 @@ $(document).on("click", ".JS-answer-choice", function(){
         console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
-        document.getElementById("bar").style.width = "100%";
     }
 
     if (tempAnswerId === "Q4cB" && currentQuestionNumber === 4 ){
 
         userPersonalityAssignment = personalitiesArray[5];
         currentQuestionNumber = 0;
+
+        //Progress Bar display at 100%
+        document.getElementById("bar").style.width = "100%";
 
         //Dispay Personality Results
         displayResults(userPersonalityAssignment);
@@ -670,13 +781,15 @@ $(document).on("click", ".JS-answer-choice", function(){
         console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
-        document.getElementById("bar").style.width = "100%";
     }
 
     if (tempAnswerId === "Q4dA" && currentQuestionNumber === 4 ){
 
         userPersonalityAssignment = personalitiesArray[6];
         currentQuestionNumber = 0;
+
+        //Progress Bar display at 100%
+        document.getElementById("bar").style.width = "100%";
 
         //Dispay Personality Results
         displayResults(userPersonalityAssignment);
@@ -688,13 +801,15 @@ $(document).on("click", ".JS-answer-choice", function(){
         console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
-        document.getElementById("bar").style.width = "100%";
     }
 
     if (tempAnswerId === "Q4dB" && currentQuestionNumber === 4 ){
 
         userPersonalityAssignment = personalitiesArray[7];
         currentQuestionNumber = 0;
+
+        //Progress Bar display at 100%
+        document.getElementById("bar").style.width = "100%";
 
         //Dispay Personality Results
         displayResults(userPersonalityAssignment);
@@ -706,7 +821,6 @@ $(document).on("click", ".JS-answer-choice", function(){
         console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
-        document.getElementById("bar").style.width = "100%";
 
     }
 
@@ -714,6 +828,9 @@ $(document).on("click", ".JS-answer-choice", function(){
 
         userPersonalityAssignment = personalitiesArray[8];
         currentQuestionNumber = 0;
+
+        //Progress Bar display at 100%
+        document.getElementById("bar").style.width = "100%";
 
         //Dispay Personality Results
         displayResults(userPersonalityAssignment);
@@ -725,13 +842,15 @@ $(document).on("click", ".JS-answer-choice", function(){
         console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
-        document.getElementById("bar").style.width = "100%";
     }
 
     if (tempAnswerId === "Q4eB" && currentQuestionNumber === 4 ){
 
         userPersonalityAssignment = personalitiesArray[9];
         currentQuestionNumber = 0;
+
+        //Progress Bar display at 100%
+        document.getElementById("bar").style.width = "100%";
 
         //Dispay Personality Results
         displayResults(userPersonalityAssignment);
@@ -743,13 +862,15 @@ $(document).on("click", ".JS-answer-choice", function(){
         console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
-        document.getElementById("bar").style.width = "100%";
     }
 
     if (tempAnswerId === "Q4fA" && currentQuestionNumber === 4 ){
 
         userPersonalityAssignment = personalitiesArray[10];
         currentQuestionNumber = 0;
+
+        //Progress Bar display at 100%
+        document.getElementById("bar").style.width = "100%";
 
         //Dispay Personality Results
         displayResults(userPersonalityAssignment);
@@ -761,13 +882,15 @@ $(document).on("click", ".JS-answer-choice", function(){
         console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
-        document.getElementById("bar").style.width = "100%";
     }
 
     if (tempAnswerId === "Q4fB" && currentQuestionNumber === 4 ){
 
         userPersonalityAssignment = personalitiesArray[11];
         currentQuestionNumber = 0;
+
+        //Progress Bar display at 100%
+        document.getElementById("bar").style.width = "100%";
 
         //Dispay Personality Results
         displayResults(userPersonalityAssignment);
@@ -779,13 +902,15 @@ $(document).on("click", ".JS-answer-choice", function(){
         console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
-        document.getElementById("bar").style.width = "100%";
     }
 
     if (tempAnswerId === "Q4gA" && currentQuestionNumber === 4 ){
 
         userPersonalityAssignment = personalitiesArray[12];
         currentQuestionNumber = 0;
+
+        //Progress Bar display at 100%
+        document.getElementById("bar").style.width = "100%";
 
         //Dispay Personality Results
         displayResults(userPersonalityAssignment);
@@ -797,13 +922,15 @@ $(document).on("click", ".JS-answer-choice", function(){
         console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
-        document.getElementById("bar").style.width = "100%";
     }
 
     if (tempAnswerId === "Q4gB" && currentQuestionNumber === 4 ){
 
         userPersonalityAssignment = personalitiesArray[13];
         currentQuestionNumber = 0;
+
+        //Progress Bar display at 100%
+        document.getElementById("bar").style.width = "100%";
 
         //Dispay Personality Results
         displayResults(userPersonalityAssignment);
@@ -815,13 +942,15 @@ $(document).on("click", ".JS-answer-choice", function(){
         console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
-        document.getElementById("bar").style.width = "100%";
     }
 
     if (tempAnswerId === "Q4hA" && currentQuestionNumber === 4 ){
 
         userPersonalityAssignment = personalitiesArray[14];
         currentQuestionNumber = 0;
+
+        //Progress Bar display at 100%
+        document.getElementById("bar").style.width = "100%";
 
         //Dispay Personality Results
         displayResults(userPersonalityAssignment);
@@ -833,13 +962,15 @@ $(document).on("click", ".JS-answer-choice", function(){
         console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
-        document.getElementById("bar").style.width = "100%";
     }
 
     if (tempAnswerId === "Q4hB" && currentQuestionNumber === 4 ){
 
         userPersonalityAssignment = personalitiesArray[15];
         currentQuestionNumber = 0;
+
+        //Progress Bar display at 100%
+        document.getElementById("bar").style.width = "100%";
 
         //Dispay Personality Results
         displayResults(userPersonalityAssignment);
@@ -851,7 +982,7 @@ $(document).on("click", ".JS-answer-choice", function(){
         console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
-        document.getElementById("bar").style.width = "100%";
+        
     }
 
 });
