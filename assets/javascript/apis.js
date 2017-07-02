@@ -95,17 +95,20 @@ function ebay(p) {
     URL += "&paginationInput.entriesPerPage=" + itemLimit;
     $.ajax({
         url: URL,
-        method: "GET"
+        method: "GET",
+        data: {
+            outputSelector : "PictureURLLarge"
+        }
     }).done(function(response) {
         var newresponse = JSON.parse(response);
         console.log(newresponse.findItemsByKeywordsResponse[0].searchResult[0].item);
         for (i = 0; i < newresponse.findItemsByKeywordsResponse[0].searchResult[0].item.length; i++) {
             console.log(newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].title[0]);
             console.log(newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].viewItemURL[0]);
-            console.log(newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].galleryURL[0]);
+            console.log(newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].pictureURLLarge["0"]);
             console.log(newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].sellingStatus["0"].convertedCurrentPrice["0"].__value__);
 
-            document.getElementById("ebay" + i).src = newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].galleryURL[0];
+            document.getElementById("ebay" + i).src = newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].pictureURLLarge["0"];
             document.getElementById("giftURLEbay" + i).href = newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].viewItemURL[0];
             $(".priceItemEbay" + i).html("$" + newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].sellingStatus["0"].convertedCurrentPrice["0"].__value__);
             var details = document.querySelector('.showDetailsEbay' + i);
