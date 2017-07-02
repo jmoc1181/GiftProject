@@ -10,31 +10,43 @@
 //******************************************************************************************
 //<script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
 
+// Initialize Firebase
+var config = {
+    apiKey: "AIzaSyA64v8sLoyVKl8-AXLRw23jllF8t1th0-w",
+  authDomain: "bettergifts-61657.firebaseapp.com",
+  databaseURL: "https://bettergifts-61657.firebaseio.com",
+  projectId: "bettergifts-61657",
+  storageBucket: "bettergifts-61657.appspot.com",
+ messagingSenderId: "68593109442"
+};
+firebase.initializeApp(config);
+
 
 var cats = ["art"];
 
 etsy(cats);
 ebay(cats);
+
+
 //amazon(cats);
 
 //****** ETSY CALL ************************************************************************
 //****** categories= accessories, jewelry, supplies, art, Paper Goods, Housewares, weddings
 //****** tags or keywords for sub categories *******************************************************************************************
 
+//var TEST = ["Accessories", "Cell Phone"];
+//etsy(TEST);
+
 function etsy(p) {
-    // passes 'p' an array of search terms with p[0] being the main category
+    // passes 'p' an array of search terms with p[0] being the main category and p[1] being the keyword
     //tag to search for in category
     var tag = "";
     //category of items to grab
     var category = p[0];
+    var keyword = p[1];
     //number of items to get
     var itemLimit = 8;
-    for (i = 1; i < p.length; i++) {
-        if (i == 1)
-            tag = p[i];
-        else
-            tag += " " + p[i];
-    }
+
     //private etsy api key
     var key = "1sx4uxkv5201v3q6lkmsgqr6";
     //etsy listing api url
@@ -50,7 +62,9 @@ function etsy(p) {
             includes: "MainImage",
             //taxonomy_path: "Jewelry",
             category: category,
-            tags: tag
+            //keywords: "whiskey"
+            keywords: keyword
+            //tags: tag
         }
     }).done(function(response) {
         // add the image to the page, add the price to the page, add the url to the page 
