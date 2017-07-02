@@ -32,7 +32,6 @@ maroon: #8b4d4e;
 }
 
 
-
 .intro-button {
     background: none;
     border: 2px solid #ffffff;
@@ -263,6 +262,7 @@ maroon: #8b4d4e;
 .w-70 {width: 170px;}
 
 .z-index {z-index: 1;}
+
 
 
 @media (max-width: 768px) {

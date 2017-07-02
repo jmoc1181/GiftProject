@@ -306,6 +306,21 @@ var userPersonalityAssignment;
 //
 var currentQuestionNumber = 0;
 //function that takes in a questionID string, displays the corresponding text on the html page, and changes the corresponding html elements' data attribute
+
+function displayResults(personalityObject){
+
+	var personalityDescription = $("<p></p>")
+	personalityDescription.html(personalityObject.description);
+	$("#questionnaire-title").html("Results");
+	$("#description-p").remove();
+	$("#question-div").html(personalityObject.name);
+	$("#answers-row").prepend(personalityDescription);
+	$("#answer-a-div").remove();
+	$("#answer-b-div").remove();
+
+}
+
+
 function nextQuestion(questionId){
     var tempQuestion = eval("questionsObject." + questionId + ".question");
     var tempAnswerA = eval("questionsObject." + questionId + ".answerA.text");
@@ -559,8 +574,8 @@ $(document).on("click", ".JS-answer-choice", function(){
         //Run API Calls
       	runAPICalls(userPersonalityAssignment);
 
-        var buttons = (questionsObject.q4a.answerA.id);
-        console.log(buttons);
+        var buttons = (questionsObject.q4a.answerA.id); 
+        console.log(buttons); 
         localStorage.setItem("choice", JSON.stringify(buttons));
 
         document.getElementById("bar").style.width = "100%";
