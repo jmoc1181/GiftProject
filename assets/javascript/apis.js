@@ -22,9 +22,12 @@ var config = {
 firebase.initializeApp(config);
 
 
-//var cats = ["Accessories"];
-//etsy(cats);
-//ebay(cats);
+var cats = ["art"];
+
+etsy(cats);
+ebay(cats);
+
+
 //amazon(cats);
 
 //****** ETSY CALL ************************************************************************
@@ -91,11 +94,13 @@ function etsy(p) {
 //** response.results["0"].url
 //** response.results["0"].price
 
-
 //****** EBAY CALL *************************************************************************
 //******************************************************************************************
+//******************************************************************************************
+
 function ebay(p) {
-    var URL = "http://svcs.ebay.com/services/search/FindingService/v1";
+    var itemLimit = 8;
+    var URL = "https://svcs.ebay.com/services/search/FindingService/v1";
     URL += "?OPERATION-NAME=findItemsByKeywords";
     URL += "&SERVICE-VERSION=1.0.0";
     URL += "&SECURITY-APPNAME=JordanPe-gifts-PRD-eb7edec1b-39308d8d";
@@ -106,12 +111,24 @@ function ebay(p) {
     URL += "&paginationInput.entriesPerPage=" + itemLimit;
     $.ajax({
         url: URL,
-        method: "GET"
+        method: "GET",
+        data: {
+            outputSelector : "PictureURLLarge"
+        }
     }).done(function(response) {
         var newresponse = JSON.parse(response);
         console.log(newresponse.findItemsByKeywordsResponse[0].searchResult[0].item);
         for (i = 0; i < newresponse.findItemsByKeywordsResponse[0].searchResult[0].item.length; i++) {
             console.log(newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].title[0]);
+            console.log(newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].viewItemURL[0]);
+            console.log(newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].pictureURLLarge["0"]);
+            console.log(newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].sellingStatus["0"].convertedCurrentPrice["0"].__value__);
+
+            document.getElementById("ebay" + i).src = newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].pictureURLLarge["0"];
+            document.getElementById("giftURLEbay" + i).href = newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].viewItemURL[0];
+            $(".priceItemEbay" + i).html("$" + newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].sellingStatus["0"].convertedCurrentPrice["0"].__value__);
+            var details = document.querySelector('.showDetailsEbay' + i);
+            details.setAttribute('data-balloon', newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].title[0] + " - CLICK TO BUY ITEM");
         }
     });
 }
