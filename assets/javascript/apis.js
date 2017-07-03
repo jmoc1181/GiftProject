@@ -22,13 +22,11 @@ var config = {
 firebase.initializeApp(config);
 
 
-var cats = ["art"];
+var cats = ["Housewares"];
 
 etsy(cats);
 ebay(cats);
-
-
-//amazon(cats);
+amazon(cats);
 
 //****** ETSY CALL ************************************************************************
 //****** categories= accessories, jewelry, supplies, art, Paper Goods, Housewares, weddings
@@ -119,11 +117,7 @@ function ebay(p) {
         var newresponse = JSON.parse(response);
         console.log(newresponse.findItemsByKeywordsResponse[0].searchResult[0].item);
         for (i = 0; i < newresponse.findItemsByKeywordsResponse[0].searchResult[0].item.length; i++) {
-            console.log(newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].title[0]);
-            console.log(newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].viewItemURL[0]);
-            console.log(newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].pictureURLLarge["0"]);
-            console.log(newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].sellingStatus["0"].convertedCurrentPrice["0"].__value__);
-
+           
             document.getElementById("ebay" + i).src = newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].pictureURLLarge["0"];
             document.getElementById("giftURLEbay" + i).href = newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].viewItemURL[0];
             $(".priceItemEbay" + i).html("$" + newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].sellingStatus["0"].convertedCurrentPrice["0"].__value__);
