@@ -185,7 +185,7 @@ var personalitiesArray = [
         etsyKeyword: ["Toys", "lawn game"]
     },
     {
-        key: "Q1aAQ2aAQ3aAQ4aB",
+        key: "Q1aAQ2aAQ3aAQ4bA",
         name: "The Creator",
         description: "The Creator marches to the beat of their own drum, and everyone else stops to listen — give them a gift that will help them express themselves for all to hear.",
         amazonKeyword: ["Musical Instruments"],
@@ -273,7 +273,7 @@ var personalitiesArray = [
         etsyKeyword: ["Accessories", "travel"]
     },
     {
-        key: "Q1aBQ2bBQ3dAQ4gA",
+        key: "Q1aBQ2bBQ3dAQ4gB",
         name: "The Monarch",
         description: "Colorful and confident, the Monarch appreciates the finer things and life — give them a gift that reflects their refined sense of style.",
         amazonKeyword: ["Jewelry"],
@@ -306,6 +306,21 @@ var userPersonalityAssignment;
 //
 var currentQuestionNumber = 0;
 //function that takes in a questionID string, displays the corresponding text on the html page, and changes the corresponding html elements' data attribute
+
+function displayResults(personalityObject){
+
+	var personalityDescription = $("<p></p>")
+	personalityDescription.html(personalityObject.description);
+	$("#questionnaire-title").html("Results");
+	$("#description-p").remove();
+	$("#question-div").html(personalityObject.name);
+	$("#answers-row").prepend(personalityDescription);
+	$("#answer-a-div").remove();
+	$("#answer-b-div").remove();
+
+}
+
+
 function nextQuestion(questionId){
     var tempQuestion = eval("questionsObject." + questionId + ".question");
     var tempAnswerA = eval("questionsObject." + questionId + ".answerA.text");
@@ -559,8 +574,8 @@ $(document).on("click", ".JS-answer-choice", function(){
         //Run API Calls
       	runAPICalls(userPersonalityAssignment);
 
-        var buttons = (questionsObject.q4a.answerA.id);
-        console.log(buttons);
+        var buttons = (questionsObject.q4a.answerA.id); 
+        console.log(buttons); 
         localStorage.setItem("choice", JSON.stringify(buttons));
 
         document.getElementById("bar").style.width = "100%";

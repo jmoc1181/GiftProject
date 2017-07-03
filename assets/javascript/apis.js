@@ -10,31 +10,43 @@
 //******************************************************************************************
 //<script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
 
+// Initialize Firebase
+var config = {
+    apiKey: "AIzaSyA64v8sLoyVKl8-AXLRw23jllF8t1th0-w",
+  authDomain: "bettergifts-61657.firebaseapp.com",
+  databaseURL: "https://bettergifts-61657.firebaseio.com",
+  projectId: "bettergifts-61657",
+  storageBucket: "bettergifts-61657.appspot.com",
+ messagingSenderId: "68593109442"
+};
+firebase.initializeApp(config);
 
-var cats = ["Jewelry", "Ring"];
+
+var cats = ["art"];
 
 etsy(cats);
-//ebay(cats);
+ebay(cats);
+
+
 //amazon(cats);
 
 //****** ETSY CALL ************************************************************************
 //****** categories= accessories, jewelry, supplies, art, Paper Goods, Housewares, weddings
 //****** tags or keywords for sub categories *******************************************************************************************
 
+//var TEST = ["Accessories", "Cell Phone"];
+//etsy(TEST);
+
 function etsy(p) {
-    // passes 'p' an array of search terms with p[0] being the main category
+    // passes 'p' an array of search terms with p[0] being the main category and p[1] being the keyword
     //tag to search for in category
     var tag = "";
     //category of items to grab
     var category = p[0];
+    var keyword = p[1];
     //number of items to get
     var itemLimit = 8;
-    for (i = 1; i < p.length; i++) {
-        if (i == 1)
-            tag = p[i];
-        else
-            tag += " " + p[i];
-    }
+
     //private etsy api key
     var key = "1sx4uxkv5201v3q6lkmsgqr6";
     //etsy listing api url
@@ -50,7 +62,9 @@ function etsy(p) {
             includes: "MainImage",
             //taxonomy_path: "Jewelry",
             category: category,
-            tags: tag
+            //keywords: "whiskey"
+            keywords: keyword
+            //tags: tag
         }
     }).done(function(response) {
         // add the image to the page, add the price to the page, add the url to the page 
@@ -80,11 +94,13 @@ function etsy(p) {
 //** response.results["0"].url
 //** response.results["0"].price
 
-
 //****** EBAY CALL *************************************************************************
 //******************************************************************************************
+//******************************************************************************************
+
 function ebay(p) {
-    var URL = "http://svcs.ebay.com/services/search/FindingService/v1";
+    var itemLimit = 8;
+    var URL = "https://svcs.ebay.com/services/search/FindingService/v1";
     URL += "?OPERATION-NAME=findItemsByKeywords";
     URL += "&SERVICE-VERSION=1.0.0";
     URL += "&SECURITY-APPNAME=JordanPe-gifts-PRD-eb7edec1b-39308d8d";
@@ -95,12 +111,24 @@ function ebay(p) {
     URL += "&paginationInput.entriesPerPage=" + itemLimit;
     $.ajax({
         url: URL,
-        method: "GET"
+        method: "GET",
+        data: {
+            outputSelector : "PictureURLLarge"
+        }
     }).done(function(response) {
         var newresponse = JSON.parse(response);
         console.log(newresponse.findItemsByKeywordsResponse[0].searchResult[0].item);
         for (i = 0; i < newresponse.findItemsByKeywordsResponse[0].searchResult[0].item.length; i++) {
             console.log(newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].title[0]);
+            console.log(newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].viewItemURL[0]);
+            console.log(newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].pictureURLLarge["0"]);
+            console.log(newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].sellingStatus["0"].convertedCurrentPrice["0"].__value__);
+
+            document.getElementById("ebay" + i).src = newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].pictureURLLarge["0"];
+            document.getElementById("giftURLEbay" + i).href = newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].viewItemURL[0];
+            $(".priceItemEbay" + i).html("$" + newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].sellingStatus["0"].convertedCurrentPrice["0"].__value__);
+            var details = document.querySelector('.showDetailsEbay' + i);
+            details.setAttribute('data-balloon', newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].title[0] + " - CLICK TO BUY ITEM");
         }
     });
 }

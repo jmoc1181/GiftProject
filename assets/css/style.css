@@ -32,11 +32,6 @@ maroon: #8b4d4e;
 }
 
 
-.flickity-page-dots{ 
-    margin-bottom: -30px;
- }
-
-
 .intro-button {
     background: none;
     border: 2px solid #ffffff;
@@ -155,33 +150,6 @@ maroon: #8b4d4e;
     position: fixed;
 }
 
-.gallery {
-  background: #EEE;
-}
-
-.gallery-cell {
-  width: 20%;
-  height: 250px;
-  margin-right: 10px;
-  background: #b0ccbd ;
-  counter-increment: gallery-cell;
-  opacity: .3;
-}
-
-.gallery-cell.is-selected {
-  background: black;
-  opacity: 1;
-}
-
-/* cell number */
-.gallery-cell:before {
-  display: block;
-  text-align: center;
-  content: counter(gallery-cell);
-  line-height: 200px;
-  font-size: 80px;
-  color: white;
-}
 
 
 
@@ -296,6 +264,7 @@ maroon: #8b4d4e;
 .z-index {z-index: 1;}
 
 
+
 @media (max-width: 768px) {
 	.mm-w-125 {width: 125px;}
   }
@@ -327,6 +296,14 @@ maroon: #8b4d4e;
     background: #FFF;
 }
 .col-item .photo img
+{
+    margin: 0 auto;
+    width: 350px;
+    height: 350px;
+}
+
+
+.col-item .photoEbay img
 {
     margin: 0 auto;
     width: 350px;
@@ -439,3 +416,4 @@ a:hover.btn {
   align-content: center;
 
 }
+
