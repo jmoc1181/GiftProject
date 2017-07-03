@@ -306,83 +306,99 @@ var holidaysArray = [
 
 	{
         key: "h00",
-        name: "The Mover",
-        description: "The Mover has a spark for life and a passion for action & adventure they can barely contain — give them a gift to help burn off some of that extra energy.",
-        amazonKeyword: ["Sporting Goods"],
-        ebayKeyword: ["Sports equipment"],
-        etsyKeyword: ["Clothing", "exercise"]
+        name: "Your Special Anniversary",
+        description: "",
+        amazonKeyword: [""],
+        ebayKeyword: [""],
+        etsyKeyword: ["", ""]
     },
     {
         key: "h01",
-        name: "The Labrador Retriever",
-        description: "The Labrador Retriever loves their friends, their family, and bright summer days — give them a gift that doubles as the perfect excuse for an afternoon at the park.",
-        amazonKeyword: ["Lawn Games"],
-        ebayKeyword: ["Lawn Games"],
-        etsyKeyword: ["Toys", "lawn game"]
+        name: "Your Loved One's Baby Shower",
+        description: "",
+        amazonKeyword: [""],
+        ebayKeyword: [""],
+        etsyKeyword: ["", ""]
     },
     {
         key: "h02",
-        name: "The Creator",
-        description: "The Creator marches to the beat of their own drum, and everyone else stops to listen — give them a gift that will help them express themselves for all to hear.",
-        amazonKeyword: ["Musical Instruments"],
-        ebayKeyword: ["Musical Instruments"],
-        etsyKeyword: ["Music", "instrument"]
+        name: "Your Loved One's Birthday",
+        description: "",
+        amazonKeyword: [""],
+        ebayKeyword: [""],
+        etsyKeyword: ["", ""]
     },
     {
         key: "h03",
-        name: "The Instigator",
-        description: "The Instigator is great at thinking on their feet in social situations, sometimes for good and sometimes for bad — give them a gift to help them flex their social muscle.",
-        amazonKeyword: ["Board Games"],
-        ebayKeyword: ["Board Games"],
-        etsyKeyword: ["Toys", "board game"]
+        name: "Christmas",
+        description: "&#39;Tis the season for generosity, joy, and — give a gift that will help keep your recipient in the holiday spirit.",
+        amazonKeyword: [""],
+        ebayKeyword: [""],
+        etsyKeyword: ["", ""]
     },
     {
         key: "h04",
-        name: "The Trendsetter",
-        description: "The Trendsetter is the life of the party and the center of attention wherever they go — give them a gift that will leave everyone in the room wanting to copy their look.",
-        amazonKeyword: ["Fashion Accessories"],
-        ebayKeyword: ["Clothing Accessories"],
-        etsyKeyword: ["Clothing", "elegant"]
+        name: "Expressing Condolences",
+        description: "",
+        amazonKeyword: [""],
+        ebayKeyword: [""],
+        etsyKeyword: ["", ""]
     },
     {
         key: "h05",
-        name: "The Entertainer",
-        description: "Friendly, outgoing, and inviting, the Entertainer's home is your home — give them a gift that will help them take their next dinner party to the next level.",
-        amazonKeyword: ["Kitchen tools"],
-        ebayKeyword: ["Kitchen gadget"],
-        etsyKeyword: ["Housewares", "kitchen"]
+        name: "Father's Day",
+        description: "He raised you and made you the person you are today — give your dad a gift that shows him he's on your mind this Father's Day.",
+        amazonKeyword: [""],
+        ebayKeyword: [""],
+        etsyKeyword: ["", ""]
     },
     {
         key: "h06",
-        name: "The Inner Child",
-        description: "Young or old, the Inner Child appreciates novelty — give them a gift that will keep their youthful mind entertained.",
-        amazonKeyword: ["Stuffed Animals"],
-        ebayKeyword: ["retro toy"],
-        etsyKeyword: ["toys", "vintage"]
+        name: "Your Loved One's Graduation",
+        description: "Big new things are on the horizon for your grad — give them a gift that will help them reach their next step.",
+        amazonKeyword: [""],
+        ebayKeyword: [""],
+        etsyKeyword: ["", ""]
     },
     {
-        key: "Qh07",
-        name: "The Nester",
-        description: "Warm and kindhearted, the Nester likes to make sure everyone around them feels comfy and cozy — give them a gift that will do half the work for them.",
-        amazonKeyword: ["Home decor"],
-        ebayKeyword: ["decorative piece"],
-        etsyKeyword: ["Art", "decor"]
+        key: "h07",
+        name: "Hannukah",
+        description: "",
+        amazonKeyword: [""],
+        ebayKeyword: [""],
+        etsyKeyword: ["", ""]
     },
     {
         key: "h08",
-        name: "The Executive",
-        description: "A real go-getter, the Executive is always planning their next big move — give them a gift to help keep track of all their exciting venture.",
-        amazonKeyword: ["Office Supplies"],
-        ebayKeyword: ["Office Supplies"],
-        etsyKeyword: ["Supplies", "planner"]
+        name: "House Warming",
+        description: "In this time of new beginnings and empty walls, give a gift that helps make a house a home.",
+        amazonKeyword: ["Furniture"],
+        ebayKeyword: ["Kitchen gadget"],
+        etsyKeyword: ["Art", "decor"]
     },
     {
         key: "h09",
-        name: "The Butterfly",
-        description: "Always on the move, the Butterfly loves to share their life with friends near and far— give them a gift that will add some style to their next social media update.",
-        amazonKeyword: ["Mobile Accessories"],
-        ebayKeyword: ["Mobile Accessories"],
-        etsyKeyword: ["Accessories", "Cell Phone"]
+        name: "Mother's Day",
+        description: "She raised you and made you who you are today — give your mom something to help show her she's on your mind this season.",
+        amazonKeyword: [""],
+        ebayKeyword: [""],
+        etsyKeyword: ["", ""]
+    },
+    {
+        key: "h10",
+        name: "Valentine's Day",
+        description: "Love is in the air — give your special someone a gift to help express your feelings when words are not enough.",
+        amazonKeyword: [""],
+        ebayKeyword: [""],
+        etsyKeyword: ["", ""]
+    },
+    {
+        key: "h11",
+        name: "Celebrating a Wedding",
+        description: "",
+        amazonKeyword: [""],
+        ebayKeyword: [""],
+        etsyKeyword: ["", ""]
     },
     
 ];
@@ -399,8 +415,8 @@ function displayResults(personalityObject){
 
 	var personalityDescription = $("<p></p>")
 	personalityDescription.html(personalityObject.description);
-	$("#questionnaire-title").html("Results");
-	$("#description-p").remove();
+	$("#questionnaire-header-title").html("Gifts for " + personalityObject.name);
+	$("#duestionnaire-header-description").html("");
 	$("#question-div").html(personalityObject.name);
 	$("#answers-row").prepend(personalityDescription);
 	$("#answer-a-div").remove();
@@ -435,42 +451,69 @@ function runAPICalls(personalityobject){
 /*============================================================================================
 ==============================================================================================*/
 
-//User sees question 1
-nextQuestion("q1a");
-currentQuestionNumber++;
+function loadQuestion1() {
 
+	//User sees question 1
+	nextQuestion("q1a");
+	currentQuestionNumber = 0;
+	currentQuestionNumber++;
+	$("#questionnaire-header-title").html("Questionnaire");
+	$("#questionnaire-header-description").html("Narrow down your options by answering the following questions about the gift receiver.");
+
+}
+
+function clearResults(){
+
+	//remove old buttons
+    $("#answer-a-div").remove();
+	$("#answer-b-div").remove();
+	$("#questionnaire-header-title").html("");
+	$("#questionnaire-header-description").html("");
+	$("#answers-row").html("");
+
+}
 
 function reload() {
     document.getElementById("bar").style.width = "0%";
-
-    //remove old buttons
-    $("#answer-a-div").remove();
-	$("#answer-b-div").remove();
+    clearResults();
 
     //recreate buttons and print them to the page
+    var newContainerA = $("<div id='answer-a-container' class='col-md-6 col-sm-12 pad-10-20'></div>");
+    var newContainerB = $("<div id='answer-b-container' class='col-md-6 col-sm-12 pad-10-20'></div>");
     var newButtonA = $("<div id='answer-a-div' data-answerId='null' class='JS-answer-choice question-button'></div>");
-    $("#answer-a-container").html(newButtonA);
     var newButtonB = $("<div id='answer-b-div' data-answerId='null' class='JS-answer-choice question-button'></div>");
-    $("#answer-b-container").html(newButtonB);
-
-    //Load first Question
-    nextQuestion("q1a");
-    currentQuestionNumber = 0;
-    currentQuestionNumber++;
+    newContainerA.append(newButtonA);
+    newContainerB.append(newButtonB);
+	$("#answers-row").append(newContainerA);
+	$("#answers-row").append(newContainerB);
+    loadQuestion1();
 }
 
+//Initialize Personality Quiz
+loadQuestion1();
 
+//Display gift options when a user clicks on a holiday button
+$(document).on("click", ".JS-holiday-button", function(){
 
+	var holidayID = parseInt(this.id.slice(-2), 10);
+	clearResults();
+	displayResults(holidaysArray[holidayID]);
+
+});
+
+//Update progress bar, and display either next question or results when the user clicks on an answer choice in the personality quiz panel
 $(document).on("click", ".JS-answer-choice", function(){
 
     var tempAnswerId = $(this).data("answerId");
 
     if ( userPersonalityKey.length < 16 ){
-
         userPersonalityKey = userPersonalityKey+tempAnswerId;
     }
 
-    //User sees Question 2
+    /*
+    <===================================================================================================>
+    User sees Question 2
+    */
     if (tempAnswerId === "Q1aA"){
 
         nextQuestion("q2a");
@@ -499,7 +542,10 @@ $(document).on("click", ".JS-answer-choice", function(){
 
     }
 
-    //User sees Question 3
+    /*
+    <===================================================================================================>
+    User sees Question 3
+    */
     else if (tempAnswerId === "Q2aA"){
 
         nextQuestion("q3a");
@@ -555,7 +601,10 @@ $(document).on("click", ".JS-answer-choice", function(){
 
     }
 
-    //USer sees Question 4
+    /*
+    <===================================================================================================>
+    User sees Question 4
+    */
     else if (tempAnswerId === "Q3aA"){
 
         nextQuestion("q4a");
@@ -662,7 +711,10 @@ $(document).on("click", ".JS-answer-choice", function(){
 
     }
 
-    //User sees their final personality page
+    /*
+    <===================================================================================================>
+    User sees their final personality page
+    */
     if (tempAnswerId === "Q4aA" && currentQuestionNumber === 4 ){
 
         userPersonalityAssignment = personalitiesArray[0];
