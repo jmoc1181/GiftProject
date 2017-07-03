@@ -96,9 +96,11 @@ function etsy(p) {
 
 //****** EBAY CALL *************************************************************************
 //******************************************************************************************
+//******************************************************************************************
+
 function ebay(p) {
     var itemLimit = 8;
-    var URL = "http://svcs.ebay.com/services/search/FindingService/v1";
+    var URL = "https://svcs.ebay.com/services/search/FindingService/v1";
     URL += "?OPERATION-NAME=findItemsByKeywords";
     URL += "&SERVICE-VERSION=1.0.0";
     URL += "&SECURITY-APPNAME=JordanPe-gifts-PRD-eb7edec1b-39308d8d";
