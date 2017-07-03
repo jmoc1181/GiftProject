@@ -22,10 +22,8 @@ var config = {
 firebase.initializeApp(config);
 
 
-var cats = ["art"];
-
+var cats = ["Everything Else", "sympathy"];
 etsy(cats);
-ebay(cats);
 
 
 //amazon(cats);
@@ -73,6 +71,9 @@ function etsy(p) {
             document.getElementById("etsy" + i).src = response.results[i].MainImage.url_570xN;
             //url
             document.getElementById("giftURL" + i).href = response.results[i].url;
+
+    console.log("URL: " + response.results[i].url);
+
             //price
             if (response.results[i].price == null)
                 document.getElementById("priceItem" + i).text = 'go to site';
@@ -141,6 +142,8 @@ function amazon(p) {
     //HMAC SHA256 HASH signature of url + secret key
     var signature = "";
     var awssecret = "PULL FROM FIREBASE";
+
+    var itemLimit = 8;
 
     var signature = createHash(createURL(p, true), awssecret);
     var URL = createURL(p, false);

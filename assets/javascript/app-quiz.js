@@ -307,66 +307,65 @@ var holidaysArray = [
 	{
         key: "h00",
         name: "Your Special Anniversary",
-        description: "",
-        amazonKeyword: [""],
+        description: "Whether you've been together for 1 year or 100, give your partner-in-crime a gift to help express the way you still feel about them.",
+        amazonKeyword: ["anniversary gift"],
         ebayKeyword: [""],
-        etsyKeyword: ["", ""]
+        etsyKeyword: ["Art", "Anniversary"]
     },
     {
         key: "h01",
         name: "Your Loved One's Baby Shower",
-        description: "",
-        amazonKeyword: [""],
+        description: "Give your loved on a gift to help prepare them for their little bundle of joy.",
+        amazonKeyword: ["parenting book"],
         ebayKeyword: [""],
-        etsyKeyword: ["", ""]
+        etsyKeyword: ["Housewares", "Baby Shower"]
     },
     {
         key: "h02",
         name: "Your Loved One's Birthday",
-        description: "",
-        amazonKeyword: [""],
+        description: "Another year older, another year wiser — give a gift that will help them mark the occasion, reach their nex milestone, and ",
+        amazonKeyword: ["birthday journal"],
         ebayKeyword: [""],
-        etsyKeyword: ["", ""]
+        etsyKeyword: ["Art", "Birthday"]
     },
     {
         key: "h03",
         name: "Christmas",
-        description: "&#39;Tis the season for generosity, joy, and — give a gift that will help keep your recipient in the holiday spirit.",
-        amazonKeyword: [""],
+        description: "&#39;Tis the season for generosity, joy, and egg nog — give a gift that will help keep your recipient in the holiday spirit.",
+        amazonKeyword: ["christmas decor"],
         ebayKeyword: [""],
-        etsyKeyword: ["", ""]
+        etsyKeyword: ["Housewares", "Christmas decoration"]
     },
     {
         key: "h04",
         name: "Expressing Condolences",
-        description: "",
-        amazonKeyword: [""],
+        description: ["grieving book"],
         ebayKeyword: [""],
-        etsyKeyword: ["", ""]
+        etsyKeyword: ["Everything Else", "sympathy"]
     },
     {
         key: "h05",
         name: "Father's Day",
         description: "He raised you and made you the person you are today — give your dad a gift that shows him he's on your mind this Father's Day.",
-        amazonKeyword: [""],
+        amazonKeyword: ["thanks dad"],
         ebayKeyword: [""],
-        etsyKeyword: ["", ""]
+        etsyKeyword: ["Books and zines", "fatherhood"]
     },
     {
         key: "h06",
         name: "Your Loved One's Graduation",
-        description: "Big new things are on the horizon for your grad — give them a gift that will help them reach their next step.",
-        amazonKeyword: [""],
+        description: "Big new things are on the horizon for your grad — give them a gift that will help them remember the good times and reach their next step.",
+        amazonKeyword: ["tablet"],
         ebayKeyword: [""],
-        etsyKeyword: ["", ""]
+        etsyKeyword: ["housewares", "photo frame"]
     },
     {
         key: "h07",
         name: "Hannukah",
         description: "",
-        amazonKeyword: [""],
+        amazonKeyword:["channukah gift wrap"],
         ebayKeyword: [""],
-        etsyKeyword: ["", ""]
+        etsyKeyword: ["Housewares", "Hannukah"]
     },
     {
         key: "h08",
@@ -379,26 +378,26 @@ var holidaysArray = [
     {
         key: "h09",
         name: "Mother's Day",
-        description: "She raised you and made you who you are today — give your mom something to help show her she's on your mind this season.",
-        amazonKeyword: [""],
+        description: "Whether you're celebrating your mom or another special mother in your life, give a gift to help show her she's on your mind this season.",
+        amazonKeyword: ["Motherhood book"],
         ebayKeyword: [""],
-        etsyKeyword: ["", ""]
+        etsyKeyword: ["art", "mother's day"]
     },
     {
         key: "h10",
         name: "Valentine's Day",
         description: "Love is in the air — give your special someone a gift to help express your feelings when words are not enough.",
-        amazonKeyword: [""],
+        amazonKeyword: ["romantic gift"],
         ebayKeyword: [""],
-        etsyKeyword: ["", ""]
+        etsyKeyword: ["Vintage", "Valentine's Day"]
     },
     {
         key: "h11",
         name: "Celebrating a Wedding",
-        description: "",
-        amazonKeyword: [""],
+        description: "On this joyous day, give the happy couple a gift to help them celebrate and start their new journey together.",
+        amazonKeyword: ["home appliance"],
         ebayKeyword: [""],
-        etsyKeyword: ["", ""]
+        etsyKeyword: ["Housewares", "Wedding"]
     },
     
 ];
