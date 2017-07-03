@@ -22,10 +22,9 @@ var config = {
 firebase.initializeApp(config);
 
 
-var cats = ["Everything Else", "sympathy"];
-etsy(cats);
-
-
+//var cats = ["couples gift set"];
+//etsy(cats);
+//ebay(cats);
 //amazon(cats);
 
 //****** ETSY CALL ************************************************************************
@@ -71,8 +70,6 @@ function etsy(p) {
             document.getElementById("etsy" + i).src = response.results[i].MainImage.url_570xN;
             //url
             document.getElementById("giftURL" + i).href = response.results[i].url;
-
-    console.log("URL: " + response.results[i].url);
 
             //price
             if (response.results[i].price == null)
@@ -122,9 +119,8 @@ function ebay(p) {
         for (i = 0; i < newresponse.findItemsByKeywordsResponse[0].searchResult[0].item.length; i++) {
             console.log(newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].title[0]);
             console.log(newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].viewItemURL[0]);
-            console.log(newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].pictureURLLarge["0"]);
-            console.log(newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].sellingStatus["0"].convertedCurrentPrice["0"].__value__);
-
+            //console.log(newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].pictureURLLarge["0"]);
+            //console.log(newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].sellingStatus["0"].convertedCurrentPrice["0"].__value__);
             document.getElementById("ebay" + i).src = newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].pictureURLLarge["0"];
             document.getElementById("giftURLEbay" + i).href = newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].viewItemURL[0];
             $(".priceItemEbay" + i).html("$" + newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].sellingStatus["0"].convertedCurrentPrice["0"].__value__);

@@ -388,7 +388,7 @@ var holidaysArray = [
         name: "Valentine's Day",
         description: "Love is in the air — give your special someone a gift to help express your feelings when words are not enough.",
         amazonKeyword: ["romantic gift"],
-        ebayKeyword: [""],
+        ebayKeyword: ["couples gift set"],
         etsyKeyword: ["Vintage", "Valentine's Day"]
     },
     {
