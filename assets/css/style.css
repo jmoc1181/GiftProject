@@ -11,11 +11,11 @@ maroon: #8b4d4e;
 
 
 .btn { 
-	background-color: #8B4D4E;
-	width: 150px;
-	border-width: 1px;
-	border-style: solid;
-	border-color: #8B4D4E;
+  background-color: #8B4D4E;
+  width: 150px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #8B4D4E;
   height: 35px;
   color: white;
 }
@@ -51,28 +51,28 @@ maroon: #8b4d4e;
 }
 
 .intro-img {
-	display: table;
-	width: 100%;
-	height: 100vh;
-	background: url(../images/flower-background.jpg) top center fixed;
-	background-size: cover;
-	padding: 0;
-	margin: 0;
+  display: table;
+  width: 100%;
+  height: 100vh;
+  background: url(../images/flower-background.jpg) top center fixed;
+  background-size: cover;
+  padding: 0 !important;
+  margin: 0;
 }
 
 .JS-answer-choice { 
-	font-family: 'Muli', sans-serif;
-	font-size: 20px;
-	text-align: center;
+  font-family: 'Muli', sans-serif;
+  font-size: 20px;
+  text-align: center;
  }
 
 .menu {
-	color: #ffffff;
-	font-family: 'Muli', sans-serif;
+  color: #ffffff;
+  font-family: 'Muli', sans-serif;
 }
 
 .navbar {
-	color: #ffffff;
+  color: #ffffff;
 }
 
 .navbar .navbar-default > li > a {
@@ -81,12 +81,12 @@ maroon: #8b4d4e;
 }
 
 .navbar-default {
-	color: #ffffff;
+  color: #ffffff;
 }
 
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
-	background-color: #b0ccbd !important;
-	color: #ffffff !important;
+  background-color: #b0ccbd !important;
+  color: #ffffff !important;
 }
 
 .nav-menu-ul {
@@ -103,22 +103,22 @@ maroon: #8b4d4e;
 }
 
 .progress-bar { 
-	background-color: #8b4d4e;
-	height: 10px;
+  background-color: #8b4d4e;
+  height: 10px;
 }
 
 .progress { 
-	height: 10px;
-	margin-top: 10px;
+  height: 10px;
+  margin-top: 10px;
 }
 
 .quest-img {
-	display: table;
-	width: 100%;
-	background: url(../images/questionnaire-background.jpg) center fixed;
-	background-size: cover;
-	padding: 0;
-	margin: 0;
+  display: table;
+  width: 100%;
+  background: url(../images/questionnaire-background.jpg) center fixed;
+  background-size: cover;
+  padding: 0;
+  margin: 0;
 }
 
 .question-button {
@@ -136,13 +136,13 @@ maroon: #8b4d4e;
 }
 
 .questionHeader { 
-	font-family: 'Muli', sans-serif;
-	font-size: 30px;
-	margin-bottom: 10px;
+  font-family: 'Muli', sans-serif;
+  font-size: 30px;
+  margin-bottom: 10px;
  }
 
  .startOver { 
-	font-family: 'Muli', sans-serif;
+  font-family: 'Muli', sans-serif;
  }
 
 .sticky {
@@ -239,6 +239,8 @@ maroon: #8b4d4e;
 .pad-20 {padding: 20px;}
 .pad-30 {padding: 30px;}
 .pad-60 {padding: 60px;}
+.pad-20-0-5-0 {padding: 20px 0 5px 0;}
+.pad-40-0-5-0 {padding: 40px 0 5px 0;}
 .pad-30-60 {padding: 30px 60px;}
 .pad-8-20 {padding: 8px 20px;}
 .pad-10-20 {padding: 10px 20px;}
@@ -265,53 +267,33 @@ maroon: #8b4d4e;
 
 
 
-@media (max-width: 768px) {
-	.mm-w-125 {width: 125px;}
-  }
-
-@media (max-width: 640px) {
-	.ms-float-0 {float: none;}
-	.ms-fs-35 {font-size: 35px;}
-	.ms-marg-30 {margin: 30px;}
-	.ms-marg-0-0-20-0 {margin: 0 auto 20px auto;}
-	.ms-pad-30 {padding: 30px;}
-	.ms-txt-algn-cntr {text-align: center;}
-	.ms-w-70pct {width: 70%;}
-	.ms-w-100pct {width: 100%;}
-	.ms-w-100 {width: 100px;}
-  }
 
 
+/***** GALLERY STYLES *****/
+
+@import url(http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css);
 
 
-
-
-  @import url(http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css);
-
-
-.col-item
-{
+.col-item {
     border: 1px solid #E1E1E1;
     border-radius: 5px;
     background: #FFF;
 }
-.col-item .photo img
-{
+  .col-item .photo img {
     margin: 0 auto;
     width: 350px;
     height: 350px;
 }
 
 
-.col-item .photoEbay img
-{
+.col-item .photoEbay img {
     margin: 0 auto;
     width: 350px;
     height: 350px;
 }
 
-.col-item .info
-{
+
+.col-item .info {
     padding: 10px;
     border-radius: 0 0 5px 5px;
     margin-top: 1px;
@@ -320,76 +302,70 @@ maroon: #8b4d4e;
 .col-item:hover .info {
     background-color: #f9f9f9;
 }
-.col-item .price
-{
+
+.col-item .price {
     /*width: 50%;*/
     float: left;
     margin-top: 5px;
+    text-align: center;
 }
 
-.col-item .price h5
-{
+.col-item .price h5 {
     line-height: 20px;
     margin: 0;
+    text-align: center;
 }
+
 
 .price { 
   text-align: center;
  }
 
-.price-text-color
-{
+.price-text-color {
     color: #219FD1;
+    text-align: center;
 }
 
-.col-item .info .rating
-{
+.col-item .info .rating {
     color: #777;
 }
 
-.col-item .separator
-{
+.col-item .separator {
     border-top: 1px solid #E1E1E1;
 }
 
-.clear-left
-{
+.clear-left {
     clear: left;
 }
 
-.col-item .separator p
-{
+.col-item .separator p {
     line-height: 20px;
     margin-bottom: 0;
     margin-top: 10px;
     text-align: center;
 }
 
-.col-item .separator p i
-{
+.col-item .separator p i {
     margin-right: 5px;
 }
-.col-item .btn-add
-{
+
+.col-item .btn-add {
     width: 50%;
     float: left;
 }
 
-.col-item .btn-add
-{
+.col-item .btn-add {
     border-right: 1px solid #E1E1E1;
 }
 
-.controls
-{
+.controls {
     margin-top: 20px;
     text-align: center;
     margin-bottom: 20px;
-
 }
 
-[data-slide="prev"]
-{
+
+[data-slide="prev"] {
     margin-right: 10px;
 }
 
@@ -406,13 +382,84 @@ a.details {
  }
 
 a:hover.btn { 
-  color: #8B4D4E;
-
+    color: #ffffff;
+    background-color: #a95e5f;
  }
 
 .detailButton {
   color: #8B4D4E;
   text-align: center;
   align-content: center;
+}
 
+.btn-circle {
+  width: 49px;
+  height: 49px;
+  text-align: center;
+  padding: 5px 0;
+  font-size: 20px;
+  line-height: 2.00;
+  border-radius: 30px;
+}
+
+
+@media screen and (max-width: 1200px) {
+  .mm-w-125 {width: 125px;}
+
+
+  .col-item .photo img {
+    margin: 0 auto;
+    width: 250px;
+    height: 250px;
+}
+
+.col-item .photoEbay img {
+    margin: 0 auto;
+    width: 250px;
+    height: 250px;
+}
+}
+
+
+@media screen and (max-width: 768px) {
+  .mm-w-125 {width: 125px;}
+
+
+  .col-item .photo img {
+    margin: 0 auto;
+    width: 250px;
+    height: 250px;
+}
+
+.col-item .photoEbay img {
+    margin: 0 auto;
+    width: 250px;
+    height: 250px;
+}
+}
+
+
+@media screen and  (max-width: 640px) {
+  .ms-float-0 {float: none;}
+  .ms-fs-35 {font-size: 35px;}
+  .ms-marg-30 {margin: 30px;}
+  .ms-marg-0-0-20-0 {margin: 0 auto 20px auto;}
+  .ms-pad-30 {padding: 30px;}
+  .ms-txt-algn-cntr {text-align: center;}
+  .ms-w-70pct {width: 70%;}
+  .ms-w-100pct {width: 100%;}
+  .ms-w-100 {width: 100px;}
+
+  .col-item .photo img {
+    margin: 0 auto;
+    width: 150px;
+    height: 150px;
+}
+
+
+  .col-item .photoEbay img {
+    margin: 0 auto;
+    width: 150px;
+    height: 150px;
+}
 }
