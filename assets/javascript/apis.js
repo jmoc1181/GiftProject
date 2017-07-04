@@ -22,11 +22,13 @@
 firebase.initializeApp(config);*/
 
 
+
 //var cats = ["Books"];
 
 //etsy(cats);
 //ebay(cats);
 //amazon(cats);
+
 
 //****** ETSY CALL ************************************************************************
 //****** categories= accessories, jewelry, supplies, art, Paper Goods, Housewares, weddings
@@ -71,6 +73,7 @@ function etsy(p) {
             document.getElementById("etsy" + i).src = response.results[i].MainImage.url_570xN;
             //url
             document.getElementById("giftURL" + i).href = response.results[i].url;
+
             //price
             if (response.results[i].price == null)
                 document.getElementById("priceItem" + i).text = 'go to site';
@@ -117,7 +120,6 @@ function ebay(p) {
         var newresponse = JSON.parse(response);
         console.log(newresponse.findItemsByKeywordsResponse[0].searchResult[0].item);
         for (i = 0; i < newresponse.findItemsByKeywordsResponse[0].searchResult[0].item.length; i++) {
-           
             document.getElementById("ebay" + i).src = newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].pictureURLLarge["0"];
             document.getElementById("giftURLEbay" + i).href = newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].viewItemURL[0];
             $(".priceItemEbay" + i).html("$" + newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].sellingStatus["0"].convertedCurrentPrice["0"].__value__);
@@ -134,6 +136,7 @@ function ebay(p) {
 function amazon(p) {
     //HMAC SHA256 HASH signature of url + secret key
     var signature = "";
+
     //amazon Category
     //var index = p[0];
     //index = index[0].toUpperCase() + index.slice(1);
@@ -197,6 +200,7 @@ function amazon(p) {
             }); //end getDB(3)
         }); // end getDB(2)
     }); // end getDB(1)
+
 }
 //******* END AMAZON API **********************************************************************
 //*********************************************************************************************
