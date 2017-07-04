@@ -11,7 +11,7 @@
 //<script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
 
 // Initialize Firebase
-var config = {
+/*var config = {
     apiKey: "AIzaSyA64v8sLoyVKl8-AXLRw23jllF8t1th0-w",
   authDomain: "bettergifts-61657.firebaseapp.com",
   databaseURL: "https://bettergifts-61657.firebaseio.com",
@@ -19,14 +19,15 @@ var config = {
   storageBucket: "bettergifts-61657.appspot.com",
  messagingSenderId: "68593109442"
 };
-firebase.initializeApp(config);
+firebase.initializeApp(config);*/
 
 
-//var cats = ["couples gift set"];
+
+//var cats = ["Books"];
+
 //etsy(cats);
 //ebay(cats);
 //amazon(cats);
-
 
 
 //****** ETSY CALL ************************************************************************
@@ -135,43 +136,70 @@ function ebay(p) {
 function amazon(p) {
     //HMAC SHA256 HASH signature of url + secret key
     var signature = "";
-    var awssecret = "PULL FROM FIREBASE";
 
-    var itemLimit = 8;
-
-    var signature = createHash(createURL(p, true), awssecret);
-    var URL = createURL(p, false);
-    URL += "Signature=" + signature;
-
-    console.log("Unsigned URL: " + createURL(p, true));
-    console.log("Signed URL: " + URL);
-    console.log("signature: " + signature);
-
-
-    // TEST CASE, SHOULD OUTPUT j7bZM0LXZ9eXeZruTqWm2DIvDYVUU3wxPPpp%2BiXxzQc%3D AS HASH
-    //*********************************************************************************************
-    // URL = "GET" + "\n" +
-    //     "webservices.amazon.com" + "\n" +
-    //     "/onca/xml" + "\n" +
-    //     "AWSAccessKeyId=&PULL FROM FIREBASE=PULL FROM FIREBASE&ItemId=0679722769&Operation=ItemLookup&ResponseGroup=Images%2CItemAttributes%2COffers%2CReviews&Service=AWSECommerceService&Timestamp=" + createTS() + "&Version=2013-08-01"
-
-    // awssecret = "PULL FROM FIREBASE";
-    // var show = createHash(URL, awssecret);
-    // console.log(show);
-    // // i fuckin did it
-
-    // URL="http://webservices.amazon.com/onca/xml?AWSAccessKeyId=PULL FROM FIREBASE&AssociateTag=PULL FROM FIREBASE&ItemId=0679722769&Operation=ItemLookup&ResponseGroup=Images%2CItemAttributes%2COffers%2CReviews&Service=AWSECommerceService&Timestamp=" + createTS() + "&Version=2013-08-01&Signature="+show;
-    // console.log(URL);
-
-    // $.ajax({
-    //     url: URL,
-    //     //type: "POST",
-    //     //dataType: 'jsonp'
-    // }).done(function(response) {
-    //     console.log(response);
-    // });
-    // it works
-    //***** END TEST CASE ( RETURNED QUERY WAS A #DOCUMENT NEEDED CORS TO ACCESS ) ****************
+    //amazon Category
+    //var index = p[0];
+    //index = index[0].toUpperCase() + index.slice(1);
+    //amazon keyword
+    var keyword = p[0];
+    keyword = keyword[0].toUpperCase() + keyword.slice(1);
+    //NO SPACES ALLOWED IN AMAZON API CALLS BUD
+    for (i = 0; i < keyword.length; i++) {
+        if (keyword[i] == ' ')
+            keyword = keyword.replace(' ', '%20');
+    }
+    //amazon aws key
+    var awskey = "GET FROM FIREBASE";
+    //amazon aws secret key
+    var awssecret = "GET FROM FIREBASE";
+    //amazon associate site id
+    var awsassociate = "GET FROM FIREBASE";
+    //number of items we want
+    var limit = 8;
+    //get keys from firebase using syncronis 
+    //awskey = getKey(awskey);
+    getDB(1).then(function(key) {
+        awskey = key;
+        getDB(2).then(function(secret) {
+            awssecret = secret;
+            getDB(3).then(function(associate) {
+                awsassociate = associate;
+                //CREATE THE AMAZON AJAX URL AND SIGNATURE
+                var signature = createHash(createURL(keyword, true, awskey, awssecret, awsassociate), awssecret);
+                var URL = createURL(keyword, false, awskey, awssecret, awsassociate);
+                URL += "&Signature=" + signature;
+                //AMAZON API CALL
+                $.ajax({
+                    url: URL,
+                }).done(function(response) {
+                    //AMAZON RESPONSE IS AN XML DOCUMENT, TURNING IT UNTO A JSON STRING
+                    var pls = xml2json(response, "");
+                    //PARSE THE JSON STRING INTO AN OBJECT
+                    var newresponse = JSON.parse(pls);
+                    console.log(newresponse);
+                    //place the response on screen
+                    console.log(newresponse.ItemSearchResponse.Items.Item.length);
+                    for (i = 0; i < limit; i++) {
+                        //image
+                        if(typeof newresponse.ItemSearchResponse.Items.Item[i].LargeImage != "undefined" )
+                        document.getElementById("amazon"+i).src = newresponse.ItemSearchResponse.Items.Item[i].LargeImage.URL;
+                        
+                        //url
+                        document.getElementById("giftURLAmazon" + i).href = newresponse.ItemSearchResponse.Items.Item[i].DetailPageURL;
+                        //price
+                        if(typeof newresponse.ItemSearchResponse.Items.Item[i].ItemAttributes.ListPrice.FormattedPrice != "undefined")
+                        //document.getElementById("amazonprice" + i).innerHTML = newresponse.ItemSearchResponse.Items.Item[i].ItemAttributes.ListPrice.FormattedPrice;
+                        $(".priceItemAmazon" + i).html(newresponse.ItemSearchResponse.Items.Item[i].ItemAttributes.ListPrice.FormattedPrice);
+                        
+                        //title
+                        //document.getElementById("amazontitle" + i).innerHTML = newresponse.ItemSearchResponse.Items.Item[i].ItemAttributes.Binding + " - " + newresponse.ItemSearchResponse.Items.Item[i].ItemAttributes.Title;            
+                        var details = document.querySelector('.showDetailsAmazon' + i);
+                        details.setAttribute('data-balloon', newresponse.ItemSearchResponse.Items.Item[i].ItemAttributes.Binding + " - " + newresponse.ItemSearchResponse.Items.Item[i].ItemAttributes.Title + " - CLICK TO BUY ITEM");
+                    }
+                });//end ajax call
+            }); //end getDB(3)
+        }); // end getDB(2)
+    }); // end getDB(1)
 
 }
 //******* END AMAZON API **********************************************************************
@@ -195,59 +223,49 @@ function logCategories(r) {
 }
 // END LOGCATEGORIES ****************************************************************
 
-
-
 // CREATES THE URL STRING DEPENDING ON "B" (TRUE FOR SIGNATURE URL, FALSE FOR SIGNED URL)
-function createURL(p, b) {
-    //amazon aws key
-    var awskey = "USE FIREBASE TO PULL"
-    //amazon aws secret key
-    var awssecret = "USE FIREBASE TO PULL"
-    //amazon associate site id
-    var awsassociate = "USE FIREBASE TO PULL"
+function createURL(p, b, k, s, a) {
     //keywords to search
     var tag = "";
     //item category
-    var category = p[0];
+    //var category = p[0];
     //timestamp for api signature
     var timestamp = createTS();
-
-    for (i = 1; i < p.length; i++) {
-        if (i == 1)
-            tag = p[i];
-        else
-            tag += " " + p[i];
-    }
-    //NEED TO FORCE THE NEW LINE USING "\n" BECAUSE HASHING FOR AMAZON PROPERLY IS IMPORTANT
+    //keyword
+    var keyword = p;
+    // URL TO SIGN
     if (b) {
         URL = "GET" + "\n";
-        URL += "http://webservices.amazon.com" + "\n"
+        URL += "webservices.amazon.com" + "\n"
         URL += "/onca/xml" + "\n";
-        URL += "AWSAccessKeyId=" + awskey + "&";
-        URL += "AssociateTag=" + awsassociate + "&";
-        URL += "Keywords=" + tag + "&";
+        URL += "AWSAccessKeyId=" + k + "&";
+        URL += "AssociateTag=" + a + "&";
+        URL += "ItemPage=5&";
+        URL += "Keywords=" + p + "&";
         URL += "Operation=ItemSearch&";
         URL += "ResponseGroup=Images%2CItemAttributes%2COffers&";
-        URL += "SearchIndex=" + category + "&";
+        URL += "SearchIndex=All&";
         URL += "Service=AWSECommerceService&";
-        URL += "Timestamp=" + timestamp + "&";
-        console.log("String to Sign: " + URL);
+        //URL += "Sort=price&"
+        URL += "Timestamp=" + timestamp;
+        // console.log("String to Sign: " + URL);
         return URL;
     } else { // REWRITE THE URL TO FIT AJAX REQUEST
-        URL = "http://webservices.amazon.com";
+        URL = "https://webservices.amazon.com";
         URL += "/onca/xml?";
-        URL += "AWSAccessKeyId=" + awskey + "&";
-        URL += "AssociateTag=" + awsassociate + "&";
-        URL += "Keywords=" + tag + "&";
+        URL += "AWSAccessKeyId=" + k + "&";
+        URL += "AssociateTag=" + a + "&";
+        URL += "ItemPage=5&";
+        URL += "Keywords=" + p + "&";
         URL += "Operation=ItemSearch&";
         URL += "ResponseGroup=Images%2CItemAttributes%2COffers&";
-        URL += "SearchIndex=" + category + "&";
+        URL += "SearchIndex=All&";
         URL += "Service=AWSECommerceService&";
-        URL += "Timestamp=" + timestamp + "&";
+        //URL += "Sort=price&"
+        URL += "Timestamp=" + timestamp;
         return URL;
     }
-
-}
+} //end create url
 
 //function creates an amazon api approved timestamp
 function createTS() {
@@ -340,4 +358,141 @@ function getDB(n) {
 }
 
 
-
+//OPEN SOURCE XML TO JSON FUNCTION
+function xml2json(xml, tab) {
+    var X = {
+        toObj: function(xml) {
+            var o = {};
+            if (xml.nodeType == 1) { // element node ..
+                if (xml.attributes.length) // element with attributes  ..
+                    for (var i = 0; i < xml.attributes.length; i++)
+                    o["@" + xml.attributes[i].nodeName] = (xml.attributes[i].nodeValue || "").toString();
+                if (xml.firstChild) { // element has child nodes ..
+                    var textChild = 0,
+                        cdataChild = 0,
+                        hasElementChild = false;
+                    for (var n = xml.firstChild; n; n = n.nextSibling) {
+                        if (n.nodeType == 1) hasElementChild = true;
+                        else if (n.nodeType == 3 && n.nodeValue.match(/[^ \f\n\r\t\v]/)) textChild++; // non-whitespace text
+                        else if (n.nodeType == 4) cdataChild++; // cdata section node
+                    }
+                    if (hasElementChild) {
+                        if (textChild < 2 && cdataChild < 2) { // structured element with evtl. a single text or/and cdata node ..
+                            X.removeWhite(xml);
+                            for (var n = xml.firstChild; n; n = n.nextSibling) {
+                                if (n.nodeType == 3) // text node
+                                    o["#text"] = X.escape(n.nodeValue);
+                                else if (n.nodeType == 4) // cdata node
+                                    o["#cdata"] = X.escape(n.nodeValue);
+                                else if (o[n.nodeName]) { // multiple occurence of element ..
+                                    if (o[n.nodeName] instanceof Array)
+                                        o[n.nodeName][o[n.nodeName].length] = X.toObj(n);
+                                    else
+                                        o[n.nodeName] = [o[n.nodeName], X.toObj(n)];
+                                } else // first occurence of element..
+                                    o[n.nodeName] = X.toObj(n);
+                            }
+                        } else { // mixed content
+                            if (!xml.attributes.length)
+                                o = X.escape(X.innerXml(xml));
+                            else
+                                o["#text"] = X.escape(X.innerXml(xml));
+                        }
+                    } else if (textChild) { // pure text
+                        if (!xml.attributes.length)
+                            o = X.escape(X.innerXml(xml));
+                        else
+                            o["#text"] = X.escape(X.innerXml(xml));
+                    } else if (cdataChild) { // cdata
+                        if (cdataChild > 1)
+                            o = X.escape(X.innerXml(xml));
+                        else
+                            for (var n = xml.firstChild; n; n = n.nextSibling)
+                                o["#cdata"] = X.escape(n.nodeValue);
+                    }
+                }
+                if (!xml.attributes.length && !xml.firstChild) o = null;
+            } else if (xml.nodeType == 9) { // document.node
+                o = X.toObj(xml.documentElement);
+            } else
+                alert("unhandled node type: " + xml.nodeType);
+            return o;
+        },
+        toJson: function(o, name, ind) {
+            var json = name ? ("\"" + name + "\"") : "";
+            if (o instanceof Array) {
+                for (var i = 0, n = o.length; i < n; i++)
+                    o[i] = X.toJson(o[i], "", ind + "\t");
+                json += (name ? ":[" : "[") + (o.length > 1 ? ("\n" + ind + "\t" + o.join(",\n" + ind + "\t") + "\n" + ind) : o.join("")) + "]";
+            } else if (o == null)
+                json += (name && ":") + "null";
+            else if (typeof(o) == "object") {
+                var arr = [];
+                for (var m in o)
+                    arr[arr.length] = X.toJson(o[m], m, ind + "\t");
+                json += (name ? ":{" : "{") + (arr.length > 1 ? ("\n" + ind + "\t" + arr.join(",\n" + ind + "\t") + "\n" + ind) : arr.join("")) + "}";
+            } else if (typeof(o) == "string")
+                json += (name && ":") + "\"" + o.toString() + "\"";
+            else
+                json += (name && ":") + o.toString();
+            return json;
+        },
+        innerXml: function(node) {
+            var s = ""
+            if ("innerHTML" in node)
+                s = node.innerHTML;
+            else {
+                var asXml = function(n) {
+                    var s = "";
+                    if (n.nodeType == 1) {
+                        s += "<" + n.nodeName;
+                        for (var i = 0; i < n.attributes.length; i++)
+                            s += " " + n.attributes[i].nodeName + "=\"" + (n.attributes[i].nodeValue || "").toString() + "\"";
+                        if (n.firstChild) {
+                            s += ">";
+                            for (var c = n.firstChild; c; c = c.nextSibling)
+                                s += asXml(c);
+                            s += "</" + n.nodeName + ">";
+                        } else
+                            s += "/>";
+                    } else if (n.nodeType == 3)
+                        s += n.nodeValue;
+                    else if (n.nodeType == 4)
+                        s += "<![CDATA[" + n.nodeValue + "]]>";
+                    return s;
+                };
+                for (var c = node.firstChild; c; c = c.nextSibling)
+                    s += asXml(c);
+            }
+            return s;
+        },
+        escape: function(txt) {
+            return txt.replace(/[\\]/g, "\\\\")
+                .replace(/[\"]/g, '\\"')
+                .replace(/[\n]/g, '\\n')
+                .replace(/[\r]/g, '\\r');
+        },
+        removeWhite: function(e) {
+            e.normalize();
+            for (var n = e.firstChild; n;) {
+                if (n.nodeType == 3) { // text node
+                    if (!n.nodeValue.match(/[^ \f\n\r\t\v]/)) { // pure whitespace text node
+                        var nxt = n.nextSibling;
+                        e.removeChild(n);
+                        n = nxt;
+                    } else
+                        n = n.nextSibling;
+                } else if (n.nodeType == 1) { // element node
+                    X.removeWhite(n);
+                    n = n.nextSibling;
+                } else // any other node
+                    n = n.nextSibling;
+            }
+            return e;
+        }
+    };
+    if (xml.nodeType == 9) // document node
+        xml = xml.documentElement;
+    var json = X.toJson(X.toObj(X.removeWhite(xml)), xml.nodeName, "\t");
+    return "{\n" + tab + (tab ? json.replace(/\t/g, tab) : json.replace(/\t|\n/g, "")) + "\n}";
+} // END XML2JSON
