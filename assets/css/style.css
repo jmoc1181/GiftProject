@@ -11,13 +11,13 @@ maroon: #8b4d4e;
 
 
 .btn { 
-	background-color: #8B4D4E;
-	width: 150px;
-	border-width: 1px;
-	border-style: solid;
-	border-color: #8B4D4E;
-	height: 35px;
-	color: white;
+  background-color: #8B4D4E;
+  width: 150px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #8B4D4E;
+  height: 35px;
+  color: white;
 }
 
 .caption { 
@@ -51,28 +51,28 @@ maroon: #8b4d4e;
 }
 
 .intro-img {
-	display: table;
-	width: 100%;
-	height: 100vh;
-	background: url(../images/flower-background.jpg) top center fixed;
-	background-size: cover;
-	padding: 0 !important;
-	margin: 0;
+  display: table;
+  width: 100%;
+  height: 100vh;
+  background: url(../images/flower-background.jpg) top center fixed;
+  background-size: cover;
+  padding: 0 !important;
+  margin: 0;
 }
 
 .JS-answer-choice { 
-	font-family: 'Muli', sans-serif;
-	font-size: 20px;
-	text-align: center;
+  font-family: 'Muli', sans-serif;
+  font-size: 20px;
+  text-align: center;
  }
 
 .menu {
-	color: #ffffff;
-	font-family: 'Muli', sans-serif;
+  color: #ffffff;
+  font-family: 'Muli', sans-serif;
 }
 
 .navbar {
-	color: #ffffff;
+  color: #ffffff;
 }
 
 .navbar .navbar-default > li > a {
@@ -81,12 +81,12 @@ maroon: #8b4d4e;
 }
 
 .navbar-default {
-	color: #ffffff;
+  color: #ffffff;
 }
 
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
-	background-color: #b0ccbd !important;
-	color: #ffffff !important;
+  background-color: #b0ccbd !important;
+  color: #ffffff !important;
 }
 
 .nav-menu-ul {
@@ -103,22 +103,22 @@ maroon: #8b4d4e;
 }
 
 .progress-bar { 
-	background-color: #8b4d4e;
-	height: 10px;
+  background-color: #8b4d4e;
+  height: 10px;
 }
 
 .progress { 
-	height: 10px;
-	margin-top: 10px;
+  height: 10px;
+  margin-top: 10px;
 }
 
 .quest-img {
-	display: table;
-	width: 100%;
-	background: url(../images/questionnaire-background.jpg) center fixed;
-	background-size: cover;
-	padding: 0;
-	margin: 0;
+  display: table;
+  width: 100%;
+  background: url(../images/questionnaire-background.jpg) center fixed;
+  background-size: cover;
+  padding: 0;
+  margin: 0;
 }
 
 .question-button {
@@ -136,13 +136,13 @@ maroon: #8b4d4e;
 }
 
 .questionHeader { 
-	font-family: 'Muli', sans-serif;
-	font-size: 30px;
-	margin-bottom: 10px;
+  font-family: 'Muli', sans-serif;
+  font-size: 30px;
+  margin-bottom: 10px;
  }
 
  .startOver { 
-	font-family: 'Muli', sans-serif;
+  font-family: 'Muli', sans-serif;
  }
 
 .sticky {
@@ -267,22 +267,6 @@ maroon: #8b4d4e;
 
 
 
-@media (max-width: 768px) {
-	.mm-w-125 {width: 125px;}
-  }
-
-@media (max-width: 640px) {
-	.ms-float-0 {float: none;}
-	.ms-fs-35 {font-size: 35px;}
-	.ms-marg-30 {margin: 30px;}
-	.ms-marg-0-0-20-0 {margin: 0 auto 20px auto;}
-	.ms-pad-30 {padding: 30px;}
-	.ms-txt-algn-cntr {text-align: center;}
-	.ms-w-70pct {width: 70%;}
-	.ms-w-100pct {width: 100%;}
-	.ms-w-100 {width: 100px;}
-  }
-
 
 
 /***** GALLERY STYLES *****/
@@ -295,17 +279,19 @@ maroon: #8b4d4e;
     border-radius: 5px;
     background: #FFF;
 }
-.col-item .photo img {
+  .col-item .photo img {
     margin: 0 auto;
     width: 350px;
     height: 350px;
 }
+
 
 .col-item .photoEbay img {
     margin: 0 auto;
     width: 350px;
     height: 350px;
 }
+
 
 .col-item .info {
     padding: 10px;
@@ -321,12 +307,15 @@ maroon: #8b4d4e;
     /*width: 50%;*/
     float: left;
     margin-top: 5px;
+    text-align: center;
 }
 
 .col-item .price h5 {
     line-height: 20px;
     margin: 0;
+    text-align: center;
 }
+
 
 .price { 
   text-align: center;
@@ -334,6 +323,7 @@ maroon: #8b4d4e;
 
 .price-text-color {
     color: #219FD1;
+    text-align: center;
 }
 
 .col-item .info .rating {
@@ -374,6 +364,7 @@ maroon: #8b4d4e;
     margin-bottom: 20px;
 }
 
+
 [data-slide="prev"] {
     margin-right: 10px;
 }
@@ -409,4 +400,66 @@ a:hover.btn {
   font-size: 20px;
   line-height: 2.00;
   border-radius: 30px;
+}
+
+
+@media screen and (max-width: 1200px) {
+  .mm-w-125 {width: 125px;}
+
+
+  .col-item .photo img {
+    margin: 0 auto;
+    width: 250px;
+    height: 250px;
+}
+
+.col-item .photoEbay img {
+    margin: 0 auto;
+    width: 250px;
+    height: 250px;
+}
+}
+
+
+@media screen and (max-width: 768px) {
+  .mm-w-125 {width: 125px;}
+
+
+  .col-item .photo img {
+    margin: 0 auto;
+    width: 250px;
+    height: 250px;
+}
+
+.col-item .photoEbay img {
+    margin: 0 auto;
+    width: 250px;
+    height: 250px;
+}
+}
+
+
+@media screen and  (max-width: 640px) {
+  .ms-float-0 {float: none;}
+  .ms-fs-35 {font-size: 35px;}
+  .ms-marg-30 {margin: 30px;}
+  .ms-marg-0-0-20-0 {margin: 0 auto 20px auto;}
+  .ms-pad-30 {padding: 30px;}
+  .ms-txt-algn-cntr {text-align: center;}
+  .ms-w-70pct {width: 70%;}
+  .ms-w-100pct {width: 100%;}
+  .ms-w-100 {width: 100px;}
+
+  .col-item .photo img {
+    margin: 0 auto;
+    width: 150px;
+    height: 150px;
+}
+
+
+  .col-item .photoEbay img {
+    margin: 0 auto;
+    width: 150px;
+    height: 150px;
+}
 }
