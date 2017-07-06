@@ -309,7 +309,7 @@ var holidaysArray = [
         name: "Your Special Anniversary",
         description: "Whether you've been together for 1 year or 100, give your partner-in-crime a gift to help express the way you still feel about them.",
         amazonKeyword: ["anniversary gift"],
-        ebayKeyword: [""],
+        ebayKeyword: ["anniversary gift"],
         etsyKeyword: ["Art", "Anniversary"]
     },
     {
@@ -393,10 +393,10 @@ var holidaysArray = [
     },
     {
         key: "h11",
-        name: "Celebrating a Wedding",
+        name: "Weddings",
         description: "On this joyous day, give the happy couple a gift to help them celebrate and start their new journey together.",
         amazonKeyword: ["home appliance"],
-        ebayKeyword: [""],
+        ebayKeyword: ["wedding"],
         etsyKeyword: ["Housewares", "Wedding"]
     },
     
@@ -497,6 +497,8 @@ $(document).on("click", ".JS-holiday-button", function(){
 	var holidayID = parseInt(this.id.slice(-2), 10);
 	clearResults();
 	displayResults(holidaysArray[holidayID]);
+	runAPICalls(holidaysArray[holidayID]);
+
 
 });
 
