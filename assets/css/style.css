@@ -331,6 +331,7 @@ maroon: #8b4d4e;
     text-align: center;
 }
 
+
 .price { 
   text-align: center;
  }
@@ -378,6 +379,10 @@ maroon: #8b4d4e;
     margin-bottom: 20px;
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
 [data-slide="prev"] {
     margin-right: 10px;
 }
@@ -414,6 +419,7 @@ a:hover.btn {
   border-radius: 30px;
 }
 
+<<<<<<< HEAD
 
 @media screen and (max-width: 1200px) {
   .mm-w-125 {width: 125px;}
@@ -425,11 +431,25 @@ a:hover.btn {
     height: 250px;
 }
 
+=======
+
+@media screen and (max-width: 1200px) {
+  .mm-w-125 {width: 125px;}
+
+
+  .col-item .photo img {
+    margin: 0 auto;
+    width: 250px;
+    height: 250px;
+}
+
+>>>>>>> master
 .col-item .photoEbay img {
     margin: 0 auto;
     width: 250px;
     height: 250px;
 }
+<<<<<<< HEAD
 }
 
 
@@ -443,6 +463,21 @@ a:hover.btn {
     height: 250px;
 }
 
+=======
+}
+
+
+@media screen and (max-width: 768px) {
+  .mm-w-125 {width: 125px;}
+
+
+  .col-item .photo img {
+    margin: 0 auto;
+    width: 250px;
+    height: 250px;
+}
+
+>>>>>>> master
 .col-item .photoEbay img {
     margin: 0 auto;
     width: 250px;

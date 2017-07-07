@@ -166,8 +166,10 @@ var questionsObject = {
         }
     }
 };
+
 //Array of personality objects with information to display on the results page and seed API calls
 var personalitiesArray = [
+
     {
         key: "Q1aAQ2aAQ3aAQ4aA",
         name: "The Mover",
@@ -295,9 +297,110 @@ var personalitiesArray = [
         amazonKeyword: ["Crafting How-to"],
         ebayKeyword: ["Crafting How-to"],
         etsyKeyword: ["Supplies", "craft"]
-    },
+    }
+
 ];
 
+//Array holding holiday-specific shortcuts for displaying gift options
+var holidaysArray = [
+
+	{
+        key: "h00",
+        name: "Your Special Anniversary",
+        description: "Whether you've been together for 1 year or 100, give your partner-in-crime a gift to help express the way you still feel about them.",
+        amazonKeyword: ["anniversary gift"],
+        ebayKeyword: [""],
+        etsyKeyword: ["Art", "Anniversary"]
+    },
+    {
+        key: "h01",
+        name: "Your Loved One's Baby Shower",
+        description: "Give your loved on a gift to help prepare them for their little bundle of joy.",
+        amazonKeyword: ["parenting book"],
+        ebayKeyword: [""],
+        etsyKeyword: ["Housewares", "Baby Shower"]
+    },
+    {
+        key: "h02",
+        name: "Your Loved One's Birthday",
+        description: "Another year older, another year wiser — give a gift that will help them mark the occasion, reach their nex milestone, and ",
+        amazonKeyword: ["birthday journal"],
+        ebayKeyword: [""],
+        etsyKeyword: ["Art", "Birthday"]
+    },
+    {
+        key: "h03",
+        name: "Christmas",
+        description: "&#39;Tis the season for generosity, joy, and egg nog — give a gift that will help keep your recipient in the holiday spirit.",
+        amazonKeyword: ["christmas decor"],
+        ebayKeyword: [""],
+        etsyKeyword: ["Housewares", "Christmas decoration"]
+    },
+    {
+        key: "h04",
+        name: "Expressing Condolences",
+        description: ["grieving book"],
+        ebayKeyword: [""],
+        etsyKeyword: ["Everything Else", "sympathy"]
+    },
+    {
+        key: "h05",
+        name: "Father's Day",
+        description: "He raised you and made you the person you are today — give your dad a gift that shows him he's on your mind this Father's Day.",
+        amazonKeyword: ["thanks dad"],
+        ebayKeyword: [""],
+        etsyKeyword: ["Books and zines", "fatherhood"]
+    },
+    {
+        key: "h06",
+        name: "Your Loved One's Graduation",
+        description: "Big new things are on the horizon for your grad — give them a gift that will help them remember the good times and reach their next step.",
+        amazonKeyword: ["tablet"],
+        ebayKeyword: [""],
+        etsyKeyword: ["housewares", "photo frame"]
+    },
+    {
+        key: "h07",
+        name: "Hannukah",
+        description: "",
+        amazonKeyword:["channukah gift wrap"],
+        ebayKeyword: [""],
+        etsyKeyword: ["Housewares", "Hannukah"]
+    },
+    {
+        key: "h08",
+        name: "House Warming",
+        description: "In this time of new beginnings and empty walls, give a gift that helps make a house a home.",
+        amazonKeyword: ["Furniture"],
+        ebayKeyword: ["Kitchen gadget"],
+        etsyKeyword: ["Art", "decor"]
+    },
+    {
+        key: "h09",
+        name: "Mother's Day",
+        description: "Whether you're celebrating your mom or another special mother in your life, give a gift to help show her she's on your mind this season.",
+        amazonKeyword: ["Motherhood book"],
+        ebayKeyword: [""],
+        etsyKeyword: ["art", "mother's day"]
+    },
+    {
+        key: "h10",
+        name: "Valentine's Day",
+        description: "Love is in the air — give your special someone a gift to help express your feelings when words are not enough.",
+        amazonKeyword: ["romantic gift"],
+        ebayKeyword: ["couples gift set"],
+        etsyKeyword: ["Vintage", "Valentine's Day"]
+    },
+    {
+        key: "h11",
+        name: "Celebrating a Wedding",
+        description: "On this joyous day, give the happy couple a gift to help them celebrate and start their new journey together.",
+        amazonKeyword: ["home appliance"],
+        ebayKeyword: [""],
+        etsyKeyword: ["Housewares", "Wedding"]
+    },
+    
+];
 
 //Global variable that will hold our current user's personality ID, which will correspond to a specific API call to display a curated set of gifts
 var userPersonalityKey = "";
@@ -311,8 +414,8 @@ function displayResults(personalityObject){
 
 	var personalityDescription = $("<p></p>")
 	personalityDescription.html(personalityObject.description);
-	$("#questionnaire-title").html("Results");
-	$("#description-p").remove();
+	$("#questionnaire-header-title").html("Gifts for " + personalityObject.name);
+	$("#duestionnaire-header-description").html("");
 	$("#question-div").html(personalityObject.name);
 	$("#answers-row").prepend(personalityDescription);
 	$("#answer-a-div").remove();
@@ -347,30 +450,69 @@ function runAPICalls(personalityobject){
 /*============================================================================================
 ==============================================================================================*/
 
-//User sees question 1
-nextQuestion("q1a");
-currentQuestionNumber++;
+function loadQuestion1() {
 
+	//User sees question 1
+	nextQuestion("q1a");
+	currentQuestionNumber = 0;
+	currentQuestionNumber++;
+	$("#questionnaire-header-title").html("Questionnaire");
+	$("#questionnaire-header-description").html("Narrow down your options by answering the following questions about the gift receiver.");
+
+}
+
+function clearResults(){
+
+	//remove old buttons
+    $("#answer-a-div").remove();
+	$("#answer-b-div").remove();
+	$("#questionnaire-header-title").html("");
+	$("#questionnaire-header-description").html("");
+	$("#answers-row").html("");
+
+}
 
 function reload() {
     document.getElementById("bar").style.width = "0%";
-    nextQuestion("q1a");
-    currentQuestionNumber = 0;
-    currentQuestionNumber++;
+    clearResults();
+
+    //recreate buttons and print them to the page
+    var newContainerA = $("<div id='answer-a-container' class='col-md-6 col-sm-12 pad-10-20'></div>");
+    var newContainerB = $("<div id='answer-b-container' class='col-md-6 col-sm-12 pad-10-20'></div>");
+    var newButtonA = $("<div id='answer-a-div' data-answerId='null' class='JS-answer-choice question-button'></div>");
+    var newButtonB = $("<div id='answer-b-div' data-answerId='null' class='JS-answer-choice question-button'></div>");
+    newContainerA.append(newButtonA);
+    newContainerB.append(newButtonB);
+	$("#answers-row").append(newContainerA);
+	$("#answers-row").append(newContainerB);
+    loadQuestion1();
 }
 
+//Initialize Personality Quiz
+loadQuestion1();
 
+//Display gift options when a user clicks on a holiday button
+$(document).on("click", ".JS-holiday-button", function(){
 
+	var holidayID = parseInt(this.id.slice(-2), 10);
+	clearResults();
+	displayResults(holidaysArray[holidayID]);
+
+});
+
+//Update progress bar, and display either next question or results when the user clicks on an answer choice in the personality quiz panel
 $(document).on("click", ".JS-answer-choice", function(){
 
     var tempAnswerId = $(this).data("answerId");
 
     if ( userPersonalityKey.length < 16 ){
-
         userPersonalityKey = userPersonalityKey+tempAnswerId;
     }
 
-    //User sees Question 2
+    /*
+    <===================================================================================================>
+    User sees Question 2
+    */
     if (tempAnswerId === "Q1aA"){
 
         nextQuestion("q2a");
@@ -399,7 +541,10 @@ $(document).on("click", ".JS-answer-choice", function(){
 
     }
 
-    //User sees Question 3
+    /*
+    <===================================================================================================>
+    User sees Question 3
+    */
     else if (tempAnswerId === "Q2aA"){
 
         nextQuestion("q3a");
@@ -455,7 +600,10 @@ $(document).on("click", ".JS-answer-choice", function(){
 
     }
 
-    //USer sees Question 4
+    /*
+    <===================================================================================================>
+    User sees Question 4
+    */
     else if (tempAnswerId === "Q3aA"){
 
         nextQuestion("q4a");
@@ -562,11 +710,17 @@ $(document).on("click", ".JS-answer-choice", function(){
 
     }
 
-    //User sees their final personality page
+    /*
+    <===================================================================================================>
+    User sees their final personality page
+    */
     if (tempAnswerId === "Q4aA" && currentQuestionNumber === 4 ){
 
         userPersonalityAssignment = personalitiesArray[0];
         currentQuestionNumber = 0;
+
+        //Progress Bar display at 100%
+        document.getElementById("bar").style.width = "100%";
 
         //Dispay Personality Results
         displayResults(userPersonalityAssignment);
@@ -578,14 +732,15 @@ $(document).on("click", ".JS-answer-choice", function(){
         console.log(buttons); 
         localStorage.setItem("choice", JSON.stringify(buttons));
 
-        document.getElementById("bar").style.width = "100%";
-
     }
 
     if (tempAnswerId === "Q4aB" && currentQuestionNumber === 4 ){
 
         userPersonalityAssignment = personalitiesArray[1];
         currentQuestionNumber = 0;
+
+        //Progress Bar display at 100%
+        document.getElementById("bar").style.width = "100%";
 
         //Dispay Personality Results
         displayResults(userPersonalityAssignment);
@@ -597,14 +752,15 @@ $(document).on("click", ".JS-answer-choice", function(){
         console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
-        document.getElementById("bar").style.width = "100%";
-
     }
 
     if (tempAnswerId === "Q4bA" && currentQuestionNumber === 4 ){
 
         userPersonalityAssignment = personalitiesArray[2];
         currentQuestionNumber = 0;
+
+        //Progress Bar display at 100%
+        document.getElementById("bar").style.width = "100%";
 
         //Dispay Personality Results
         displayResults(userPersonalityAssignment);
@@ -616,13 +772,15 @@ $(document).on("click", ".JS-answer-choice", function(){
         console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
-        document.getElementById("bar").style.width = "100%";
     }
 
     if (tempAnswerId === "Q4bB" && currentQuestionNumber === 4 ){
 
         userPersonalityAssignment = personalitiesArray[3];
         currentQuestionNumber = 0;
+
+        //Progress Bar display at 100%
+        document.getElementById("bar").style.width = "100%";
 
         //Dispay Personality Results
         displayResults(userPersonalityAssignment);
@@ -634,13 +792,15 @@ $(document).on("click", ".JS-answer-choice", function(){
         console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
-        document.getElementById("bar").style.width = "100%";
     }
 
     if (tempAnswerId === "Q4cA" && currentQuestionNumber === 4 ){
 
         userPersonalityAssignment = personalitiesArray[4];
         currentQuestionNumber = 0;
+
+        //Progress Bar display at 100%
+        document.getElementById("bar").style.width = "100%";
 
         //Dispay Personality Results
         displayResults(userPersonalityAssignment);
@@ -652,13 +812,15 @@ $(document).on("click", ".JS-answer-choice", function(){
         console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
-        document.getElementById("bar").style.width = "100%";
     }
 
     if (tempAnswerId === "Q4cB" && currentQuestionNumber === 4 ){
 
         userPersonalityAssignment = personalitiesArray[5];
         currentQuestionNumber = 0;
+
+        //Progress Bar display at 100%
+        document.getElementById("bar").style.width = "100%";
 
         //Dispay Personality Results
         displayResults(userPersonalityAssignment);
@@ -670,13 +832,15 @@ $(document).on("click", ".JS-answer-choice", function(){
         console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
-        document.getElementById("bar").style.width = "100%";
     }
 
     if (tempAnswerId === "Q4dA" && currentQuestionNumber === 4 ){
 
         userPersonalityAssignment = personalitiesArray[6];
         currentQuestionNumber = 0;
+
+        //Progress Bar display at 100%
+        document.getElementById("bar").style.width = "100%";
 
         //Dispay Personality Results
         displayResults(userPersonalityAssignment);
@@ -688,13 +852,15 @@ $(document).on("click", ".JS-answer-choice", function(){
         console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
-        document.getElementById("bar").style.width = "100%";
     }
 
     if (tempAnswerId === "Q4dB" && currentQuestionNumber === 4 ){
 
         userPersonalityAssignment = personalitiesArray[7];
         currentQuestionNumber = 0;
+
+        //Progress Bar display at 100%
+        document.getElementById("bar").style.width = "100%";
 
         //Dispay Personality Results
         displayResults(userPersonalityAssignment);
@@ -706,7 +872,6 @@ $(document).on("click", ".JS-answer-choice", function(){
         console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
-        document.getElementById("bar").style.width = "100%";
 
     }
 
@@ -714,6 +879,9 @@ $(document).on("click", ".JS-answer-choice", function(){
 
         userPersonalityAssignment = personalitiesArray[8];
         currentQuestionNumber = 0;
+
+        //Progress Bar display at 100%
+        document.getElementById("bar").style.width = "100%";
 
         //Dispay Personality Results
         displayResults(userPersonalityAssignment);
@@ -725,13 +893,15 @@ $(document).on("click", ".JS-answer-choice", function(){
         console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
-        document.getElementById("bar").style.width = "100%";
     }
 
     if (tempAnswerId === "Q4eB" && currentQuestionNumber === 4 ){
 
         userPersonalityAssignment = personalitiesArray[9];
         currentQuestionNumber = 0;
+
+        //Progress Bar display at 100%
+        document.getElementById("bar").style.width = "100%";
 
         //Dispay Personality Results
         displayResults(userPersonalityAssignment);
@@ -743,13 +913,15 @@ $(document).on("click", ".JS-answer-choice", function(){
         console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
-        document.getElementById("bar").style.width = "100%";
     }
 
     if (tempAnswerId === "Q4fA" && currentQuestionNumber === 4 ){
 
         userPersonalityAssignment = personalitiesArray[10];
         currentQuestionNumber = 0;
+
+        //Progress Bar display at 100%
+        document.getElementById("bar").style.width = "100%";
 
         //Dispay Personality Results
         displayResults(userPersonalityAssignment);
@@ -761,13 +933,15 @@ $(document).on("click", ".JS-answer-choice", function(){
         console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
-        document.getElementById("bar").style.width = "100%";
     }
 
     if (tempAnswerId === "Q4fB" && currentQuestionNumber === 4 ){
 
         userPersonalityAssignment = personalitiesArray[11];
         currentQuestionNumber = 0;
+
+        //Progress Bar display at 100%
+        document.getElementById("bar").style.width = "100%";
 
         //Dispay Personality Results
         displayResults(userPersonalityAssignment);
@@ -779,13 +953,15 @@ $(document).on("click", ".JS-answer-choice", function(){
         console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
-        document.getElementById("bar").style.width = "100%";
     }
 
     if (tempAnswerId === "Q4gA" && currentQuestionNumber === 4 ){
 
         userPersonalityAssignment = personalitiesArray[12];
         currentQuestionNumber = 0;
+
+        //Progress Bar display at 100%
+        document.getElementById("bar").style.width = "100%";
 
         //Dispay Personality Results
         displayResults(userPersonalityAssignment);
@@ -797,13 +973,15 @@ $(document).on("click", ".JS-answer-choice", function(){
         console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
-        document.getElementById("bar").style.width = "100%";
     }
 
     if (tempAnswerId === "Q4gB" && currentQuestionNumber === 4 ){
 
         userPersonalityAssignment = personalitiesArray[13];
         currentQuestionNumber = 0;
+
+        //Progress Bar display at 100%
+        document.getElementById("bar").style.width = "100%";
 
         //Dispay Personality Results
         displayResults(userPersonalityAssignment);
@@ -815,13 +993,15 @@ $(document).on("click", ".JS-answer-choice", function(){
         console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
-        document.getElementById("bar").style.width = "100%";
     }
 
     if (tempAnswerId === "Q4hA" && currentQuestionNumber === 4 ){
 
         userPersonalityAssignment = personalitiesArray[14];
         currentQuestionNumber = 0;
+
+        //Progress Bar display at 100%
+        document.getElementById("bar").style.width = "100%";
 
         //Dispay Personality Results
         displayResults(userPersonalityAssignment);
@@ -833,13 +1013,15 @@ $(document).on("click", ".JS-answer-choice", function(){
         console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
-        document.getElementById("bar").style.width = "100%";
     }
 
     if (tempAnswerId === "Q4hB" && currentQuestionNumber === 4 ){
 
         userPersonalityAssignment = personalitiesArray[15];
         currentQuestionNumber = 0;
+
+        //Progress Bar display at 100%
+        document.getElementById("bar").style.width = "100%";
 
         //Dispay Personality Results
         displayResults(userPersonalityAssignment);
@@ -851,7 +1033,7 @@ $(document).on("click", ".JS-answer-choice", function(){
         console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
-        document.getElementById("bar").style.width = "100%";
+        
     }
 
 });
