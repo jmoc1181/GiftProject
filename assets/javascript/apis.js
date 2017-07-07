@@ -118,7 +118,7 @@ function ebay(p) {
         }
     }).done(function(response) {
             var newresponse = JSON.parse(response);
-            console.log(newresponse.findItemsByKeywordsResponse[0].searchResult[0].item);
+            //console.log(newresponse.findItemsByKeywordsResponse[0].searchResult[0].item);
             for (i = 0; i < newresponse.findItemsByKeywordsResponse[0].searchResult[0].item.length; i++) {
                 //picture
                 if (typeof newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].pictureURLLarge != "undefined")
