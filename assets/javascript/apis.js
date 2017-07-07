@@ -64,7 +64,7 @@ function etsy(p) {
             category: category,
             //keywords: "whiskey"
             keywords: keyword
-            //tags: tag
+                //tags: tag
         }
     }).done(function(response) {
         // add the image to the page, add the price to the page, add the url to the page 
@@ -114,28 +114,27 @@ function ebay(p) {
         url: URL,
         method: "GET",
         data: {
-            outputSelector : "PictureURLLarge"
+            outputSelector: "PictureURLLarge"
         }
     }).done(function(response) {
-        var newresponse = JSON.parse(response);
-        console.log(newresponse.findItemsByKeywordsResponse[0].searchResult[0].item);
-        for (i = 0; i < newresponse.findItemsByKeywordsResponse[0].searchResult[0].item.length; i++) {
-            //picture
-            if(typeof newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].pictureURLLarge["0"] != "undefined" )
-            document.getElementById("ebay" + i).src = newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].pictureURLLarge["0"];
-            else{
-            document.getElementById("ebay" + i).src = newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].galleryURL["0"];
-            //put class change here
+            var newresponse = JSON.parse(response);
+            console.log(newresponse.findItemsByKeywordsResponse[0].searchResult[0].item);
+            for (i = 0; i < newresponse.findItemsByKeywordsResponse[0].searchResult[0].item.length; i++) {
+                //picture
+                if (typeof newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].pictureURLLarge["0"] != "undefined")
+                    document.getElementById("ebay" + i).src = newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].pictureURLLarge["0"];
+                else{
+                    document.getElementById("ebay" + i).src = newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].galleryURL["0"];
+                    //put class change here
+                }
+                //URL
+                document.getElementById("giftURLEbay" + i).href = newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].viewItemURL[0];
+                //price
+                $(".priceItemEbay" + i).html("$" + newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].sellingStatus["0"].convertedCurrentPrice["0"].__value__);
+                //title
+                var details = document.querySelector('.showDetailsEbay' + i);
+                details.setAttribute('data-balloon', newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].title[0] + " - CLICK TO BUY ITEM");
             }
-            //URL
-            document.getElementById("giftURLEbay" + i).href = newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].viewItemURL[0];
-            //price
-            $(".priceItemEbay" + i).html("$" + newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].sellingStatus["0"].convertedCurrentPrice["0"].__value__);
-            //title
-            var details = document.querySelector('.showDetailsEbay' + i);
-            details.setAttribute('data-balloon', newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].title[0] + " - CLICK TO BUY ITEM");
-            }
-        }
     });
 }
 //*********** END EBAY API *****************************************************************
@@ -191,22 +190,22 @@ function amazon(p) {
                     console.log(newresponse.ItemSearchResponse.Items.Item.length);
                     for (i = 0; i < limit; i++) {
                         //image
-                        if(typeof newresponse.ItemSearchResponse.Items.Item[i].LargeImage != "undefined" )
-                        document.getElementById("amazon"+i).src = newresponse.ItemSearchResponse.Items.Item[i].LargeImage.URL;
-                        
+                        if (typeof newresponse.ItemSearchResponse.Items.Item[i].LargeImage != "undefined")
+                            document.getElementById("amazon" + i).src = newresponse.ItemSearchResponse.Items.Item[i].LargeImage.URL;
+
                         //url
                         document.getElementById("giftURLAmazon" + i).href = newresponse.ItemSearchResponse.Items.Item[i].DetailPageURL;
                         //price
-                        if(typeof newresponse.ItemSearchResponse.Items.Item[i].ItemAttributes.ListPrice.FormattedPrice != "undefined")
+                        if (typeof newresponse.ItemSearchResponse.Items.Item[i].ItemAttributes.ListPrice.FormattedPrice != "undefined")
                         //document.getElementById("amazonprice" + i).innerHTML = newresponse.ItemSearchResponse.Items.Item[i].ItemAttributes.ListPrice.FormattedPrice;
-                        $(".priceItemAmazon" + i).html(newresponse.ItemSearchResponse.Items.Item[i].ItemAttributes.ListPrice.FormattedPrice);
-                        
+                            $(".priceItemAmazon" + i).html(newresponse.ItemSearchResponse.Items.Item[i].ItemAttributes.ListPrice.FormattedPrice);
+
                         //title
                         //document.getElementById("amazontitle" + i).innerHTML = newresponse.ItemSearchResponse.Items.Item[i].ItemAttributes.Binding + " - " + newresponse.ItemSearchResponse.Items.Item[i].ItemAttributes.Title;            
                         var details = document.querySelector('.showDetailsAmazon' + i);
                         details.setAttribute('data-balloon', newresponse.ItemSearchResponse.Items.Item[i].ItemAttributes.Binding + " - " + newresponse.ItemSearchResponse.Items.Item[i].ItemAttributes.Title + " - CLICK TO BUY ITEM");
                     }
-                });//end ajax call
+                }); //end ajax call
             }); //end getDB(3)
         }); // end getDB(2)
     }); // end getDB(1)
