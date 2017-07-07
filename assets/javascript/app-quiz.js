@@ -522,7 +522,7 @@ $(document).on("click", ".JS-answer-choice", function(){
         currentQuestionNumber++;
 
         var buttons = (questionsObject.q1a.answerA.id);
-        console.log(buttons);
+        //console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
 
@@ -537,7 +537,7 @@ $(document).on("click", ".JS-answer-choice", function(){
         currentQuestionNumber++;
 
         var buttons = (questionsObject.q1a.answerB.id);
-        console.log(buttons);
+        //console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
         document.getElementById("bar").style.width = "25%";
@@ -555,7 +555,7 @@ $(document).on("click", ".JS-answer-choice", function(){
 
 
         var buttons = (questionsObject.q2a.answerA.id);
-        console.log(buttons);
+        //console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
         document.getElementById("bar").style.width = "50%";
@@ -569,7 +569,7 @@ $(document).on("click", ".JS-answer-choice", function(){
         currentQuestionNumber++;
 
         var buttons = (questionsObject.q2a.answerB.id);
-        console.log(buttons);
+        //console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
         document.getElementById("bar").style.width = "50%";
@@ -582,7 +582,7 @@ $(document).on("click", ".JS-answer-choice", function(){
         currentQuestionNumber++;
 
         var buttons = (questionsObject.q2b.answerA.id);
-        console.log(buttons);
+        //console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
         document.getElementById("bar").style.width = "50%";
@@ -595,7 +595,7 @@ $(document).on("click", ".JS-answer-choice", function(){
         currentQuestionNumber++;
 
         var buttons = (questionsObject.q2b.answerB.id);
-        console.log(buttons);
+        //console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
         document.getElementById("bar").style.width = "50%";
@@ -613,7 +613,7 @@ $(document).on("click", ".JS-answer-choice", function(){
         currentQuestionNumber++;
 
         var buttons = (questionsObject.q3a.answerA.id);
-        console.log(buttons);
+        //console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
         document.getElementById("bar").style.width = "75%";
@@ -627,7 +627,7 @@ $(document).on("click", ".JS-answer-choice", function(){
         currentQuestionNumber++;
 
         var buttons = (questionsObject.q3a.answerB.id);
-        console.log(buttons);
+        //console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
         document.getElementById("bar").style.width = "75%";
@@ -641,7 +641,7 @@ $(document).on("click", ".JS-answer-choice", function(){
         currentQuestionNumber++;
 
         var buttons = (questionsObject.q3b.answerA.id);
-        console.log(buttons);
+        //console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
         document.getElementById("bar").style.width = "75%";
@@ -654,7 +654,7 @@ $(document).on("click", ".JS-answer-choice", function(){
         currentQuestionNumber++;
 
         var buttons = (questionsObject.q3b.answerB.id);
-        console.log(buttons);
+        //console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
         document.getElementById("bar").style.width = "75%";
@@ -667,7 +667,7 @@ $(document).on("click", ".JS-answer-choice", function(){
         currentQuestionNumber++;
 
         var buttons = (questionsObject.q3c.answerA.id);
-        console.log(buttons);
+        //console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
         document.getElementById("bar").style.width = "75%";
@@ -680,7 +680,7 @@ $(document).on("click", ".JS-answer-choice", function(){
         currentQuestionNumber++;
 
         var buttons = (questionsObject.q3c.answerB.id);
-        console.log(buttons);
+        //console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
         document.getElementById("bar").style.width = "75%";
@@ -693,7 +693,7 @@ $(document).on("click", ".JS-answer-choice", function(){
         currentQuestionNumber++;
 
         var buttons = (questionsObject.q3d.answerA.id);
-        console.log(buttons);
+        //console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
         document.getElementById("bar").style.width = "75%";
@@ -706,7 +706,7 @@ $(document).on("click", ".JS-answer-choice", function(){
         currentQuestionNumber++;
 
         var buttons = (questionsObject.q3d.answerB.id);
-        console.log(buttons);
+        //console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
         document.getElementById("bar").style.width = "75%";
@@ -732,7 +732,7 @@ $(document).on("click", ".JS-answer-choice", function(){
       	runAPICalls(userPersonalityAssignment);
 
         var buttons = (questionsObject.q4a.answerA.id); 
-        console.log(buttons); 
+        //console.log(buttons); 
         localStorage.setItem("choice", JSON.stringify(buttons));
 
     }
@@ -752,7 +752,7 @@ $(document).on("click", ".JS-answer-choice", function(){
       	runAPICalls(userPersonalityAssignment);
 
         var buttons = (questionsObject.q4a.answerB.id);
-        console.log(buttons);
+        //console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
     }
@@ -772,7 +772,7 @@ $(document).on("click", ".JS-answer-choice", function(){
       	runAPICalls(userPersonalityAssignment);
 
         var buttons = (questionsObject.q4b.answerA.id);
-        console.log(buttons);
+        //console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
     }
@@ -792,7 +792,7 @@ $(document).on("click", ".JS-answer-choice", function(){
       	runAPICalls(userPersonalityAssignment);
 
         var buttons = (questionsObject.q4b.answerB.id);
-        console.log(buttons);
+        //console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
     }
@@ -812,7 +812,7 @@ $(document).on("click", ".JS-answer-choice", function(){
       	runAPICalls(userPersonalityAssignment);
 
         var buttons = (questionsObject.q4c.answerA.id);
-        console.log(buttons);
+        //console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
     }
@@ -832,7 +832,7 @@ $(document).on("click", ".JS-answer-choice", function(){
       	runAPICalls(userPersonalityAssignment);
 
         var buttons = (questionsObject.q4c.answerB.id);
-        console.log(buttons);
+        //console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
     }
@@ -852,7 +852,7 @@ $(document).on("click", ".JS-answer-choice", function(){
       	runAPICalls(userPersonalityAssignment);
 
         var buttons = (questionsObject.q4d.answerA.id);
-        console.log(buttons);
+        //console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
     }
@@ -872,7 +872,7 @@ $(document).on("click", ".JS-answer-choice", function(){
       	runAPICalls(userPersonalityAssignment);
 
         var buttons = (questionsObject.q4d.answerB.id);
-        console.log(buttons);
+        //console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
 
@@ -893,7 +893,7 @@ $(document).on("click", ".JS-answer-choice", function(){
       	runAPICalls(userPersonalityAssignment);
 
         var buttons = (questionsObject.q4e.answerA.id);
-        console.log(buttons);
+        //console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
     }
@@ -913,7 +913,7 @@ $(document).on("click", ".JS-answer-choice", function(){
       	runAPICalls(userPersonalityAssignment);
 
         var buttons = (questionsObject.q4e.answerB.id);
-        console.log(buttons);
+        //console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
     }
@@ -933,7 +933,7 @@ $(document).on("click", ".JS-answer-choice", function(){
       	runAPICalls(userPersonalityAssignment);
 
         var buttons = (questionsObject.q4f.answerA.id);
-        console.log(buttons);
+        //console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
     }
@@ -953,7 +953,7 @@ $(document).on("click", ".JS-answer-choice", function(){
       	runAPICalls(userPersonalityAssignment);
 
         var buttons = (questionsObject.q4f.answerB.id);
-        console.log(buttons);
+        //console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
     }
@@ -973,7 +973,7 @@ $(document).on("click", ".JS-answer-choice", function(){
       	runAPICalls(userPersonalityAssignment);
 
         var buttons = (questionsObject.q4g.answerA.id);
-        console.log(buttons);
+        //console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
     }
@@ -993,7 +993,7 @@ $(document).on("click", ".JS-answer-choice", function(){
       	runAPICalls(userPersonalityAssignment);
 
         var buttons = (questionsObject.q4g.answerB.id);
-        console.log(buttons);
+        //console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
     }
@@ -1013,7 +1013,7 @@ $(document).on("click", ".JS-answer-choice", function(){
       	runAPICalls(userPersonalityAssignment);
 
         var buttons = (questionsObject.q4h.answerA.id);
-        console.log(buttons);
+        //console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
     }
@@ -1033,7 +1033,7 @@ $(document).on("click", ".JS-answer-choice", function(){
       	runAPICalls(userPersonalityAssignment);
 
         var buttons = (questionsObject.q4h.answerB.id);
-        console.log(buttons);
+        //console.log(buttons);
         localStorage.setItem("choice", JSON.stringify(buttons));
 
         

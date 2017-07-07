@@ -21,7 +21,7 @@
 };
 firebase.initializeApp(config);*/
 
-
+var connected = false;
 
 //var cats = ["Books"];
 
@@ -118,10 +118,10 @@ function ebay(p) {
         }
     }).done(function(response) {
             var newresponse = JSON.parse(response);
-            console.log(newresponse.findItemsByKeywordsResponse[0].searchResult[0].item);
+            //console.log(newresponse.findItemsByKeywordsResponse[0].searchResult[0].item);
             for (i = 0; i < newresponse.findItemsByKeywordsResponse[0].searchResult[0].item.length; i++) {
                 //picture
-                if (typeof newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].pictureURLLarge["0"] != "undefined")
+                if (typeof newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].pictureURLLarge != "undefined")
                     document.getElementById("ebay" + i).src = newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].pictureURLLarge["0"];
                 else{
                     document.getElementById("ebay" + i).src = newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].galleryURL["0"];
@@ -185,9 +185,9 @@ function amazon(p) {
                     var pls = xml2json(response, "");
                     //PARSE THE JSON STRING INTO AN OBJECT
                     var newresponse = JSON.parse(pls);
-                    console.log(newresponse);
+                    //console.log(newresponse);
                     //place the response on screen
-                    console.log(newresponse.ItemSearchResponse.Items.Item.length);
+                    //console.log(newresponse.ItemSearchResponse.Items.Item.length);
                     for (i = 0; i < limit; i++) {
                         //image
                         if (typeof newresponse.ItemSearchResponse.Items.Item[i].LargeImage != "undefined")
@@ -196,10 +196,11 @@ function amazon(p) {
                         //url
                         document.getElementById("giftURLAmazon" + i).href = newresponse.ItemSearchResponse.Items.Item[i].DetailPageURL;
                         //price
-                        if (typeof newresponse.ItemSearchResponse.Items.Item[i].ItemAttributes.ListPrice.FormattedPrice != "undefined")
+                        if (typeof newresponse.ItemSearchResponse.Items.Item[i].ItemAttributes.ListPrice != "undefined")
                         //document.getElementById("amazonprice" + i).innerHTML = newresponse.ItemSearchResponse.Items.Item[i].ItemAttributes.ListPrice.FormattedPrice;
                             $(".priceItemAmazon" + i).html(newresponse.ItemSearchResponse.Items.Item[i].ItemAttributes.ListPrice.FormattedPrice);
-
+                        else
+                            $(".priceItemAmazon" + i).html("Check Link for Price");
                         //title
                         //document.getElementById("amazontitle" + i).innerHTML = newresponse.ItemSearchResponse.Items.Item[i].ItemAttributes.Binding + " - " + newresponse.ItemSearchResponse.Items.Item[i].ItemAttributes.Title;            
                         var details = document.querySelector('.showDetailsAmazon' + i);
@@ -345,7 +346,7 @@ function getAssociate(snapshot) {
 }
 // return snapshot of database
 function getDB(n) {
-    if (n == 1) {
+    if (!connected) {
         var config = {
             apiKey: "AIzaSyA64v8sLoyVKl8-AXLRw23jllF8t1th0-w",
             authDomain: "bettergifts-61657.firebaseapp.com",
@@ -355,6 +356,7 @@ function getDB(n) {
             messagingSenderId: "68593109442"
         };
         firebase.initializeApp(config);
+        connected = true;
     }
     var database = firebase.database();
     if (n == 1)
