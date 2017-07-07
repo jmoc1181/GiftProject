@@ -122,7 +122,7 @@ var questionsObject = {
         }
     },
     q4e: {
-        question: "What is most likely the reason for the gift recipient's trip?" //Your gift recipient is taking a weekend trip. Is it more likely for business or for fun",
+        question: "What is most likely the reason for the gift recipient's trip?", //Your gift recipient is taking a weekend trip. Is it more likely for business or for fun",
         answerA: {
             id: "Q4eA",
             text: "Business"
