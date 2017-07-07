@@ -317,7 +317,7 @@ var holidaysArray = [
         name: "Baby Shower Gifts",
         description: "Give your loved on a gift to help prepare them for their little bundle of joy.",
         amazonKeyword: ["parenting book"],
-        ebayKeyword: [""],
+        ebayKeyword: ["baby shower"],
         etsyKeyword: ["Housewares", "Baby Shower"]
     },
     {
@@ -325,7 +325,7 @@ var holidaysArray = [
         name: "Birthday Gifts",
         description: "Another year older, another year wiser — give a gift that will help them mark the occasion, reach their nex milestone, and ",
         amazonKeyword: ["birthday journal"],
-        ebayKeyword: [""],
+        ebayKeyword: ["birthday"],
         etsyKeyword: ["Art", "Birthday"]
     },
     {
@@ -333,7 +333,7 @@ var holidaysArray = [
         name: "Christmas Gifts",
         description: "&#39;Tis the season for generosity, joy, and egg nog — give a gift that will help keep your recipient in the holiday spirit.",
         amazonKeyword: ["christmas decor"],
-        ebayKeyword: [""],
+        ebayKeyword: ["christmas"],
         etsyKeyword: ["Housewares", "Christmas decoration"]
     },
     {
@@ -341,7 +341,7 @@ var holidaysArray = [
         name: "Condolence Gifts",
         description: "In this time of grief, here are some suggestions for items to help express your sympathy for the bereaved.",
         amazonKeyword: ["grieving book"],
-        ebayKeyword: [""],
+        ebayKeyword: ["condolence card"],
         etsyKeyword: ["Everything Else", "sympathy"]
     },
     {
@@ -357,7 +357,7 @@ var holidaysArray = [
         name: "Graduation Gifts",
         description: "Big new things are on the horizon for your grad — give them a gift that will help them remember the good times and reach their next step.",
         amazonKeyword: ["tablet"],
-        ebayKeyword: [""],
+        ebayKeyword: ["graduation"],
         etsyKeyword: ["housewares", "photo frame"]
     },
     {
