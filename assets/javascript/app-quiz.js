@@ -1,7 +1,7 @@
 //Object holding all of our questions, answers, and Q/A metadata
 var questionsObject = {
     q1a: {
-        question: "On their perfect weekend, will your gift recipient be with their squad or flying solo?",
+        question: "Who would the gift recipient spend a perfect weekend with?", //On the perfect weekend, will your gift recipient be with their squad or flying solo?
         answerA: {
             id: "Q1aA",
             text: "Squad"
@@ -12,18 +12,18 @@ var questionsObject = {
         }
     },
     q2a: {
-        question: "Now, on that perfect weekend with their friends, is your gift recipient more likely to be hanging out in the great outdoors or in the comfort of their own home?",
+        question: "Where is the gift recipient's perfect weekend likely to take place?" //During that perfect weekend with their friends, is your gift recipient more likely to be hanging out in the great outdoors or in the comfort of their own home?",
         answerA: {
             id: "Q2aA",
-            text: "Outdoors"
+            text: "The Great Outdoors"
         },
         answerB: {
             id: "Q2aB",
-            text: "Home"
+            text: "The Comfort of Home"
         }
     },
     q2b: {
-        question: "How far in advance does your gift recipient book their schedule?",
+        question: "How far in advance does the gift recipient plan events?",
         answerA: {
             id: "Q2bA",
             text: "3 Weeks"
@@ -34,7 +34,7 @@ var questionsObject = {
         }
     },
     q3a: {
-        question: "Does your gift recipient spend mroe time fidgeting or daydreaming?",
+        question: "What does the gift recipient spend more time doing?",
         answerA: {
             id: "Q3aA",
             text: "Fidgeting"
@@ -45,7 +45,7 @@ var questionsObject = {
         }
     },
     q3b: {
-        question: "Now, who will they invite over to their home first, friends or family?",
+        question: "Who would the gift recipient invite to his/her home first?",
         answerA: {
             id: "Q3bA",
             text: "Friends"
@@ -56,43 +56,43 @@ var questionsObject = {
         }
     },
     q3c: {
-        question: "Is their schedule booked because they've made plans to meet someone new or because they'vemade plans on their own?",
+        question: "Which would most likely be in the gift recipient's schedule?", //Is their schedule booked because they've made plans to meet someone new or because they'vemade plans on their own?
         answerA: {
             id: "Q3cA",
-            text: "Someone New"
+            text: "Meeting Someone New"
         },
         answerB: {
             id: "Q3cB",
-            text: "On Their Own"
+            text: "Spending Time Alone"
         }
     },
     q3d: {
-        question: "Does your gift recipient prefer the finer things in life or living the simple life?",
+        question: "Which lifestyle is the gift recipient drawn to?", //Does your gift recipient prefer the finer things in life or living the simple life?
         answerA: {
             id: "Q3dA",
-            text: "Finer Things"
+            text: "The Finer Things in Life"
         },
         answerB: {
             id: "Q3dB",
-            text: "Simple Life"
+            text: "The Simple Life"
         }
     },
     q4a: {
-        question: "Which is more important to your gift recipient: playing to win or making sure everyone has a good time?",
+        question: "Which is more important to the gift recipient?",
         answerA: {
             id: "Q4aA",
-            text: "Play to Win"
+            text: "Playing to Win"
         },
         answerB: {
             id: "Q4aB",
-            text: "Have a Good Time"
+            text: "Making Sure Everyone Has a Good Time"
         }
     },
     q4b: {
-        question: "Is your gift recipient more in tune with how they're feeling or with how others are feeling?",
+        question: "Who's feelings is the gift recipient more in tune with?", //Is your gift recipient more in tune with how they're feeling or with how others are feeling?
         answerA: {
             id: "Q4bA",
-            text: "Themselves"
+            text: "Their Own"
         },
         answerB: {
             id: "Q4bB",
@@ -100,21 +100,21 @@ var questionsObject = {
         }
     },
     q4c: {
-        question: "In a movie production, would your gift recipient prefer to play the starring role or to call the shots as the director?",
+        question: "In a movie production, what role would the gift recipient prefer?",
         answerA: {
             id: "Q4cA",
-            text: "Star"
+            text: "The Star"
         },
         answerB: {
             id: "Q4cB",
-            text: "Director"
+            text: "The Director"
         }
     },
     q4d: {
-        question: "Is your gift recipient more likely to make a mess or to clean it up?",
+        question: "Is the gift recipient more likely to make a mess or to clean it up?",
         answerA: {
             id: "Q4dA",
-            text: "Make the Mess"
+            text: "Make a Mess"
         },
         answerB: {
             id: "Q4dB",
@@ -122,18 +122,18 @@ var questionsObject = {
         }
     },
     q4e: {
-        question: "Your gift recipient is taking a weekend trip. Is it more likely for business or for fun",
+        question: "What is most likely the reason for the gift recipient's trip?" //Your gift recipient is taking a weekend trip. Is it more likely for business or for fun",
         answerA: {
             id: "Q4eA",
             text: "Business"
         },
         answerB: {
             id: "Q4eB",
-            text: "Fun"
+            text: "Pleasure"
         }
     },
     q4f: {
-        question: "Which does your gift recipient enjoy more: losing themselves or finding themselves?",
+        question: "Which does the gift recipient enjoy more?",
         answerA: {
             id: "Q4fA",
             text: "Losing Themselves"
@@ -144,7 +144,7 @@ var questionsObject = {
         }
     },
     q4g: {
-        question: "What does your gift recipient value more in those finer things: form or function?",
+        question: "What does the gift recipient value more in those finer things?",
         answerA: {
             id: "Q4gA",
             text: "Form"
@@ -155,14 +155,14 @@ var questionsObject = {
         }
     },
     q4h: {
-        question: "Now, does your gift recipient's idea of enjoying the simple life involve napping or learning something new?",
+        question: "The gift recipient's idea of the simple life involves which of the following?", //Does your gift recipient's idea of enjoying the simple life involve napping or learning something new?
         answerA: {
             id: "Q4hA",
             text: "Napping"
         },
         answerB: {
             id: "Q4hB",
-            text: "Learning Something"
+            text: "Learning Something New"
         }
     }
 };
@@ -173,7 +173,7 @@ var personalitiesArray = [
     {
         key: "Q1aAQ2aAQ3aAQ4aA",
         name: "The Mover",
-        description: "The Mover has a spark for life and a passion for action & adventure they can barely contain — give them a gift to help burn off some of that extra energy.",
+        description: "The Mover has a spark for life and a passion for action & adventure that can barely be contained — give a gift to help burn off some of that extra energy.",
         amazonKeyword: ["Sporting Goods"],
         ebayKeyword: ["Sports equipment"],
         etsyKeyword: ["Clothing", "exercise"]
@@ -181,7 +181,7 @@ var personalitiesArray = [
     {
         key: "Q1aAQ2aAQ3aAQ4aB",
         name: "The Labrador Retriever",
-        description: "The Labrador Retriever loves their friends, their family, and bright summer days — give them a gift that doubles as the perfect excuse for an afternoon at the park.",
+        description: "The Labrador Retriever loves his/her friends, family, and bright summer days — give a gift that doubles as the perfect excuse for an afternoon at the park.",
         amazonKeyword: ["Lawn Games"],
         ebayKeyword: ["Lawn Games"],
         etsyKeyword: ["Toys", "lawn game"]
@@ -189,7 +189,7 @@ var personalitiesArray = [
     {
         key: "Q1aAQ2aAQ3aAQ4bA",
         name: "The Creator",
-        description: "The Creator marches to the beat of their own drum, and everyone else stops to listen — give them a gift that will help them express themselves for all to hear.",
+        description: "The Creator marches to the beat of his/her own drum, and everyone else stops to listen — give a gift that will help express himself/herself for all to hear.",
         amazonKeyword: ["Musical Instruments"],
         ebayKeyword: ["Musical Instruments"],
         etsyKeyword: ["Music", "instrument"]
@@ -197,7 +197,7 @@ var personalitiesArray = [
     {
         key: "Q1aAQ2aAQ3aBQ4bB",
         name: "The Instigator",
-        description: "The Instigator is great at thinking on their feet in social situations, sometimes for good and sometimes for bad — give them a gift to help them flex their social muscle.",
+        description: "The Instigator is great at thinking on his/her feet in social situations, sometimes for good and sometimes for bad — give a gift to help him/her flex a social muscle.",
         amazonKeyword: ["Board Games"],
         ebayKeyword: ["Board Games"],
         etsyKeyword: ["Toys", "board game"]
@@ -205,7 +205,7 @@ var personalitiesArray = [
     {
         key: "Q1aAQ2aBQ3bAQ4cA",
         name: "The Trendsetter",
-        description: "The Trendsetter is the life of the party and the center of attention wherever they go — give them a gift that will leave everyone in the room wanting to copy their look.",
+        description: "The Trendsetter is the life of the party and the center of attention everywhere — give a gift that will leave everyone in the room wanting to copy his/her look.",
         amazonKeyword: ["Fashion Accessories"],
         ebayKeyword: ["Clothing Accessories"],
         etsyKeyword: ["Clothing", "elegant"]
@@ -213,7 +213,7 @@ var personalitiesArray = [
     {
         key: "Q1aAQ2aBQ3bAQ4cB",
         name: "The Entertainer",
-        description: "Friendly, outgoing, and inviting, the Entertainer's home is your home — give them a gift that will help them take their next dinner party to the next level.",
+        description: "Friendly, outgoing, and inviting, the Entertainer's home is your home — give a gift that will help take his/her next dinner party to the next level.",
         amazonKeyword: ["Kitchen tools"],
         ebayKeyword: ["Kitchen gadget"],
         etsyKeyword: ["Housewares", "kitchen"]
@@ -221,7 +221,7 @@ var personalitiesArray = [
     {
         key: "Q1aAQ2aBQ3bBQ4dA",
         name: "The Inner Child",
-        description: "Young or old, the Inner Child appreciates novelty — give them a gift that will keep their youthful mind entertained.",
+        description: "Young or old, the Inner Child appreciates novelty — give a gift that will keep his/her youthful mind entertained.",
         amazonKeyword: ["Stuffed Animals"],
         ebayKeyword: ["retro toy"],
         etsyKeyword: ["toys", "vintage"]
@@ -229,7 +229,7 @@ var personalitiesArray = [
     {
         key: "Q1aAQ2aBQ3bBQ4dB",
         name: "The Nester",
-        description: "Warm and kindhearted, the Nester likes to make sure everyone around them feels comfy and cozy — give them a gift that will do half the work for them.",
+        description: "Warm and kindhearted, the Nester likes to make sure everyone around feels comfy and cozy — give a gift that will help guests feel at ease.",
         amazonKeyword: ["Home decor"],
         ebayKeyword: ["decorative piece"],
         etsyKeyword: ["Art", "decor"]
@@ -237,7 +237,7 @@ var personalitiesArray = [
     {
         key: "Q1aBQ2bAQ3cAQ4eA",
         name: "The Executive",
-        description: "A real go-getter, the Executive is always planning their next big move — give them a gift to help keep track of all their exciting venture.",
+        description: "A real go-getter, the Executive is always planning his/her next big move — give a gift to help keep track of all his/her exciting ventures.",
         amazonKeyword: ["Office Supplies"],
         ebayKeyword: ["Office Supplies"],
         etsyKeyword: ["Supplies", "planner"]
@@ -245,7 +245,7 @@ var personalitiesArray = [
     {
         key: "Q1aBQ2bAQ3cAQ4eB",
         name: "The Butterfly",
-        description: "Always on the move, the Butterfly loves to share their life with friends near and far— give them a gift that will add some style to their next social media update.",
+        description: "Always on the move, the Butterfly loves to share his/her life with friends near and far — give a gift that will add style to his/her next social media update.",
         amazonKeyword: ["Mobile Accessories"],
         ebayKeyword: ["Mobile Accessories"],
         etsyKeyword: ["Accessories", "Cell Phone"]
@@ -253,7 +253,7 @@ var personalitiesArray = [
     {
         key: "Q1aBQ2bAQ3cBQ4fA",
         name: "The Nomad",
-        description: "The Nomad's heart lies in many places at once — give them a gift that will add some pep to their step as they track it down.",
+        description: "The Nomad's heart lies in many places at once — give a gift that will add some pep to his/her step as he/she tracks it down.",
         amazonKeyword: ["Travel Gear"],
         ebayKeyword: ["Mobile Accessories"],
         etsyKeyword: ["Accesories", "phone"]
@@ -261,7 +261,7 @@ var personalitiesArray = [
     {
         key: "Q1aBQ2bAQ3cBQ4fB",
         name: "The Hermit",
-        description: "Peaceful and thoughtful, the Hermit enjoys time to explore their own mind — give them a gift that will start them on another new journey.",
+        description: "Peaceful and thoughtful, the Hermit enjoys time to explore his/her own mind — give a gift that will start his/her on another new journey.",
         amazonKeyword: ["Books"],
         ebayKeyword: ["Books"],
         etsyKeyword: ["Books and Zines", "zine"]
@@ -269,7 +269,7 @@ var personalitiesArray = [
     {
         key: "Q1aBQ2bBQ3dAQ4gA",
         name: "The Magician",
-        description: "Full of wit and curiosity, the Magician can make anything possible with the right tools — or the right tech toys. Give them a gift to help expand their arsenal.",
+        description: "Full of wit and curiosity, the Magician can make anything possible with the right tools or the right tech toys — give a gift to help expand his/her arsenal.",
         amazonKeyword: ["Electronics"],
         ebayKeyword: ["Travel Gear"],
         etsyKeyword: ["Accessories", "travel"]
@@ -277,7 +277,7 @@ var personalitiesArray = [
     {
         key: "Q1aBQ2bBQ3dAQ4gB",
         name: "The Monarch",
-        description: "Colorful and confident, the Monarch appreciates the finer things and life — give them a gift that reflects their refined sense of style.",
+        description: "Colorful and confident, the Monarch appreciates the finer things and life — give a gift that reflects his/her refined sense of style.",
         amazonKeyword: ["Jewelry"],
         ebayKeyword: ["Jewelry"],
         etsyKeyword: ["Jewelry", "vintage"]
@@ -285,7 +285,7 @@ var personalitiesArray = [
     {
         key: "Q1aBQ2bBQ3dBQ4hA",
         name: "The Feline",
-        description: "The Feline knows how to unwind with a good stretch, a good nap, and a good snack — give them a gift they'll reach for on their next lazy Sunday.",
+        description: "The Feline knows how to unwind with a good stretch, a good nap, and a good snack — give a gift they'll reach for on his/her next lazy Sunday.",
         amazonKeyword: ["Snacks"],
         ebayKeyword: ["Snack care package"],
         etsyKeyword: ["Supplies", "snack"]
@@ -293,7 +293,7 @@ var personalitiesArray = [
     {
         key: "Q1aBQ2bBQ3dBQ4hB",
         name: "The Nurturer",
-        description: "The Nurturer has an uncanny ability to make something out of nothing — give them a gift that will help seed their next project.",
+        description: "The Nurturer has an uncanny ability to make something out of nothing — give a gift that will help seed his/her next project.",
         amazonKeyword: ["Crafting How-to"],
         ebayKeyword: ["Crafting How-to"],
         etsyKeyword: ["Supplies", "craft"]
@@ -306,7 +306,7 @@ var holidaysArray = [
 
 	{
         key: "h00",
-        name: "Your Special Anniversary",
+        name: "Anniversary Gifts",
         description: "Whether you've been together for 1 year or 100, give your partner-in-crime a gift to help express the way you still feel about them.",
         amazonKeyword: ["anniversary gift"],
         ebayKeyword: [""],
@@ -314,7 +314,7 @@ var holidaysArray = [
     },
     {
         key: "h01",
-        name: "Your Loved One's Baby Shower",
+        name: "Baby Shower Gifts",
         description: "Give your loved on a gift to help prepare them for their little bundle of joy.",
         amazonKeyword: ["parenting book"],
         ebayKeyword: [""],
@@ -322,7 +322,7 @@ var holidaysArray = [
     },
     {
         key: "h02",
-        name: "Your Loved One's Birthday",
+        name: "Birthday Gifts",
         description: "Another year older, another year wiser — give a gift that will help them mark the occasion, reach their nex milestone, and ",
         amazonKeyword: ["birthday journal"],
         ebayKeyword: [""],
@@ -330,7 +330,7 @@ var holidaysArray = [
     },
     {
         key: "h03",
-        name: "Christmas",
+        name: "Christmas Gifts",
         description: "&#39;Tis the season for generosity, joy, and egg nog — give a gift that will help keep your recipient in the holiday spirit.",
         amazonKeyword: ["christmas decor"],
         ebayKeyword: [""],
@@ -338,14 +338,14 @@ var holidaysArray = [
     },
     {
         key: "h04",
-        name: "Expressing Condolences",
+        name: "Condolence Gifts",
         description: ["grieving book"],
         ebayKeyword: [""],
         etsyKeyword: ["Everything Else", "sympathy"]
     },
     {
         key: "h05",
-        name: "Father's Day",
+        name: "Father's Day Gifts",
         description: "He raised you and made you the person you are today — give your dad a gift that shows him he's on your mind this Father's Day.",
         amazonKeyword: ["thanks dad"],
         ebayKeyword: [""],
@@ -353,7 +353,7 @@ var holidaysArray = [
     },
     {
         key: "h06",
-        name: "Your Loved One's Graduation",
+        name: "Graduation Gifts",
         description: "Big new things are on the horizon for your grad — give them a gift that will help them remember the good times and reach their next step.",
         amazonKeyword: ["tablet"],
         ebayKeyword: [""],
@@ -361,7 +361,7 @@ var holidaysArray = [
     },
     {
         key: "h07",
-        name: "Hannukah",
+        name: "Hannukah Gifts",
         description: "",
         amazonKeyword:["channukah gift wrap"],
         ebayKeyword: [""],
@@ -369,7 +369,7 @@ var holidaysArray = [
     },
     {
         key: "h08",
-        name: "House Warming",
+        name: "House Warming Gifts",
         description: "In this time of new beginnings and empty walls, give a gift that helps make a house a home.",
         amazonKeyword: ["Furniture"],
         ebayKeyword: ["Kitchen gadget"],
@@ -377,7 +377,7 @@ var holidaysArray = [
     },
     {
         key: "h09",
-        name: "Mother's Day",
+        name: "Mother's Day Gifts",
         description: "Whether you're celebrating your mom or another special mother in your life, give a gift to help show her she's on your mind this season.",
         amazonKeyword: ["Motherhood book"],
         ebayKeyword: [""],
@@ -385,7 +385,7 @@ var holidaysArray = [
     },
     {
         key: "h10",
-        name: "Valentine's Day",
+        name: "Valentine's Day Gifts",
         description: "Love is in the air — give your special someone a gift to help express your feelings when words are not enough.",
         amazonKeyword: ["romantic gift"],
         ebayKeyword: ["couples gift set"],
@@ -393,7 +393,7 @@ var holidaysArray = [
     },
     {
         key: "h11",
-        name: "Celebrating a Wedding",
+        name: "Wedding Gifts",
         description: "On this joyous day, give the happy couple a gift to help them celebrate and start their new journey together.",
         amazonKeyword: ["home appliance"],
         ebayKeyword: [""],
