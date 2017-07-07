@@ -12,7 +12,7 @@ var questionsObject = {
         }
     },
     q2a: {
-        question: "Where is the gift recipient's perfect weekend likely to take place?" //During that perfect weekend with their friends, is your gift recipient more likely to be hanging out in the great outdoors or in the comfort of their own home?",
+        question: "Where is the gift recipient's perfect weekend likely to take place?", //During that perfect weekend with their friends, is your gift recipient more likely to be hanging out in the great outdoors or in the comfort of their own home?",
         answerA: {
             id: "Q2aA",
             text: "The Great Outdoors"
