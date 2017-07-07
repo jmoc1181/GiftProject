@@ -339,7 +339,8 @@ var holidaysArray = [
     {
         key: "h04",
         name: "Expressing Condolences",
-        description: ["grieving book"],
+        description: "In this time of grief, here are some suggestions for items to help express your sympathy for the bereaved.",
+        amazonKeyword: ["grieving book"],
         ebayKeyword: [""],
         etsyKeyword: ["Everything Else", "sympathy"]
     },
@@ -348,7 +349,7 @@ var holidaysArray = [
         name: "Father's Day",
         description: "He raised you and made you the person you are today — give your dad a gift that shows him he's on your mind this Father's Day.",
         amazonKeyword: ["thanks dad"],
-        ebayKeyword: [""],
+        ebayKeyword: ["father gift"],
         etsyKeyword: ["Books and zines", "fatherhood"]
     },
     {
@@ -362,9 +363,9 @@ var holidaysArray = [
     {
         key: "h07",
         name: "Hannukah",
-        description: "",
+        description: "Give your loved one a gift to mark this special time of the year.",
         amazonKeyword:["channukah gift wrap"],
-        ebayKeyword: [""],
+        ebayKeyword: ["judaism book"],
         etsyKeyword: ["Housewares", "Hannukah"]
     },
     {
@@ -380,7 +381,7 @@ var holidaysArray = [
         name: "Mother's Day",
         description: "Whether you're celebrating your mom or another special mother in your life, give a gift to help show her she's on your mind this season.",
         amazonKeyword: ["Motherhood book"],
-        ebayKeyword: [""],
+        ebayKeyword: ["mom Jewelry"],
         etsyKeyword: ["art", "mother's day"]
     },
     {
