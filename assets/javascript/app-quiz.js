@@ -323,7 +323,7 @@ var holidaysArray = [
     {
         key: "h02",
         name: "Birthday Gifts",
-        description: "Another year older, another year wiser — give a gift that will help them mark the occasion, reach their nex milestone, and ",
+        description: "Another year older, another year wiser — give a gift that will help mark the occasion and reach his/her next milestone.",
         amazonKeyword: ["birthday journal"],
         ebayKeyword: [""],
         etsyKeyword: ["Art", "Birthday"]
