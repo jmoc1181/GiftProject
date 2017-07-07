@@ -338,14 +338,9 @@ var holidaysArray = [
     },
     {
         key: "h04",
-<<<<<<< HEAD
         name: "Condolence Gifts",
-        description: ["grieving book"],
-=======
-        name: "Expressing Condolences",
         description: "In this time of grief, here are some suggestions for items to help express your sympathy for the bereaved.",
         amazonKeyword: ["grieving book"],
->>>>>>> 605b7cffb349342396f1efcaedadf2e6d0d0b288
         ebayKeyword: [""],
         etsyKeyword: ["Everything Else", "sympathy"]
     },
@@ -367,13 +362,8 @@ var holidaysArray = [
     },
     {
         key: "h07",
-<<<<<<< HEAD
         name: "Hannukah Gifts",
-        description: "",
-=======
-        name: "Hannukah",
         description: "Give your loved one a gift to mark this special time of the year.",
->>>>>>> 605b7cffb349342396f1efcaedadf2e6d0d0b288
         amazonKeyword:["channukah gift wrap"],
         ebayKeyword: ["judaism book"],
         etsyKeyword: ["Housewares", "Hannukah"]
@@ -404,11 +394,7 @@ var holidaysArray = [
     },
     {
         key: "h11",
-<<<<<<< HEAD
         name: "Wedding Gifts",
-=======
-        name: "Weddings",
->>>>>>> 605b7cffb349342396f1efcaedadf2e6d0d0b288
         description: "On this joyous day, give the happy couple a gift to help them celebrate and start their new journey together.",
         amazonKeyword: ["home appliance"],
         ebayKeyword: ["wedding"],
