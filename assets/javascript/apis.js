@@ -50,40 +50,45 @@ function etsy(p) {
     //private etsy api key
     var key = "1sx4uxkv5201v3q6lkmsgqr6";
     //etsy listing api url
-    var queryURL = "https://openapi.etsy.com/v2/listings/active?"
+    var queryURL = "https://openapi.etsy.com/v2/listings/active.js?callback=etsydata&api_key=" + key + "&limit=" + itemLimit + "&includes=MainImage&category=" + category + "&keywords=" + keyword;
     $.ajax({
         url: queryURL,
         //api data perams
-        data: {
-            api_key: key,
-            //number of items to return (max 100)
-            limit: itemLimit,
-            //include an image of the listing
-            includes: "MainImage",
-            //taxonomy_path: "Jewelry",
-            category: category,
-            //keywords: "whiskey"
-            keywords: keyword
-                //tags: tag
-        }
-    }).done(function(response) {
-        // add the image to the page, add the price to the page, add the url to the page 
-        for (i = 0; i < itemLimit; i++) {
-            //image
-            document.getElementById("etsy" + i).src = response.results[i].MainImage.url_570xN;
-            //url
-            document.getElementById("giftURL" + i).href = response.results[i].url;
+        // data: {
+        //     callback: 'etsydata',
+        //     api_key: key,
+        //     //number of items to return (max 100)
+        //     limit: itemLimit,
+        //     //include an image of the listing
+        //     includes: "MainImage",
+        //     //taxonomy_path: "Jewelry",
+        //     category: category,
+        //     //keywords: "whiskey"
+        //     keywords: keyword,
+        //         //tags: tag
+        // },
+        dataType: 'jsonp'
+    }).done(
+        // etsydata(response)
+        function(response) {
+            // add the image to the page, add the price to the page, add the url to the page 
+            for (i = 0; i < itemLimit; i++) {
+                //image
+                document.getElementById("etsy" + i).src = response.results[i].MainImage.url_570xN;
+                //url
+                document.getElementById("giftURL" + i).href = response.results[i].url;
 
-            //price
-            if (response.results[i].price == null)
-                document.getElementById("priceItem" + i).text = 'go to site';
-            else
-                $(".priceItem" + i).html("$" + response.results[i].price);
-            //mouse-over details
-            var details = document.querySelector('.showDetails' + i);
-            details.setAttribute('data-balloon', response.results[i].title + " - CLICK TO BUY ITEM");
-        } //end for loop
-    }); // end .done function
+                //price
+                if (response.results[i].price == null)
+                    document.getElementById("priceItem" + i).text = 'go to site';
+                else
+                    $(".priceItem" + i).html("$" + response.results[i].price);
+                //mouse-over details
+                var details = document.querySelector('.showDetails' + i);
+                details.setAttribute('data-balloon', response.results[i].title + " - CLICK TO BUY ITEM");
+            } //end for loop
+        }
+    ); // end .done function
 }
 /*for (i = 0; i < itemLimit; i++) { 
    console.log(response.results[i].title);
@@ -94,6 +99,27 @@ function etsy(p) {
 //** response.results["0"].MainImage.url_75x75
 //** response.results["0"].url
 //** response.results["0"].price
+
+// function etsydata(response){
+//         var itemLimit = 8;
+//         console.log(response);
+//         // add the image to the page, add the price to the page, add the url to the page 
+//         for (i = 0; i < itemLimit; i++) {
+//             //image
+//             document.getElementById("etsy" + i).src = response.results[i].MainImage.url_570xN;
+//             //url
+//             document.getElementById("giftURL" + i).href = response.results[i].url;
+
+//             //price
+//             if (response.results[i].price == null)
+//                 document.getElementById("priceItem" + i).text = 'go to site';
+//             else
+//                 $(".priceItem" + i).html("$" + response.results[i].price);
+//             //mouse-over details
+//             var details = document.querySelector('.showDetails' + i);
+//             details.setAttribute('data-balloon', response.results[i].title + " - CLICK TO BUY ITEM");
+//         } //end for loop
+//     }//etsydata end
 
 //****** EBAY CALL *************************************************************************
 //******************************************************************************************
@@ -115,26 +141,28 @@ function ebay(p) {
         method: "GET",
         data: {
             outputSelector: "PictureURLLarge"
-        }
+        },
+        //cors workaround
+        dataType: 'jsonp'
     }).done(function(response) {
-            var newresponse = JSON.parse(response);
-            //console.log(newresponse.findItemsByKeywordsResponse[0].searchResult[0].item);
-            for (i = 0; i < newresponse.findItemsByKeywordsResponse[0].searchResult[0].item.length; i++) {
-                //picture
-                if (typeof newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].pictureURLLarge != "undefined")
-                    document.getElementById("ebay" + i).src = newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].pictureURLLarge["0"];
-                else{
-                    document.getElementById("ebay" + i).src = newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].galleryURL["0"];
-                    //put class change here
-                }
-                //URL
-                document.getElementById("giftURLEbay" + i).href = newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].viewItemURL[0];
-                //price
-                $(".priceItemEbay" + i).html("$" + newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].sellingStatus["0"].convertedCurrentPrice["0"].__value__);
-                //title
-                var details = document.querySelector('.showDetailsEbay' + i);
-                details.setAttribute('data-balloon', newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].title[0] + " - CLICK TO BUY ITEM");
+        var newresponse = response;
+        //console.log(newresponse.findItemsByKeywordsResponse[0].searchResult[0].item);
+        for (i = 0; i < newresponse.findItemsByKeywordsResponse[0].searchResult[0].item.length; i++) {
+            //picture
+            if (typeof newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].pictureURLLarge != "undefined")
+                document.getElementById("ebay" + i).src = newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].pictureURLLarge["0"];
+            else {
+                document.getElementById("ebay" + i).src = newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].galleryURL["0"];
+                //put class change here
             }
+            //URL
+            document.getElementById("giftURLEbay" + i).href = newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].viewItemURL[0];
+            //price
+            $(".priceItemEbay" + i).html("$" + newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].sellingStatus["0"].convertedCurrentPrice["0"].__value__);
+            //title
+            var details = document.querySelector('.showDetailsEbay' + i);
+            details.setAttribute('data-balloon', newresponse.findItemsByKeywordsResponse[0].searchResult[0].item[i].title[0] + " - CLICK TO BUY ITEM");
+        }
     });
 }
 //*********** END EBAY API *****************************************************************
@@ -180,7 +208,9 @@ function amazon(p) {
                 //AMAZON API CALL
                 $.ajax({
                     url: URL,
+                    dataType: 'jsonp'
                 }).done(function(response) {
+                    console.log(response);
                     //AMAZON RESPONSE IS AN XML DOCUMENT, TURNING IT UNTO A JSON STRING
                     var pls = xml2json(response, "");
                     //PARSE THE JSON STRING INTO AN OBJECT
@@ -197,7 +227,7 @@ function amazon(p) {
                         document.getElementById("giftURLAmazon" + i).href = newresponse.ItemSearchResponse.Items.Item[i].DetailPageURL;
                         //price
                         if (typeof newresponse.ItemSearchResponse.Items.Item[i].ItemAttributes.ListPrice != "undefined")
-                        //document.getElementById("amazonprice" + i).innerHTML = newresponse.ItemSearchResponse.Items.Item[i].ItemAttributes.ListPrice.FormattedPrice;
+                            //document.getElementById("amazonprice" + i).innerHTML = newresponse.ItemSearchResponse.Items.Item[i].ItemAttributes.ListPrice.FormattedPrice;
                             $(".priceItemAmazon" + i).html(newresponse.ItemSearchResponse.Items.Item[i].ItemAttributes.ListPrice.FormattedPrice);
                         else
                             $(".priceItemAmazon" + i).html("Check Link for Price");
@@ -207,6 +237,12 @@ function amazon(p) {
                         details.setAttribute('data-balloon', newresponse.ItemSearchResponse.Items.Item[i].ItemAttributes.Binding + " - " + newresponse.ItemSearchResponse.Items.Item[i].ItemAttributes.Title + " - CLICK TO BUY ITEM");
                     }
                 }); //end ajax call
+                // var xhr = new XMLHttpRequest();
+                // xhr.open("GET", URL, true);
+                // xhr.onload = function() {
+                //     console.log(xhr.responseText);
+                // };
+                // xhr.send();
             }); //end getDB(3)
         }); // end getDB(2)
     }); // end getDB(1)
@@ -377,7 +413,7 @@ function xml2json(xml, tab) {
             if (xml.nodeType == 1) { // element node ..
                 if (xml.attributes.length) // element with attributes  ..
                     for (var i = 0; i < xml.attributes.length; i++)
-                    o["@" + xml.attributes[i].nodeName] = (xml.attributes[i].nodeValue || "").toString();
+                        o["@" + xml.attributes[i].nodeName] = (xml.attributes[i].nodeValue || "").toString();
                 if (xml.firstChild) { // element has child nodes ..
                     var textChild = 0,
                         cdataChild = 0,
