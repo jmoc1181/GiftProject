@@ -206,9 +206,15 @@ function amazon(p) {
                 var URL = createURL(keyword, false, awskey, awssecret, awsassociate);
                 URL += "&Signature=" + signature;
                 //AMAZON API CALL
+                // USE YAHOO SERVER AS A PROXY TO AVOID CORS
+                var yql = "https://query.yahooapis.com/v1/public/yql?q="+ encodeURIComponent('select * from xml where url="'+ URL +'"')  + "&format=XML";
                 $.ajax({
-                    url: URL,
-                    dataType: 'jsonp'
+                    url: yql,
+                    type: 'GET',
+                    beforeSend: function(xhr) {
+                        xhr.withCredentials = true;
+                    },
+                    crossDomain: true
                 }).done(function(response) {
                     console.log(response);
                     //AMAZON RESPONSE IS AN XML DOCUMENT, TURNING IT UNTO A JSON STRING
@@ -216,6 +222,10 @@ function amazon(p) {
                     //PARSE THE JSON STRING INTO AN OBJECT
                     var newresponse = JSON.parse(pls);
                     //console.log(newresponse);
+
+                    //NEW PATH .query.results.ItemSearchResponse.Items.Item
+                    newresponse = newresponse.query.results;
+
                     //place the response on screen
                     //console.log(newresponse.ItemSearchResponse.Items.Item.length);
                     for (i = 0; i < limit; i++) {
